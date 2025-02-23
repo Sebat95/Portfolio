@@ -20,6 +20,6 @@ const Intro = () => {
       </div>
     </section>
   )
-}
+};
 
 export default Intro;
