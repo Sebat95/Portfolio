@@ -6,20 +6,70 @@ Source: https://sketchfab.com/3d-models/vfx-explosion-724a9505d9974fca9e9cdac6e5
 Title: Vfx Explosion
 */
 
-import { useGLTF } from '@react-three/drei'
-import { GroupProps } from '@react-three/fiber'
-import { Mesh } from 'three'
+import { useGLTF } from '@react-three/drei';
+import { GroupProps } from '@react-three/fiber';
+import { BufferGeometry, Mesh } from 'three';
+import {useGSAP} from '@gsap/react';
+import gsap from 'gsap';
+import { RefObject, useRef, useState } from 'react';
+import { explosionDuration } from '../constants/general';
+
 
 const Explosion = (props: GroupProps) => {
-  const { nodes, materials } = useGLTF('/models/vfx_explosion.glb')
+  const { nodes, materials } = useGLTF('/models/vfx_explosion.glb');
+  const innerRef = useRef<Mesh<BufferGeometry>>();
+  const outerRef = useRef<Mesh<BufferGeometry>>();
+  const [hovering, setHovering] = useState(false);
+
+  useGSAP(() => {
+    if(innerRef.current) {
+      gsap.timeline({repeat: -1})
+        .to(innerRef.current.rotation, {
+          y: `+=${Math.PI * 2}`,
+          x: `+=${Math.PI * 2}`,
+          z: `+=${Math.PI * 2}`,
+          ease: "none", 
+          duration: 2.5
+      });
+      if(outerRef.current) {
+        gsap.timeline({repeat: -1})
+          .to(outerRef.current.rotation, {
+            y: `-=${Math.PI * 2}`,
+            x: `-=${Math.PI * 2}`,
+            z: `-=${Math.PI * 2}`,
+            ease: "none", 
+            duration: 2.5
+        });
+      }
+    }
+  })
+
+  // FIXME: overlapping animations bug
+  useGSAP(() => {
+    [innerRef, outerRef].forEach(ref => {
+      if (ref.current) {
+        gsap.to(ref.current.scale, {
+          y: hovering ? `+=20` : `1`,
+          x: hovering ? `+=20` : `1`,
+          z: hovering ? `+=20` : `1`,
+          duration:explosionDuration
+        });
+      }
+    })
+  }, {
+    dependencies: [hovering]
+  });
+
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} scale={0.1}>
       <group
         position={[0.02197045, 0.10402713, -0.04289045]}
         rotation={[-2.09475399, -0.45316825, -2.71997209]}
-        scale={[2.67017197, 2.67017966, 2.67017277]}>
-        <mesh geometry={(nodes.Object_4 as Mesh).geometry} material={materials.material_0} />
-        <mesh geometry={(nodes.Object_5 as Mesh).geometry} material={materials.material_0} />
+        scale={[2.67017197, 2.67017966, 2.67017277]}
+        onPointerEnter={() => setHovering(true)}
+        onPointerLeave={() => setHovering(false)}>
+          <mesh ref={outerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_4 as Mesh).geometry} material={materials.material_0} />
+          <mesh ref={innerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_5 as Mesh).geometry} material={materials.material_0} />
       </group>
     </group>
   )

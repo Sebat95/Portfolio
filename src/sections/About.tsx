@@ -40,7 +40,7 @@ const About = () => {
                                 </p>
                                 {aboutMe.map((me, ind) => (
                                     me == '' ?
-                                    <br/> :
+                                    <br key={ind} /> :
                                     <p key={ind} className='grid-subtext'>
                                         {me}
                                     </p>     
