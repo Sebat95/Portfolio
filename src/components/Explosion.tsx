@@ -11,19 +11,19 @@ import { GroupProps } from '@react-three/fiber';
 import { BufferGeometry, Group, Mesh, Object3DEventMap } from 'three';
 import {useGSAP} from '@gsap/react';
 import gsap from 'gsap';
-import { RefObject, useRef, useState } from 'react';
-import { explosionDuration } from '../constants/general';
+import { RefObject, useRef } from 'react';
 
+interface ExplosionProps extends GroupProps {
+  innerRef: RefObject<Group<Object3DEventMap>>
+}
 
-const Explosion = (props: GroupProps) => {
+const Explosion = (props: ExplosionProps) => {
   const { nodes, materials } = useGLTF('/models/vfx_explosion.glb');
   const innerRef = useRef<Mesh<BufferGeometry>>();
   const outerRef = useRef<Mesh<BufferGeometry>>();
   const globalRef = useRef<Group<Object3DEventMap>>();
-  const [hovering, setHovering] = useState(false);
-  const [tweenOut, setTweenOut] = useState({});
-  const [tweenIn, setTweenIn] = useState({});
 
+  // continuosly spin
   useGSAP(() => {
     if(innerRef.current) {
       gsap.timeline({repeat: -1})
@@ -47,45 +47,20 @@ const Explosion = (props: GroupProps) => {
     }
   })
 
-  useGSAP(() => {
-    if (globalRef.current) {
-      if(hovering) {
-        gsap.killTweensOf(tweenOut);
-        setTweenIn(gsap.to(globalRef.current.scale, {
-          y: hovering ? `7` : `1`,
-          x: hovering ? `7` : `1`,
-          z: hovering ? `7` : `1`,
-          duration: explosionDuration
-        }));
-      } else {
-        gsap.killTweensOf(tweenIn);
-        setTweenOut(gsap.to(globalRef.current.scale, {
-          y: hovering ? `7` : `1`,
-          x: hovering ? `7` : `1`,
-          z: hovering ? `7` : `1`,
-          duration: explosionDuration
-        }));
-      }
-    }
-  }, {
-    dependencies: [hovering]
-  });
-
   return (
-    <group {...props} dispose={null}
-    onPointerEnter={() => setHovering(true)}
-    onPointerLeave={() => setHovering(false)}>
-      <group ref={globalRef as RefObject<Group<Object3DEventMap>>}
-        position={[0.02197045, 0.10402713, -0.04289045]}
-        rotation={[-2.09475399, -0.45316825, -2.71997209]}
-        scale={0.4}>
-          <mesh ref={outerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_4 as Mesh).geometry} material={materials.material_0} />
-          <mesh ref={innerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_5 as Mesh).geometry} material={materials.material_0} />
-      </group>
+    <group {...props} dispose={null} ref={props.innerRef}>
+        <group ref={globalRef as RefObject<Group<Object3DEventMap>>}
+          position={[0.02197045, 0.10402713, -0.04289045]}
+          rotation={[-2.09475399, -0.45316825, -2.71997209]}
+          scale={0.4}>
+            <mesh ref={outerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_4 as Mesh).geometry} material={materials.material_0} />
+            <mesh ref={innerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_5 as Mesh).geometry} material={materials.material_0} />
+        </group>
+        
     </group>
   )
 }
 
-useGLTF.preload('/models/vfx_explosion.glb')
+useGLTF.preload('/models/vfx_explosion.glb');
 
-export default Explosion
+export default Explosion;
