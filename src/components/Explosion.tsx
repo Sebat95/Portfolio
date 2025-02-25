@@ -8,7 +8,7 @@ Title: Vfx Explosion
 
 import { useGLTF } from '@react-three/drei';
 import { GroupProps } from '@react-three/fiber';
-import { BufferGeometry, Mesh } from 'three';
+import { BufferGeometry, Group, Mesh, Object3DEventMap } from 'three';
 import {useGSAP} from '@gsap/react';
 import gsap from 'gsap';
 import { RefObject, useRef, useState } from 'react';
@@ -19,7 +19,10 @@ const Explosion = (props: GroupProps) => {
   const { nodes, materials } = useGLTF('/models/vfx_explosion.glb');
   const innerRef = useRef<Mesh<BufferGeometry>>();
   const outerRef = useRef<Mesh<BufferGeometry>>();
+  const globalRef = useRef<Group<Object3DEventMap>>();
   const [hovering, setHovering] = useState(false);
+  const [tweenOut, setTweenOut] = useState({});
+  const [tweenIn, setTweenIn] = useState({});
 
   useGSAP(() => {
     if(innerRef.current) {
@@ -44,30 +47,38 @@ const Explosion = (props: GroupProps) => {
     }
   })
 
-  // FIXME: overlapping animations bug
   useGSAP(() => {
-    [innerRef, outerRef].forEach(ref => {
-      if (ref.current) {
-        gsap.to(ref.current.scale, {
-          y: hovering ? `+=20` : `1`,
-          x: hovering ? `+=20` : `1`,
-          z: hovering ? `+=20` : `1`,
-          duration:explosionDuration
-        });
+    if (globalRef.current) {
+      if(hovering) {
+        gsap.killTweensOf(tweenOut);
+        setTweenIn(gsap.to(globalRef.current.scale, {
+          y: hovering ? `7` : `1`,
+          x: hovering ? `7` : `1`,
+          z: hovering ? `7` : `1`,
+          duration: explosionDuration
+        }));
+      } else {
+        gsap.killTweensOf(tweenIn);
+        setTweenOut(gsap.to(globalRef.current.scale, {
+          y: hovering ? `7` : `1`,
+          x: hovering ? `7` : `1`,
+          z: hovering ? `7` : `1`,
+          duration: explosionDuration
+        }));
       }
-    })
+    }
   }, {
     dependencies: [hovering]
   });
 
   return (
-    <group {...props} dispose={null} scale={0.1}>
-      <group
+    <group {...props} dispose={null}
+    onPointerEnter={() => setHovering(true)}
+    onPointerLeave={() => setHovering(false)}>
+      <group ref={globalRef as RefObject<Group<Object3DEventMap>>}
         position={[0.02197045, 0.10402713, -0.04289045]}
         rotation={[-2.09475399, -0.45316825, -2.71997209]}
-        scale={[2.67017197, 2.67017966, 2.67017277]}
-        onPointerEnter={() => setHovering(true)}
-        onPointerLeave={() => setHovering(false)}>
+        scale={0.4}>
           <mesh ref={outerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_4 as Mesh).geometry} material={materials.material_0} />
           <mesh ref={innerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_5 as Mesh).geometry} material={materials.material_0} />
       </group>

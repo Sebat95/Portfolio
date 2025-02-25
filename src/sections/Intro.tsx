@@ -1,6 +1,6 @@
 import {Canvas} from '@react-three/fiber';
 import { LegacyRef, Suspense, useEffect, useRef, useState } from 'react';
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import { PerspectiveCamera } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 import Explosion from '../components/Explosion';
 import { explosionDuration } from '../constants/general';
@@ -48,7 +48,6 @@ const Intro = () => {
         <Canvas className='w-full h-full' ref={canvasRef as LegacyRef<HTMLCanvasElement>}>
             <ambientLight intensity={5} />
             <directionalLight position={[10,10,10]} intensity={5}/>
-            <OrbitControls enableZoom={false}/>
             <Suspense fallback={<CanvasLoader/>} >
                 <PerspectiveCamera makeDefault position={[0,0,20]}/>
                 <Explosion
