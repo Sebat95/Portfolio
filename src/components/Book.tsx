@@ -32,7 +32,7 @@ const Book = (props: GroupProps) => {
                     <Page key={ind} pageNum={ind}
                         page={delayedPage}
                         opened={delayedPage > ind}
-                        bookClosed={delayedPage === 0 || delayedPage === pages.length - 1}
+                        bookClosed={delayedPage === 0 || delayedPage === pages.length}
                         changePage={setPage}
                         {...pageData}/>
                 ))
