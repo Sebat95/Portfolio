@@ -6,7 +6,6 @@ import Explosion from '../components/Explosion';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Group, Object3DEventMap } from 'three';
-import { explosionDuration } from '../constants/general';
 import { ExperienceContext } from '../components/ExperienceContext';
 
 const Intro = () => {
@@ -62,7 +61,7 @@ const Intro = () => {
           y: `9`,
           x: `9`,
           z: `9`,
-          duration: explosionDuration,
+          duration: 3,
           onComplete: () => setFull(true)
         }));
       } else {
@@ -72,7 +71,7 @@ const Intro = () => {
           y: `1`,
           x: `1`,
           z: `1`,
-          duration: explosionDuration,
+          duration: 3,
           onComplete: () => setFull(false)
         }));
       }
