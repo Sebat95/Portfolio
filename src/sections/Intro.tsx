@@ -53,6 +53,7 @@ const Intro = () => {
   // scale up and text appears
   useGSAP(() => {
     if (explRef.current) {
+      console.log(`${full} ${killed} ${hovering}`)
       setFull(false);
       if(hovering) {
         setKilled(false);
@@ -94,12 +95,12 @@ const Intro = () => {
                 <Explosion
                   position={[0,0,0]}
                   innerRef={explRef as RefObject<Group<Object3DEventMap>>}/>
-                <Html zIndexRange={[30,30]}
+                <Html zIndexRange={[-10, -10]}
                   style={{
                     visibility: full && !killed ? 'visible' : 'hidden',
                     opacity: full && !killed ? '1' : '0',
                     transition: 'visibility 0s, opacity 0.5s linear',
-                    zIndex: 30
+                    zIndex: -1
                   }}  
                   position={[-5,-3,0]}
                 >
