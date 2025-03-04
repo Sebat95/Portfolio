@@ -1,4 +1,4 @@
-import { Environment, Float, OrbitControls } from "@react-three/drei"
+import { Float, OrbitControls } from "@react-three/drei"
 import Book from "../components/Book"
 import { Canvas } from "@react-three/fiber"
 import { Suspense } from "react"
@@ -19,7 +19,6 @@ const Experience = () => {
               <Book scale={2}/>
             </Float>
             <OrbitControls />
-            <Environment preset="studio"></Environment>
             <directionalLight
               position={[2, 5, 2]}
               intensity={2.5}
