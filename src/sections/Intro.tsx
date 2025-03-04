@@ -53,7 +53,6 @@ const Intro = () => {
   // scale up and text appears
   useGSAP(() => {
     if (explRef.current) {
-      console.log(`${full} ${killed} ${hovering}`)
       setFull(false);
       if(hovering) {
         setKilled(false);
