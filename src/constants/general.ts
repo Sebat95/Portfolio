@@ -247,7 +247,7 @@ export const workExperiences = [
 export const numsToVector3 = (nums: number[]) => new Vector3(nums[0], nums[1], nums[2]);
 
 export const aboutMe = [
-  "I created this portfolio first and for most to teach myself React, TreeJS, and GCP hosting,",
+  "I created this portfolio first and foremost to teach myself React, TreeJS, and GCP hosting,",
   "I really had fun and learned a lot while putting it together!",
   "",
   "I always wanted to work with Machine Learning, persue a PhD and all but life always brought me back to coding,",

@@ -29,6 +29,7 @@ const Intro = () => {
           canvasRef.current!.style.display = 'inherit';
         } else {
           canvasRef.current!.style.display = 'none';
+          setHovering(false);
         }
       },
       {
@@ -58,9 +59,9 @@ const Intro = () => {
         setKilled(false);
         gsap.killTweensOf(tweenOut);
         setTweenIn(gsap.to(explRef.current.scale, {
-          y: `13`,
-          x: `13`,
-          z: `13`,
+          y: `9`,
+          x: `9`,
+          z: `9`,
           duration: explosionDuration,
           onComplete: () => setFull(true)
         }));
@@ -84,24 +85,24 @@ const Intro = () => {
     <section className='min-h-screen w-full flex flex-col relative' id='home'>
       <div className="w-full h-full absolute inset-0" ref={divRef as LegacyRef<HTMLDivElement>}>
         <Canvas className='w-full h-full' ref={canvasRef as LegacyRef<HTMLCanvasElement>}
-          onClick={() => full && !killed && setExperience(true)}>
+          onClick={() => full && !killed && setExperience(true)}
+          onPointerEnter={() => setHovering(true)}
+          onPointerLeave={() => setHovering(false)}>
             <ambientLight intensity={5} />
             <directionalLight position={[10,10,10]} intensity={5}/>
             <Suspense fallback={<CanvasLoader/>} >
                 <PerspectiveCamera makeDefault position={[0,0,20]}/>
                 <Explosion
-                  onPointerEnter={() => setHovering(true)}
-                  onPointerLeave={() => setHovering(false)}
                   position={[0,0,0]}
                   innerRef={explRef as RefObject<Group<Object3DEventMap>>}/>
-                <Html
+                <Html zIndexRange={[30,30]}
                   style={{
                     visibility: full && !killed ? 'visible' : 'hidden',
                     opacity: full && !killed ? '1' : '0',
-                    transition: 'visibility 0s, opacity 0.5s linear'
+                    transition: 'visibility 0s, opacity 0.5s linear',
+                    zIndex: 30
                   }}  
                   position={[-5,-3,0]}
-                  occlude
                 >
                   <h3 className='text-white head-text w-96'>Click to start the journery</h3>
                 </Html>

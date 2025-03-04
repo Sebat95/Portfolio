@@ -52,7 +52,7 @@ const Explosion = (props: ExplosionProps) => {
         <group ref={globalRef as RefObject<Group<Object3DEventMap>>}
           position={[0.02197045, 0.10402713, -0.04289045]}
           rotation={[-2.09475399, -0.45316825, -2.71997209]}
-          scale={0.4}>
+          scale={1}>
             <mesh ref={outerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_4 as Mesh).geometry} material={materials.material_0} />
             <mesh ref={innerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_5 as Mesh).geometry} material={materials.material_0} />
         </group>
