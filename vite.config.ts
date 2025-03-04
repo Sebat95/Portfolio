@@ -6,4 +6,7 @@ export default defineConfig({
   plugins: [
     react()
   ],
+  build: {
+    sourcemap: false, // disable sourcemaps in production for smaller builds
+  }
 })
