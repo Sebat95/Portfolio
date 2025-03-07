@@ -40,7 +40,7 @@ const About = () => {
                                     I'm a full stack software engineer with {new Date().getFullYear() - 2020} years of experience.
                                 </p>
                                 {aboutMe.map((me, ind) => (
-                                    me == '' ?
+                                    me === '' ?
                                     <br key={ind} /> :
                                     <p key={ind} className='grid-subtext'>
                                         {me}

@@ -259,7 +259,7 @@ export const aboutMe = [
   "Anyhow if you enjoyed my website and you'd like to contact me, feel free to reach out or just give me a star on Github *wink*"
 ];
 
-export const isEmpty = (input: string) => input == null || input == '';
+export const isEmpty = (input: string) => input == null || input === '';
 
 export const experiences = ['Education', 'Work and Projects', 'Hobbies'];
 
@@ -286,17 +286,20 @@ export const pages = [
   {
     front: "book-cover",
     back: pictures[0],
+    title: "Cover"
   }
 ];
-for (let i = 1; i < pictures.length - 1; i += 2) {
+for (let i = 1, j = 1; i < pictures.length - 1; i += 2, j +=1) {
   pages.push({
     front: pictures[i % pictures.length],
     back: pictures[(i + 1) % pictures.length],
+    title: `Page ${j}`
   });
 }
 pages.push({
   front: pictures[pictures.length - 1],
   back: "book-back",
+  title: `Page ${pages.length}`
 });
 
 

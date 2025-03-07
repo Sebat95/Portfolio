@@ -103,7 +103,7 @@ const Page = (prop: PageProp) => {
         for (let i = 0; i <= PAGE_SEGMENTS; i++) {
             const bone = new Bone();
             bones.push(bone);
-            if (i == 0) {
+            if (i === 0) {
                 bone.position.x = 0;
             } else {
                 bone.position.x = SEGMENT_WIDTH;
