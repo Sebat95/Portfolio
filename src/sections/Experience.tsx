@@ -1,18 +1,26 @@
 import { Float, OrbitControls } from "@react-three/drei"
 import Book from "../components/Book"
 import { Canvas } from "@react-three/fiber"
-import { Suspense, useState } from "react"
+import { Suspense, useContext, useState } from "react"
 import CanvasLoader from "../components/CanvasLoader"
+import { ExperienceContext } from "../components/ExperienceContext"
+import { experiences } from "../constants/general"
 
 const Experience = () => {
   const [expInd, setExpInd] = useState(0);
+  const {setExperience } = useContext(ExperienceContext);
 
   const handleNavigation = (back = false) => {
-    if (back) {
-      setExpInd((prev) => prev > 0 ? (prev - 1) : 2);
-    } else {
-      setExpInd((prev) => prev < 2 ? (prev + 1)  : 0);
-    }
+    setExpInd((prev) => {
+      let nxt = prev + (back ? -1 : 1);
+      if (nxt < 0) {
+        nxt = experiences.length - 1;
+      } else if (nxt > experiences.length - 1) {
+        nxt = 0
+      }
+      setExperience(experiences[nxt]);
+      return nxt;
+    })
   }
 
   return (
@@ -46,7 +54,7 @@ const Experience = () => {
         <button className="arrow-button" onClick={() => handleNavigation(true)}>
           <img src="/assets/left-arrow.png" alt="back" className="w-5 h-5"/>
         </button>
-        <button className="arrow-button" onClick={() => handleNavigation(true)}>
+        <button className="arrow-button" onClick={() => handleNavigation()}>
           <img src="/assets/right-arrow.png" alt="back" className="w-5 h-5"/>
         </button>
       </div>

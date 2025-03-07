@@ -1,11 +1,11 @@
 import { createContext, Dispatch, SetStateAction } from "react";
 
 interface ExperienceContextType {
-    experience: boolean;
-    setExperience: Dispatch<SetStateAction<boolean>>;
+    experience: string;
+    setExperience: Dispatch<SetStateAction<string>>;
 };
 
 export const ExperienceContext = createContext<ExperienceContextType>({
-    experience: false,
+    experience: '',
     setExperience: () => {}
 });

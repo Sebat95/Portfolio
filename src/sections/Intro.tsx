@@ -7,6 +7,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Group, Object3DEventMap } from 'three';
 import { ExperienceContext } from '../components/ExperienceContext';
+import { experiences } from '../constants/general';
 
 const Intro = () => {
   const canvasRef = useRef<HTMLCanvasElement>();
@@ -84,7 +85,7 @@ const Intro = () => {
     <section className='min-h-screen w-full flex flex-col relative' id='home'>
       <div className="w-full h-full absolute inset-0" ref={divRef as LegacyRef<HTMLDivElement>}>
         <Canvas className='w-full h-full' ref={canvasRef as LegacyRef<HTMLCanvasElement>}
-          onClick={() => full && !killed && setExperience(true)}
+          onClick={() => full && !killed && setExperience(experiences[0])}
           onPointerEnter={() => setHovering(true)}
           onPointerLeave={() => setHovering(false)}>
             <ambientLight intensity={5} />

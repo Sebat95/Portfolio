@@ -259,6 +259,10 @@ export const aboutMe = [
   "Anyhow if you enjoyed my website and you'd like to contact me, feel free to reach out or just give me a star on Github *wink*"
 ];
 
+export const isEmpty = (input: string) => input == null || input == '';
+
+export const experiences = ['Education', 'Work and Projects', 'Hobbies'];
+
 const pictures = [
   "DSC00680",
   "DSC00933",
