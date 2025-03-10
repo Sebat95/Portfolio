@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction, Suspense, useContext, useState } from "react"
 import CanvasLoader from "../components/CanvasLoader"
 import { ExperienceContext } from "../components/ExperienceContext"
 import { experiences, pages } from "../constants/general"
+import Computer from "../components/Computer"
 
 const BookButtons = ({page, setPage}: {page: number, setPage: Dispatch<SetStateAction<number>>}) => {
   const btns = [];
@@ -30,7 +31,6 @@ const Experience = () => {
   const [page, setPage] = useState(0);
 
   const handleNavigation = (back = false) => {
-    console.log(pages);
     setExpInd((prev) => {
       let nxt = prev + (back ? -1 : 1);
       if (nxt < 0) {
@@ -38,7 +38,7 @@ const Experience = () => {
       } else if (nxt > experiences.length - 1) {
         nxt = 0
       }
-      setExperience(experiences[nxt]);
+      setTimeout(() => setExperience(experiences[nxt]), 0); // avoid render error
       return nxt;
     })
   }
@@ -58,14 +58,14 @@ const Experience = () => {
                 <Book scale={2.5} page={page} changePage={setPage}/>
               </Float>
             }
+            {expInd === 1 && 
+              <Computer />
+            }
             <OrbitControls />
             <directionalLight
               position={[2, 5, 2]}
               intensity={2.5}
               castShadow
-              shadow-mapSize-width={2048}
-              shadow-mapSize-height={2048}
-              shadow-bias={-0.0001}
             />
             <ambientLight intensity={3} />
           </Suspense>
