@@ -51,11 +51,11 @@ const Experience = () => {
             {expInd === 0 &&
               <Float
                 rotation-x={-Math.PI / 4}
-                floatIntensity={1}
-                speed={2}
-                rotationIntensity={2}
+                floatIntensity={0.5}
+                speed={1}
+                rotationIntensity={1}
               >
-                <Book scale={2.5} page={page} changePage={setPage}/>
+                <Book scale={2.75} page={page} changePage={setPage}/>
               </Float>
             }
             {expInd === 1 && 
@@ -64,7 +64,7 @@ const Experience = () => {
             <OrbitControls />
             <directionalLight
               position={[2, 5, 2]}
-              intensity={2.5}
+              intensity={2}
               castShadow
             />
             <ambientLight intensity={3} />

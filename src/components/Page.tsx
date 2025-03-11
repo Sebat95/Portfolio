@@ -56,7 +56,7 @@ pageGeometry.setAttribute(
 
 // one material for each face
 const white = new Color("white");
-const orange = new Color("orange");
+const emissiveColor = new Color("orange");
 const pageMaterials = [
     new MeshStandardMaterial({color: white}),
     new MeshStandardMaterial({color: '#111'}),
@@ -117,9 +117,9 @@ const Page = (prop: PageProp) => {
                 map: frontMap,
                 ... (pageNum === 0 ?
                     { roughnessMap: roughMap} :
-                    { roughness: 0.1 }
+                    { roughness: 1 }
                 ),
-                emissive: orange,
+                emissive: emissiveColor,
                 emissiveIntensity: 0
             }),
             new MeshStandardMaterial({
@@ -127,9 +127,9 @@ const Page = (prop: PageProp) => {
                 map: backMap,
                 ... (pageNum === pages.length - 1 ?
                     { roughnessMap: roughMap} :
-                    { roughness: 0.1 }
+                    { roughness: 1}
                 ),
-                emissive: orange,
+                emissive: emissiveColor,
                 emissiveIntensity: 0
             })
         ];
