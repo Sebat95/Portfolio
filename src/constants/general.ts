@@ -263,41 +263,23 @@ export const isEmpty = (input: string) => input == null || input === '';
 
 export const experiences = ['Education', 'Work and Projects', 'Hobbies'];
 
-const pictures = [
-  "DSC00680",
-  "DSC00933",
-  "DSC00966",
-  "DSC00983",
-  "DSC01011",
-  "DSC01040",
-  "DSC01064",
-  "DSC01071",
-  "DSC01103",
-  "DSC01145",
-  "DSC01420",
-  "DSC01461",
-  "DSC01489",
-  "DSC02031",
-  "DSC02064",
-  "DSC02069",
-];
-
+const pagesLength = 6;
 export const pages = [
   {
     front: "book-cover",
-    back: pictures[0],
+    back: "pages-images-0",
     title: "Cover"
   }
 ];
-for (let i = 1, j = 1; i < pictures.length - 1; i += 2, j +=1) {
+for (let i = 1, j = 1; i < pagesLength - 1; i += 2, j +=1) {
   pages.push({
-    front: pictures[i % pictures.length],
-    back: pictures[(i + 1) % pictures.length],
+    front: `pages-images-${i}`,
+    back: `pages-images-${i + 1}`,
     title: `Page ${j}`
   });
 }
 pages.push({
-  front: pictures[pictures.length - 1],
+  front: `pages-images-${pagesLength-1}`,
   back: "book-back",
   title: `Page ${pages.length}`
 });

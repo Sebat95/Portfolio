@@ -67,9 +67,9 @@ const pageMaterials = [
 
 // preload all textures, so nothing is missing
 pages.forEach((page) => {
-    useTexture.preload(`/textures/${page.front}.jpg`);
-    useTexture.preload(`/textures/${page.back}.jpg`);
-    useTexture.preload(`/textures/book-cover-roughness.jpg`);
+    useTexture.preload(`/textures/pages/${page.front}.jpg`);
+    useTexture.preload(`/textures/pages/${page.back}.jpg`);
+    useTexture.preload(`/textures/pages/book-cover-roughness.jpg`);
 })
 
 interface PageProp extends GroupProps {
@@ -86,9 +86,9 @@ interface PageProp extends GroupProps {
 const Page = (prop: PageProp) => {
     const {pageNum, front, back, page, opened, bookClosed, changePage} = prop;
     const [frontMap, backMap, roughMap] = useTexture([
-        `/textures/${front}.jpg`,
-        `/textures/${back}.jpg`,
-        `/textures/book-cover-roughness.jpg`
+        `/textures/pages/${front}.jpg`,
+        `/textures/pages/${back}.jpg`,
+        `/textures/pages/book-cover-roughness.jpg`
     ]);
     frontMap.colorSpace = backMap.colorSpace = SRGBColorSpace; // better colors
     const ref = useRef<Group<Object3DEventMap>>();
