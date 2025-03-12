@@ -169,6 +169,12 @@ body {
   );
 }
 
+.experience_arrows {
+  position: fixed;
+  width: 81%;
+  top: 50%;
+}
+
 @keyframes wave-animation {
   0% {
     transform: rotate(0deg);
