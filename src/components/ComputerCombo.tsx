@@ -11,7 +11,7 @@ const ComputerCombo = () => {
 
     const canvasRef = useRef<HTMLCanvasElement>();
     const divRef = useRef<HTMLDivElement>();
-       
+
     useEffect(() => {
         let observerRefValue = null;
         const observer = new IntersectionObserver(
@@ -43,9 +43,7 @@ const ComputerCombo = () => {
         };
     }, []);
 
-
-  return (
-    <>
+    return (<>
         <div className='grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full'>
             <div className='flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2-xl shadow-black-200'>
                 <div className='flex flex-col gap-5 text-white-600 my-5'>
@@ -106,8 +104,7 @@ const ComputerCombo = () => {
                 </Canvas>
             </div>
         </div>
-    </>
-  )
+    </>)
 }
 
 export default ComputerCombo;
