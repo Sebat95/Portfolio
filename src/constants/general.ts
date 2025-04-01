@@ -15,11 +15,54 @@ export const navLinks = [
 
 export const jobsAndProjs = [
   {
+    title: 'Intesa Sanpaolo',
+    isWork: true,
+    desc: 'Intesa Sanpaolo S.p.A. is an Italian international banking group. It is the largest Italian bank by total assets and the world 27th in the world.',
+    subdesc:
+      'I have been employed here as a full stack engineer since 2023. ' +
+      'I worked mainly on the creation of a new webapp for managing Structured Finance Credit for the whole bank. ' +
+      'I personally helped design the overall architecture: different databases (PostgreSQL and MongoDB), microservices (Java with Spring), micro frontends (AngularJS with module federation), comunication flow (Kafka) etc. '+
+      'Then I developed most of the front end and some data ingestion process. ' +
+      'Lastly, I have designed and developed a Visual Studio Code extension which integrates the company proprietary GenAI for generating commit comments, refactoring/explaining code and so on.',
+    href: 'https://www.intesasanpaolo.com/',
+    texture: '/assets/isp_texture.png',
+    logo: '/assets/isp_logo.png',
+    tags: [
+      {
+        id: 1,
+        name: 'AngularJs',
+        path: '/assets/angular.png',
+      },
+      {
+        id: 2,
+        name: 'TypeScript',
+        path: '/assets/typescript.png',
+      },
+      {
+        id: 3,
+        name: 'Java',
+        path: 'assets/java.png',
+      },
+      {
+        id: 4,
+        name: 'PostgreSQL',
+        path: 'assets/postgre.png',
+      },
+      {
+        id: 5,
+        name: 'MongoDB',
+        path: 'assets/mongo.png',
+      }
+    ],
+  },
+  {
     title: 'Reply',
     isWork: true,
     desc: 'Reply is an Italian company that specialises in information technology consulting, system integration and digital services.',
     subdesc:
-      'I helped develop and maintain different banking webapps of CA Autobank (FKA Stellantis) frontfacing as well as backoffices. During my years there I also mentored newly hired collegues and, by being in close contact with the users, I grew a good sense of client relationship management.',
+      'I have worked here for 3 and half years as a full stack engineer, I helped develop and maintain different banking webapps of CA Autobank (FKA Stellantis) frontfacing as well as backoffices. ' +
+      'During my years there I also mentored newly hired collegues and, by being in close contact with the users, I grew a good sense of client relationship management. ' +
+      'Since the team was small, I had the opportunity to familiarize with the whole architecture from the Oracle SQL DB, MyBatis, Jenkins, Ansible, Openshift...',
     href: 'https://www.reply.com',
     texture: '/assets/reply_texture.jpg',
     logo: '/assets/reply_logo.png',
@@ -39,128 +82,95 @@ export const jobsAndProjs = [
         name: 'Java',
         path: 'assets/java.png',
       },
-    ],
-  },
-  {
-    title: 'LiveDoc - Real-Time Google Docs Clone',
-    isWork: false,
-    desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
-    subdesc:
-      'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
-    href: 'https://www.youtube.com/watch?v=y5vE8y_f_OM',
-    texture: '/assets/project-logo2.png',
-    logo: '/assets/project-logo2.png',
-    tags: [
       {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
+        id: 4,
+        name: 'OracleDB',
+        path: 'assets/oracle.png',
       }
     ],
   },
   {
-    title: 'CarePulse - Health Management System',
+    title: 'Generalized Principal Component Analysis',
     isWork: false,
-    desc: 'An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.',
+    desc: 'Conventional principal component analysis (PCA) finds a principal vector that maximizes the sum of second powers of principal components. We consider a generalized PCA that aims at maximizing the sum of an arbitrary convex function of principal components.' + 
+    'We present a gradient ascent algorithm to solve the problem. For the kernel version of generalized PCA, we show that the solutions can be obtained as fixed points of a simple single-layer recurrent neural network. We also evaluate our algorithms on different datasets.',
     subdesc:
-      'With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.',
-    href: 'https://www.youtube.com/watch?v=lEflo_sc82g',
-    texture: '/assets/project-logo3.png',
-    logo: '/assets/project-logo3.png',
+      'This was my MS thesis, that got published by IEEE and got me a flying colors degree. I really enjoyed the research and discovery process, the heavy math and machine learning side. ' +
+      'I have recently rewrote the whole thing from the intial Matlab scripts to Python.',
+    href: 'https://github.com/Sebat95/GPCA',
+    texture: '/assets/gcpa_texture.png',
+    logo: '/assets/gcpa_logo.png',
     tags: [
       {
         id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
+        name: 'Python',
+        path: '/assets/python.svg',
       },
       {
         id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
+        name: 'Matlab',
+        path: 'assets/matlab.png',
       }
     ],
   },
   {
-    title: 'Horizon - Online Banking Platform',
+    title: 'Exam Scheduling Solver',
     isWork: false,
-    desc: 'Horizon is a comprehensive online banking platform that offers users a centralized finance management dashboard. It allows users to connect multiple bank accounts, monitor real-time transactions, and seamlessly transfer money to other users.',
+    desc: 'During my college optimization course, my team and I were tasked to tackle an NP scheduling problem and we ranked first in our course',
     subdesc:
-      'Built with Next.js 14 Appwrite, Dwolla and Plaid, Horizon ensures a smooth and secure banking experience, tailored to meet the needs of modern consumers.',
-    href: 'https://www.youtube.com/watch?v=PuOVqP_cjkE',
-    texture: '/assets/project-logo4.png',
-    logo: '/assets/project-logo4.png',
+      'The problem was organizing different students in different courses with set priorities and capacities. ' +
+      'We used a combination of 3 approaches/heuristics Greedy Randomized Adaptive Search Procedure (GRASP), Adaptive Large Neighborhood Search (ALNS) and Tabu Search (TS). ' +
+      'The objective was to maximize the score while computing the result as fast as possible, so in the mix we also made the app multithreaded.',
+    href: 'https://github.com/Sebat95/OMA',
+    texture: '/assets/oma_texture.png',
+    logo: '/assets/oma_logo.png',
     tags: [
       {
         id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
+        name: 'C',
+        path: '/assets/c.png',
       }
     ],
   },
   {
-    title: 'Imaginify - AI Photo Manipulation App',
+    title: 'AmICook',
     isWork: false,
-    desc: 'Imaginify is a groundbreaking Software-as-a-Service application that empowers users to create stunning photo manipulations using AI technology. With features like AI-driven image editing, a payments system, and a credits-based model.',
+    desc: 'AmiCook is an autonomous and remotly manageable pasta cooking system for dorms. Its prototype was presented at the "Startuppato 2017" startup convention.',
     subdesc:
-      'Built with Next.js 14, Cloudinary AI, Clerk, and Stripe, Imaginify combines cutting-edge technology with a user-centric approach. It can be turned into a side income or even a full-fledged business.',
-    href: 'https://www.youtube.com/watch?v=Ahwoks_dawU',
-    texture: '/assets/project-logo5.png',
-    logo: '/assets/project-logo5.png',
+      'In the college course of Automation, my team and I, designed and protoyped the overall architecture of this whole system in a startup fashion. ' +
+      'I personally mainly developed the Flask server managing the interactions between all the parts (Android apps, website and Arduino system) and the presentational website. ',
+    href: 'https://ami-2017.github.io/AmIcook',
+    texture: '/assets/amicook_texture.png',
+    logo: '/assets/amicook_logo.png',
     tags: [
       {
         id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
+        name: 'Python',
+        path: '/assets/python.svg',
       },
       {
         id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
+        name: 'Flask',
+        path: 'assets/flask.png',
       },
       {
         id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
+        name: 'Java',
+        path: '/assets/java.png',
+      },
+      {
+        id: 4,
+        name: 'Arduino',
+        path: '/assets/arduino.png',
+      },
+      {
+        id: 5,
+        name: 'Bootstrap',
+        path: '/assets/bootstrap.png',
       }
     ],
-  },
+  }
 ];
-
-export const calculateSizes = (isSmall: boolean, isMobile: boolean, isTablet: boolean) => {
-  return {
-    deskScale: isSmall ? 0.05 : isMobile ? 0.06 : 0.07,
-    deskPosition: numsToVector3(isMobile ? [0.5, -4.5, 0] : [0.25, -5.5, 0]),
-    cubePosition:  numsToVector3(isSmall ? [4, -5, 0] : isMobile ? [5, -5, 0] : isTablet ? [5, -5, 0] : [9, -5.5, 0]),
-    reactLogoPosition: numsToVector3(isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12, 3, 0]),
-    ringsPosition: numsToVector3(isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0]),
-    targetPosition: numsToVector3(isSmall ? [-5, -10, -10] : isMobile ? [-9, -10, -10] : isTablet ? [-11, -7, -10] : [-13, -13, -10]),
-  };
-};
 
 export const numsToVector3 = (nums: number[]) => new Vector3(nums[0], nums[1], nums[2]);
 
@@ -201,6 +211,3 @@ pages.push({
   back: "book-back",
   title: `Page ${pages.length}`
 });
-
-
-
