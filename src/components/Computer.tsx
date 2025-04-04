@@ -17,10 +17,11 @@ interface ComputerProps extends GroupProps {
 
 
 const Computer = (props: ComputerProps) => {
-  const group = useRef()
-  const { nodes, materials } = useGLTF('/models/computer.glb')
+  const group = useRef();
+  const { nodes, materials } = useGLTF('/models/computer.glb');
 
   const txtr = useTexture(props.texture);
+  txtr.flipY = false;
 
   useGSAP(() => {
     if(group.current) {

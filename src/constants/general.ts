@@ -17,7 +17,8 @@ export const jobsAndProjs = [
   {
     title: 'Intesa Sanpaolo',
     isWork: true,
-    desc: 'Intesa Sanpaolo S.p.A. is an Italian international banking group. It is the largest Italian bank by total assets and the world 27th in the world.',
+    ind: -1, // set afterwards
+    desc: 'Intesa Sanpaolo S.p.A. is an Italian international banking group. It is the largest Italian bank by total assets and the world 27th.',
     subdesc:
       'I have been employed here as a full stack engineer since 2023. ' +
       'I worked mainly on the creation of a new webapp for managing Structured Finance Credit for the whole bank. ' +
@@ -29,61 +30,53 @@ export const jobsAndProjs = [
     logo: '/assets/isp_logo.png',
     tags: [
       {
-        id: 1,
         name: 'AngularJs',
         path: '/assets/angular.png',
       },
       {
-        id: 2,
         name: 'TypeScript',
         path: '/assets/typescript.png',
       },
       {
-        id: 3,
         name: 'Java',
         path: 'assets/java.png',
       },
       {
-        id: 4,
         name: 'PostgreSQL',
         path: 'assets/postgre.png',
       },
       {
-        id: 5,
         name: 'MongoDB',
-        path: 'assets/mongo.png',
+        path: 'assets/mongo.svg',
       }
     ],
   },
   {
     title: 'Reply',
     isWork: true,
+    ind: -1,
     desc: 'Reply is an Italian company that specialises in information technology consulting, system integration and digital services.',
     subdesc:
       'I have worked here for 3 and half years as a full stack engineer, I helped develop and maintain different banking webapps of CA Autobank (FKA Stellantis) frontfacing as well as backoffices. ' +
       'During my years there I also mentored newly hired collegues and, by being in close contact with the users, I grew a good sense of client relationship management. ' +
-      'Since the team was small, I had the opportunity to familiarize with the whole architecture from the Oracle SQL DB, MyBatis, Jenkins, Ansible, Openshift...',
+      'Since the team was small, I had the opportunity to familiarize with the whole architecture from the Oracle SQL DB, MyBatis, Jenkins, Ansible, Openshift and so on.',
     href: 'https://www.reply.com',
     texture: '/assets/reply_texture.jpg',
     logo: '/assets/reply_logo.png',
     tags: [
       {
-        id: 1,
         name: 'AngularJs',
         path: '/assets/angular.png',
       },
       {
-        id: 2,
         name: 'TypeScript',
         path: '/assets/typescript.png',
       },
       {
-        id: 3,
         name: 'Java',
         path: 'assets/java.png',
       },
       {
-        id: 4,
         name: 'OracleDB',
         path: 'assets/oracle.png',
       }
@@ -92,6 +85,7 @@ export const jobsAndProjs = [
   {
     title: 'Generalized Principal Component Analysis',
     isWork: false,
+    ind: -1,
     desc: 'Conventional principal component analysis (PCA) finds a principal vector that maximizes the sum of second powers of principal components. We consider a generalized PCA that aims at maximizing the sum of an arbitrary convex function of principal components.' + 
     'We present a gradient ascent algorithm to solve the problem. For the kernel version of generalized PCA, we show that the solutions can be obtained as fixed points of a simple single-layer recurrent neural network. We also evaluate our algorithms on different datasets.',
     subdesc:
@@ -102,12 +96,10 @@ export const jobsAndProjs = [
     logo: '/assets/gcpa_logo.png',
     tags: [
       {
-        id: 1,
         name: 'Python',
-        path: '/assets/python.svg',
+        path: '/assets/python.png',
       },
       {
-        id: 2,
         name: 'Matlab',
         path: 'assets/matlab.png',
       }
@@ -116,6 +108,7 @@ export const jobsAndProjs = [
   {
     title: 'Exam Scheduling Solver',
     isWork: false,
+    ind: -1,
     desc: 'During my college optimization course, my team and I were tasked to tackle an NP scheduling problem and we ranked first in our course',
     subdesc:
       'The problem was organizing different students in different courses with set priorities and capacities. ' +
@@ -126,7 +119,6 @@ export const jobsAndProjs = [
     logo: '/assets/oma_logo.png',
     tags: [
       {
-        id: 1,
         name: 'C',
         path: '/assets/c.png',
       }
@@ -135,6 +127,7 @@ export const jobsAndProjs = [
   {
     title: 'AmICook',
     isWork: false,
+    ind: -1,
     desc: 'AmiCook is an autonomous and remotly manageable pasta cooking system for dorms. Its prototype was presented at the "Startuppato 2017" startup convention.',
     subdesc:
       'In the college course of Automation, my team and I, designed and protoyped the overall architecture of this whole system in a startup fashion. ' +
@@ -144,33 +137,29 @@ export const jobsAndProjs = [
     logo: '/assets/amicook_logo.png',
     tags: [
       {
-        id: 1,
         name: 'Python',
-        path: '/assets/python.svg',
+        path: '/assets/python.png',
       },
       {
-        id: 2,
         name: 'Flask',
         path: 'assets/flask.png',
       },
       {
-        id: 3,
-        name: 'Java',
-        path: '/assets/java.png',
+        name: 'Android',
+        path: '/assets/android.png',
       },
       {
-        id: 4,
         name: 'Arduino',
         path: '/assets/arduino.png',
       },
       {
-        id: 5,
         name: 'Bootstrap',
         path: '/assets/bootstrap.png',
       }
     ],
   }
 ];
+jobsAndProjs.forEach((v,i) => v.ind = i);
 
 export const numsToVector3 = (nums: number[]) => new Vector3(nums[0], nums[1], nums[2]);
 

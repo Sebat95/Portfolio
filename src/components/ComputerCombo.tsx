@@ -23,9 +23,9 @@ const ComputerCombo = () => {
             }
             },
             {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
             }
         );
 
@@ -47,9 +47,9 @@ const ComputerCombo = () => {
         <div className='grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full'>
             <div className='flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2-xl shadow-black-200'>
                 <div className='flex flex-col gap-5 text-white-600 my-5'>
-                    <p className='text-white text-2xl font-semibold animatedText'>{jobsAndProjs[curProj].title}</p>
-                    <p className='animatedText'>{jobsAndProjs[curProj].desc}</p>
-                    <p className='animatedText'>{jobsAndProjs[curProj].subdesc}</p>
+                    <p className='text-white text-xl font-semibold'>{jobsAndProjs[curProj].title}</p>
+                    <p>{jobsAndProjs[curProj].desc}</p>
+                    <p>{jobsAndProjs[curProj].subdesc}</p>
                 </div>
                 <div className='flex items-center justify-between flex-wrap gap-5'>
                     <div className='flex items-center gap-3'>{jobsAndProjs[curProj].tags.map((tag, ind) =>(
@@ -58,33 +58,33 @@ const ComputerCombo = () => {
                             </div>
                         ))}
                     </div>
-                    {/*
                     <a className='flex items-center gap-2 cursor-pointer text-white-600'
                         href={jobsAndProjs[curProj].href} target='_blank' rel='noreferrer'>
-                            <p>Check live site</p>
+                            <p>Learn more</p>
                             <img src='/assets/arrow-up.png' className='w-3 h-2' alt='arrow-up'/>
                     </a>
-                    */}
                 </div>
                 <div className='flex justify-between items-start mt-7 flex-col'>
                     <div className='flex justify-between items-center'>
-                        <p className='text-white animatedText pr-3'>Work Experiences:</p>
+                        <p className='text-white pr-3'>Work Experiences:</p>
                         {
-                        jobsAndProjs.filter(x => x.isWork).map((prj, ind) =>(
-                            <button key={ind} className='arrow-btn m-3' onClick={() => setCurProj(() => ind)}>
-                                <img src={prj.logo} alt={`arrow-${prj.title}`} className='w-4 h-4'/>
-                            </button>
-                        ))
+                            jobsAndProjs.filter(x => x.isWork).map(prj => (
+                                <button key={prj.ind} className={`arrow-btn m-3 ${prj.ind == curProj ? "bg-gray-600" : ""}`}
+                                    onClick={() => setCurProj(() => prj.ind)}>
+                                        <img src={prj.logo} alt={`arrow-${prj.title}`} className='w-4 h-4'/>
+                                </button>
+                            ))
                         }
                     </div>
                     <div className='flex justify-between items-center'>
-                        <p className='text-white animatedText pr-3'>Projects:</p>
+                        <p className='text-white pr-3'>Projects:</p>
                         {
-                        jobsAndProjs.filter(x => !x.isWork).map((prj, ind) =>(
-                            <button key={ind} className='arrow-btn m-3' onClick={() => setCurProj(() => ind)}>
-                                <img src={prj.logo} alt={`arrow-${prj.title}`} className='w-4 h-4'/>
-                            </button>
-                        ))
+                            jobsAndProjs.filter(x => !x.isWork).map(prj => (
+                                <button key={prj.ind} className={`arrow-btn m-3 ${prj.ind == curProj ? "bg-gray-600" : ""}`}
+                                    onClick={() => setCurProj(() => prj.ind)}>
+                                        <img src={prj.logo} alt={`arrow-${prj.title}`} className='w-4 h-4'/>
+                                </button>
+                            ))
                         }
                     </div>
                 </div>
