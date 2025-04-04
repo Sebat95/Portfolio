@@ -3,6 +3,7 @@ import { ExperienceContext } from "../components/ExperienceContext"
 import { experiences } from "../constants/general"
 import ComputerCombo from "../components/ComputerCombo"
 import BookCombo from "../components/BookCombo"
+import HobbyCombo from "../components/HobbyCombo"
 
 const Experience = () => {
   const [expInd, setExpInd] = useState(0);
@@ -36,6 +37,9 @@ const Experience = () => {
       }
       {expInd == 1 &&
         <ComputerCombo />
+      }
+      {expInd == 2 &&
+        <HobbyCombo />
       }
     </section>
   )
