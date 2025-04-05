@@ -8,12 +8,12 @@ Title: Pizza
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three';
-import { GroupProps } from '@react-three/fiber';
+import { RefProps } from '../common/RefProps';
 
-const Pizza = (props: GroupProps) => {
+const Pizza = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/pizza.glb');
   return (
-    <group {...props} dispose={null} scale={0.5}>
+    <group {...props} dispose={null} scale={0.5} ref={props.innerRef}>
       <mesh
         castShadow
         receiveShadow

@@ -7,13 +7,13 @@ Title: 1K Ohm Resistor
 */
 
 import { useGLTF } from '@react-three/drei'
-import { GroupProps } from '@react-three/fiber'
 import { Mesh } from 'three'
+import { RefProps } from '../common/RefProps'
 
-const Resistor = (props: GroupProps) => {
+const Resistor = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/1k_ohm_resistor.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={props.innerRef}>
       <group position={[-0.008, 0.988, -0.993]} rotation={[-Math.PI, 0, 0]}>
         <group rotation={[0, 0, -1.564]}>
           <mesh

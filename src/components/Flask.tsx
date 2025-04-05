@@ -8,12 +8,12 @@ Title: LowPoly - Flask
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
-import { GroupProps } from '@react-three/fiber'
+import { RefProps } from '../common/RefProps'
 
-const Flask = (props: GroupProps) => {
+const Flask = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/lowpoly_-_flask.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={props.innerRef}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.75}>
         <mesh
           castShadow

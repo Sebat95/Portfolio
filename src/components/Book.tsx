@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Page from "./Page";
-import { pages } from "../constants/general";
+import { pages } from "../common/general";
 import { GroupProps } from "@react-three/fiber";
 
 interface BookProps extends GroupProps {

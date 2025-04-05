@@ -7,13 +7,13 @@ Title: medieval sword
 */
 
 import { useGLTF } from '@react-three/drei'
-import { GroupProps } from '@react-three/fiber'
 import { Mesh } from 'three'
+import { RefProps } from '../common/RefProps'
 
-const Sword = (props: GroupProps) => {
+const Sword = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/medieval_sword.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={props.innerRef}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={3}>
         <mesh
           castShadow

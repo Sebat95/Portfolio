@@ -1,12 +1,13 @@
-import { useGLTF } from '@react-three/drei'
-import { GroupProps } from '@react-three/fiber';
+import { useGLTF } from '@react-three/drei';
+import { RefProps } from '../common/RefProps';
 import { Mesh } from 'three';
 
-const Basketball = (props: GroupProps) => {
+
+const Basketball = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/basketball.glb');
   return (
-    <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={1.3}>
+    <group {...props} dispose={null} ref={props.innerRef}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={1.3} ref={props.callback}>
         <mesh
           castShadow
           receiveShadow

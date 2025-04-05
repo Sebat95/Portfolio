@@ -7,13 +7,13 @@ Title: Stylized tree
 */
 
 import { useGLTF } from '@react-three/drei'
-import { GroupProps } from '@react-three/fiber'
 import { Mesh } from 'three'
+import { RefProps } from '../common/RefProps'
 
-const StylizedTree = (props: GroupProps) => {
+const StylizedTree = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/stylized_tree.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={props.innerRef}>
       <group rotation={[-Math.PI / 2, 0, 0]}  scale={0.004}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh

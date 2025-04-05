@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { ExperienceContext } from "../components/ExperienceContext"
-import { experiences } from "../constants/general"
+import { experiences } from "../common/general"
 import ComputerCombo from "../components/ComputerCombo"
 import BookCombo from "../components/BookCombo"
 import HobbyCombo from "../components/HobbyCombo"

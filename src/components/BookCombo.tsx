@@ -3,7 +3,7 @@ import Book from "../components/Book"
 import { Canvas } from "@react-three/fiber"
 import { Dispatch, SetStateAction, Suspense, useState } from "react"
 import CanvasLoader from "../components/CanvasLoader"
-import { pages } from "../constants/general"
+import { pages } from "../common/general"
 
 const BookButtons = ({page, setPage}: {page: number, setPage: Dispatch<SetStateAction<number>>}) => {
   const btns = [];

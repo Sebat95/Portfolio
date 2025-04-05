@@ -7,21 +7,16 @@ Title: Vfx Explosion
 */
 
 import { useGLTF } from '@react-three/drei';
-import { GroupProps } from '@react-three/fiber';
-import { BufferGeometry, Group, Mesh, Object3DEventMap } from 'three';
+import { BufferGeometry, Mesh } from 'three';
 import {useGSAP} from '@gsap/react';
 import gsap from 'gsap';
 import { RefObject, useRef } from 'react';
+import { RefProps } from '../common/RefProps';
 
-interface ExplosionProps extends GroupProps {
-  innerRef: RefObject<Group<Object3DEventMap>>
-}
-
-const Explosion = (props: ExplosionProps) => {
+const Explosion = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/vfx_explosion.glb');
   const innerRef = useRef<Mesh<BufferGeometry>>();
   const outerRef = useRef<Mesh<BufferGeometry>>();
-  const globalRef = useRef<Group<Object3DEventMap>>();
 
   // continuosly spin
   useGSAP(() => {
@@ -49,7 +44,7 @@ const Explosion = (props: ExplosionProps) => {
 
   return (
     <group {...props} dispose={null} ref={props.innerRef}>
-        <group ref={globalRef as RefObject<Group<Object3DEventMap>>}
+        <group
           position={[0.02197045, 0.10402713, -0.04289045]}
           rotation={[-2.09475399, -0.45316825, -2.71997209]}
           scale={1}>
