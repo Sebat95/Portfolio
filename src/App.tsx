@@ -6,7 +6,7 @@ import Footer from './sections/Footer';
 import Intro from './sections/Intro';
 import Navbar from './sections/Navbar';
 import Experience from './sections/Experience';
-import { isEmpty } from './common/general';
+import { isEmpty } from './common/utils';
 
 const App = () => {
   const [exp, setExp] = useState('');

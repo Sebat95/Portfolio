@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Group, Object3DEventMap } from 'three';
 import { ExperienceContext } from '../components/ExperienceContext';
-import { experiences } from '../common/general';
+import { experiences } from '../common/constants';
 
 const Intro = () => {
   const canvasRef = useRef<HTMLCanvasElement>();

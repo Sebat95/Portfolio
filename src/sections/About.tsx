@@ -1,6 +1,6 @@
 
 import { Dispatch, SetStateAction, useState } from 'react';
-import { aboutMe } from '../common/general';
+import { aboutMe } from '../common/constants';
 
 const About = () => {
     const [hasCopied, setHasCopied] = useState(false);

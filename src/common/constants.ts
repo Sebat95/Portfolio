@@ -1,5 +1,3 @@
-import { Vector3 } from "three";
-
 export const navLinks = [
     {
       id: '1',
@@ -161,8 +159,6 @@ export const jobsAndProjs = [
 ];
 jobsAndProjs.forEach((v,i) => v.ind = i);
 
-export const numsToVector3 = (nums: number[]) => new Vector3(nums[0], nums[1], nums[2]);
-
 export const aboutMe = [
   "I created this portfolio first and foremost to teach myself React, TreeJS, and GCP hosting,",
   "I really had fun and learned a lot while putting it together!",
@@ -175,8 +171,6 @@ export const aboutMe = [
   "",
   "Anyhow if you enjoyed my website and you'd like to contact me, feel free to reach out or just give me a star on Github *wink*"
 ];
-
-export const isEmpty = (input: string) => input == null || input === '';
 
 export const experiences = ['Education', 'Work and Projects', 'Hobbies'];
 

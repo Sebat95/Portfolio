@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import { isEmpty, navLinks } from '../common/general.ts';
+import { navLinks } from '../common/constants.ts';
 import { ExperienceContext } from "../components/ExperienceContext.tsx";
+import { isEmpty } from "../common/utils.ts";
 
 interface NavProps {
   title: string;

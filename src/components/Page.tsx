@@ -4,7 +4,7 @@ import { easing } from "maath";
 import { useRef, useMemo, useState, RefObject, SetStateAction, Dispatch } from "react";
 import { SRGBColorSpace, Bone, Skeleton, MeshStandardMaterial, SkinnedMesh, MathUtils, BoxGeometry, Vector3, Uint16BufferAttribute, Float32BufferAttribute, Color, Group, Object3DEventMap, BufferGeometry } from "three";
 import { degToRad } from "three/src/math/MathUtils.js";
-import { pages } from "../common/general";
+import { pages } from "../common/constants";
 
 const EASING_FACTOR = 0.5; // ease of movements (the higher the smoother)
 const EASING_FACTOR_FOLD = 0.3;

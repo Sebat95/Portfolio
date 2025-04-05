@@ -9,7 +9,7 @@ import StylizedTree from "./StylizedTree";
 import Resistor from "./Resistor";
 import { Group, Object3DEventMap } from "three";
 import gsap from 'gsap';
-import { numsToVector3 } from "../common/general";
+import { numsToVector3 } from "../common/utils";
 
 const HobbyCombo = () => {
     const bbRef = useRef<Group<Object3DEventMap>>();

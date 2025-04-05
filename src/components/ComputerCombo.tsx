@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 import DemoComputer from '../components/Computer';
-import { jobsAndProjs } from '../common/general';
+import { jobsAndProjs } from '../common/constants';
 
 
 const ComputerCombo = () => {
