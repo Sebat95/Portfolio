@@ -194,3 +194,25 @@ pages.push({
   back: "book-back",
   title: `Page ${pages.length}`
 });
+
+export const hobbies = {
+  Basketball: "Sport has always been integral to my life – a true believer in 'mens sana in corpore sano'. "+
+  "In my youth, from playing basketball and becoming a certified referee, to later learning to ski, play volleyball, swim, and scuba dive, staying active has been a constant. "+
+  "More recently, I've continued this through gym workouts, calisthenics, and rock climbing.",
+  Flask: "Alongside my passion for cooking, I've developed a growing interest in the intricacies of distilling and infusing alcohol. "+
+  "As a complete beginner, I've been exploring the process of making various liquors from scratch, which I find to be an intriguing intersection of engineering/chemistry and culinary arts.",
+  Pizza: "While it might sound cliché, my passion for cooking truly blossomed alongside my grandmother, as I spent countless hours assisting her. "+
+  "For me, cooking is a profound act of nurturing, providing both physical sustenance and emotional comfort. "+
+  "I love cooking for others almost more than for myself. " +
+  "Latly, speaking of long-term dedication, my sourdough starter has been thriving for over ten years – it's practically a member of the family!",
+  Sword: "Inspired by YouTube and fascinated with the fantasy/medieval world, I thought: 'I bet I could forge a sword'. "+
+  "What followed was a fun summer spent building a forge, hammering steel, quenching, and grinding. "+
+  "The result is a sword I wouldn't stake my life on, but the process was incredibly enjoyable and educational. "+
+  "It was definitely a good application of my engineering/physics background.",
+  StylizedTree: "Nature played a central role in my childhood, even before sports came into the picture. "+
+  "Weekends revolved around our little family house nestled in the woods, where walking, tending the garden, and the simple joy of cooking and eating outside were cherished moments. "+
+  "Even as my family's pace quickened and we grew up, my connection to nature remained strong, leading me to become a Boy Scout instructor and spend years sharing my love for the outdoors with others. ",
+  Resistor: "I opted for computer engineering rather than science because I sought a more diverse education. "+
+  "This choice has proven beneficial, since it contributed to a more T-shaped skillset and allowed for better-informed decisions as a professional. "+
+  "To support myself through college, I also gained practical experience repairing smartphones and PCs. "
+}
