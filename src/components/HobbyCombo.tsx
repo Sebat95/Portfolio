@@ -12,6 +12,8 @@ import gsap from 'gsap';
 import { numsToVector3 } from "../common/utils";
 import { Html } from "@react-three/drei";
 import { hobbies } from "../common/constants";
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
+
 
 
 const doSetHighlighted = (id: number, setter: Dispatch<React.SetStateAction<number>>) => {
@@ -56,6 +58,7 @@ const HobbyCombo = () => {
         ],
         []
     );
+
     const measuredRef = useCallback(() => setPosInd(prev => prev + 1), []);
     useEffect(() => {
         if(highlighted == -1) {
@@ -135,6 +138,18 @@ const HobbyCombo = () => {
                             }
                         </Html>
                     }
+
+                    <mesh position={[0, 0, 0]}>
+                        <sphereGeometry />
+                        <meshStandardMaterial color={'white'} emissive={'white'} emissiveIntensity={2} />
+                    </mesh>
+                    <EffectComposer>
+                        <Bloom
+                            luminanceThreshold={1}
+                            luminanceSmoothing={0}
+                            intensity={2}
+                        />
+                    </EffectComposer>
                 </Suspense>
             </Canvas>
         </div>
