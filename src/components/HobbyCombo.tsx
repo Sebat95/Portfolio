@@ -1,7 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Dispatch, RefObject, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CanvasLoader from "./CanvasLoader";
-import Basketball from "./Basketball";
 import Flask from "./Flask";
 import Pizza from "./PIzza";
 import Sword from "./Sword";
@@ -12,7 +11,8 @@ import gsap from 'gsap';
 import { numsToVector3 } from "../common/utils";
 import { Html } from "@react-three/drei";
 import { hobbies } from "../common/constants";
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import Hobby from "./Hobby";
+import Basketball from "./Basketball";
 
 
 
@@ -99,10 +99,14 @@ const HobbyCombo = () => {
                     castShadow
                 />
                 <Suspense fallback={<CanvasLoader/>} >
-                    <Basketball position={positionsArray[0]}
+                    <Hobby ind={0} position={positionsArray[0]}
+                        setHighlighted={setHighlighted}
+                        callback={measuredRef}
                         innerRef={bbRef as RefObject<Group<Object3DEventMap>>}
-                        onClick={() => doSetHighlighted(0, setHighlighted)}
-                        callback={measuredRef}/>
+                    >
+                        <Basketball innerRef={bbRef as RefObject<Group<Object3DEventMap>>} callback={measuredRef}/>
+                    </Hobby>
+             
                     <Flask position={positionsArray[2]}
                         innerRef={flaskRef as RefObject<Group<Object3DEventMap>>}
                         onClick={() => doSetHighlighted(1, setHighlighted)}/>
@@ -138,18 +142,6 @@ const HobbyCombo = () => {
                             }
                         </Html>
                     }
-
-                    <mesh position={[0, 0, 0]}>
-                        <sphereGeometry />
-                        <meshStandardMaterial color={'white'} emissive={'white'} emissiveIntensity={2} />
-                    </mesh>
-                    <EffectComposer>
-                        <Bloom
-                            luminanceThreshold={1}
-                            luminanceSmoothing={0}
-                            intensity={2}
-                        />
-                    </EffectComposer>
                 </Suspense>
             </Canvas>
         </div>
