@@ -14,7 +14,7 @@ const StylizedTree = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/stylized_tree.glb')
   return (
     <group {...props} dispose={null} ref={props.innerRef}>
-      <group rotation={[-Math.PI / 2, 0, Math.PI]}  scale={0.004}>
+      <group rotation={[-Math.PI / 2, 0, Math.PI]} position={[0,-1,0]} scale={0.0035}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh
             castShadow

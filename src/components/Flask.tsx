@@ -14,7 +14,7 @@ const Flask = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/lowpoly_-_flask.glb')
   return (
     <group {...props} dispose={null} ref={props.innerRef}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.75}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.6} position={[0,-1,0]}>
         <mesh
           castShadow
           receiveShadow

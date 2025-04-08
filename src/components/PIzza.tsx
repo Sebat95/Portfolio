@@ -13,7 +13,7 @@ import { RefProps } from '../common/RefProps';
 const Pizza = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/pizza.glb');
   return (
-    <group {...props} dispose={null} scale={0.5} ref={props.innerRef}>
+    <group {...props} dispose={null} scale={0.4} ref={props.innerRef}>
       <mesh
         castShadow
         receiveShadow
