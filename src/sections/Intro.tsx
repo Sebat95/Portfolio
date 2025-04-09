@@ -1,5 +1,5 @@
 import {Canvas} from '@react-three/fiber';
-import { LegacyRef, RefObject, Suspense, useContext, useEffect, useRef, useState } from 'react';
+import { LegacyRef, Ref, RefObject, Suspense, useContext, useEffect, useRef, useState } from 'react';
 import { Html, PerspectiveCamera } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 import Explosion from '../components/Explosion';
@@ -84,7 +84,7 @@ const Intro = () => {
   return (
     <section className='min-h-screen w-full flex flex-col relative' id='home'>
       <div className="w-full h-full absolute inset-0" ref={divRef as LegacyRef<HTMLDivElement>}>
-        <Canvas className='w-full h-full' ref={canvasRef as LegacyRef<HTMLCanvasElement>}
+        <Canvas className='w-full h-full' ref={canvasRef as Ref<HTMLCanvasElement>}
           onClick={() => full && !killed && setExperience(experiences[0])}
           onPointerEnter={() => setHovering(true)}
           onPointerLeave={() => setHovering(false)}>
