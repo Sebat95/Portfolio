@@ -1,4 +1,4 @@
-import { LegacyRef, Suspense, useEffect, useRef, useState } from 'react';
+import { Ref, Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
@@ -89,8 +89,8 @@ const ComputerCombo = () => {
                     </div>
                 </div>
             </div>
-            <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full' ref={(divRef as unknown) as LegacyRef<HTMLDivElement>}>
-                <Canvas ref={(canvasRef as unknown) as LegacyRef<HTMLCanvasElement>}>
+            <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full' ref={divRef as Ref<HTMLDivElement>}>
+                <Canvas ref={canvasRef as Ref<HTMLCanvasElement>}>
                     <ambientLight intensity={3}/>
                     <directionalLight position={[10, 10, 5]} />
                     <Center>
