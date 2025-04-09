@@ -1,8 +1,8 @@
 import { useGLTF } from '@react-three/drei';
-import { RefProps } from '../common/RefProps';
+import { HobbyObjectProps } from '../common/props';
 import { Mesh } from 'three';
 
-const Basketball = (props: RefProps) => {
+const Basketball = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/basketball.glb');
   return (
     <group {...props} dispose={null} >
@@ -19,6 +19,12 @@ const Basketball = (props: RefProps) => {
           geometry={(nodes.Basketball_1 as Mesh).geometry}
           material={materials['Material.001']}
         />
+        <mesh visible={!!props.emissive}
+          geometry={(nodes.Basketball_0 as Mesh).geometry}
+          material={materials.Material}
+        >
+          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
+        </mesh>
       </group>
     </group>
   )
