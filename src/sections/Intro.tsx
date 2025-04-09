@@ -95,16 +95,15 @@ const Intro = () => {
                 <Explosion
                   position={[0,0,0]}
                   innerRef={explRef as RefObject<Group<Object3DEventMap>>}/>
-                <Html zIndexRange={[-10, -10]}
+                <Html as="div" center zIndexRange={[-10, -10]}
                   style={{
                     visibility: full && !killed ? 'visible' : 'hidden',
                     opacity: full && !killed ? '1' : '0',
                     transition: 'visibility 0s, opacity 0.5s linear',
                     zIndex: -1
                   }}  
-                  position={[-5,-3,0]} // TODO refactor considering current window width
                 >
-                  <h3 className='text-white font-semibold text-gray_gradient text-2xl lg:w-96 md:w-80 sm:w-40'>Click to start the journery</h3>
+                  <h3 className='text-white font-semibold text-gray_gradient text-2xl lg:w-96 md:w-80 sm:w-40 mt-40'>Click to start the journery</h3>
                 </Html>
             </Suspense>
         </Canvas>
