@@ -8,12 +8,12 @@ Title: 1K Ohm Resistor
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
-import { RefProps } from '../common/RefProps'
+import { HobbyObjectProps } from '../common/props'
 
-const Resistor = (props: RefProps) => {
+const Resistor = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/1k_ohm_resistor.glb')
   return (
-    <group {...props} dispose={null} ref={props.innerRef}>
+    <group {...props} dispose={null}>
       <group position={[-0.008, 0.988, -0.993]} rotation={[-Math.PI, 0, 0]}>
         <group rotation={[0, 0, -1.564]}>
           <mesh
@@ -58,6 +58,12 @@ const Resistor = (props: RefProps) => {
             geometry={(nodes.Resistor000_6 as Mesh).geometry}
             material={materials['IronMaterial.002']}
           />
+          <mesh visible={!!props.emissive}
+            geometry={(nodes.Resistor000_1 as Mesh).geometry}
+            material={materials['ResistorBaseMaterial.003']}
+          >
+          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
+        </mesh>
         </group>
       </group>
     </group>
