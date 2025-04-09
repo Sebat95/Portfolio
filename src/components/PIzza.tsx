@@ -6,14 +6,14 @@ Source: https://sketchfab.com/3d-models/pizza-23ddac5a352e488da455da7e6f3c3cb5
 Title: Pizza
 */
 
-import { useGLTF } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei';
 import { Mesh } from 'three';
-import { RefProps } from '../common/RefProps';
+import { HobbyObjectProps } from '../common/props';
 
-const Pizza = (props: RefProps) => {
+const Pizza = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/pizza.glb');
   return (
-    <group {...props} dispose={null} scale={0.4} ref={props.innerRef}>
+    <group {...props} dispose={null} scale={0.4}>
       <mesh
         castShadow
         receiveShadow
@@ -21,6 +21,14 @@ const Pizza = (props: RefProps) => {
         material={materials['Material.001']}
         rotation={[-Math.PI / 3, 0, 0]}
       />
+      <mesh
+        visible={!!props.emissive}
+        geometry={(nodes.Object_2 as Mesh).geometry}
+        material={materials['Material.001']}
+        rotation={[-Math.PI / 3, 0, 0]}
+        >
+          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
+        </mesh>
     </group>
   )
 }
