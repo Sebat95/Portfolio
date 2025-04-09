@@ -1,4 +1,4 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, ThreeEvent } from "@react-three/fiber";
 import { Dispatch, RefObject, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CanvasLoader from "./CanvasLoader";
 import Flask from "./Flask";
@@ -15,9 +15,9 @@ import Hobby from "./Hobby";
 import Basketball from "./Basketball";
 
 
-
-const doSetHighlighted = (id: number, setter: Dispatch<React.SetStateAction<number>>) => {
-    return setter(prev => {console.log(prev); return prev == -1 ? id : -1 });
+const doSetHighlighted = (id: number, setter: Dispatch<React.SetStateAction<number>>, event: ThreeEvent<MouseEvent> | React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    setter(prev => prev == -1 ? id : -1);
+    event.stopPropagation();
 }
 
 
@@ -61,6 +61,7 @@ const HobbyCombo = () => {
 
     const measuredRef = useCallback(() => setPosInd(prev => prev + 1), []);
     useEffect(() => {
+        console.log(highlighted)
         if(highlighted == -1) {
             refArray.forEach((ref, i) => {
                 if(ref.current && highlighted == -1) {
@@ -82,7 +83,7 @@ const HobbyCombo = () => {
                     x: 0,
                     y: 0,
                     z: 0,
-                    ease: "power1.inOut",
+                    ease: "power1.out",
                     duration: 0.5
                 });
             }
@@ -99,29 +100,48 @@ const HobbyCombo = () => {
                     castShadow
                 />
                 <Suspense fallback={<CanvasLoader/>} >
-                    <Hobby ind={0} position={positionsArray[0]}
-                        setHighlighted={setHighlighted}
-                        callback={measuredRef}
+                    <Hobby position={positionsArray[0]}
+                        highlighted={highlighted != -1}
+                        onClick={e => doSetHighlighted(0, setHighlighted, e)}
                         innerRef={bbRef as RefObject<Group<Object3DEventMap>>}
                     >
-                        <Basketball innerRef={bbRef as RefObject<Group<Object3DEventMap>>} callback={measuredRef}/>
+                        <Basketball callback={measuredRef}/>
                     </Hobby>
-             
-                    <Flask position={positionsArray[2]}
+                    <Hobby position={positionsArray[2]}
+                        highlighted={highlighted != -1}
+                        onClick={e => doSetHighlighted(1, setHighlighted, e)}
                         innerRef={flaskRef as RefObject<Group<Object3DEventMap>>}
-                        onClick={() => doSetHighlighted(1, setHighlighted)}/>
-                    <Pizza position={positionsArray[4]}
+                    >
+                        <Flask />
+                    </Hobby>
+                    <Hobby position={positionsArray[4]}
+                        highlighted={highlighted != -1}
+                        onClick={e => doSetHighlighted(2, setHighlighted, e)}
                         innerRef={pizzaRef as RefObject<Group<Object3DEventMap>>}
-                        onClick={() => doSetHighlighted(2, setHighlighted)}/>
-                    <Sword position={positionsArray[6]}
+                    >
+                        <Pizza />
+                    </Hobby>
+                    <Hobby position={positionsArray[6]}
+                        highlighted={highlighted != -1}
+                        onClick={e => doSetHighlighted(3, setHighlighted, e)}
                         innerRef={swordRef as RefObject<Group<Object3DEventMap>>}
-                        onClick={() => doSetHighlighted(3, setHighlighted)}/>
-                    <StylizedTree position={positionsArray[8]}
+                    >
+                        <Sword />
+                    </Hobby>
+                    <Hobby position={positionsArray[8]}
+                        highlighted={highlighted != -1}
+                        onClick={e => doSetHighlighted(4, setHighlighted, e)}
                         innerRef={stRef as RefObject<Group<Object3DEventMap>>}
-                        onClick={() => doSetHighlighted(4, setHighlighted)}/>
-                    <Resistor position={positionsArray[10]}
+                    >
+                        <StylizedTree />
+                    </Hobby>
+                    <Hobby position={positionsArray[10]}
+                        highlighted={highlighted != -1}
+                        onClick={e => doSetHighlighted(5, setHighlighted, e)}
                         innerRef={resistorRef as RefObject<Group<Object3DEventMap>>}
-                        onClick={() => doSetHighlighted(5, setHighlighted)}/>
+                    >
+                        <Resistor />
+                    </Hobby>
                     {highlighted != -1 &&
                         <Html as="div" center style={{
                                 justifyContent: 'center',
@@ -130,12 +150,12 @@ const HobbyCombo = () => {
                                 width: '75%'
                             }}
                             className="pop-up !relative"
-                            onClick={() => doSetHighlighted(-1, setHighlighted)}>
+                            onClick={e => doSetHighlighted(-1, setHighlighted, e)}>
                             {
-                                hobbies[highlighted].map(h => (
+                                hobbies[highlighted].map((h,i) => (
                                     <p
-                                        className="grid-subtext"
-                                        onClick={() => doSetHighlighted(-1, setHighlighted)}>
+                                        className={i == 0 ? "grid-headtext" : "grid-subtext"}
+                                        onClick={e => doSetHighlighted(-1, setHighlighted, e)}>
                                             {h}
                                     </p>
                                 ))
