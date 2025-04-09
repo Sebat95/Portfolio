@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { Group, Object3DEventMap } from 'three';
 import { ExperienceContext } from '../components/ExperienceContext';
 import { experiences } from '../common/constants';
+import { useMediaQuery } from 'react-responsive';
 
 const Intro = () => {
   const canvasRef = useRef<HTMLCanvasElement>();
@@ -18,7 +19,8 @@ const Intro = () => {
   const [tweenOut, setTweenOut] = useState({});
   const [tweenIn, setTweenIn] = useState({});
   const [hovering, setHovering] = useState(false);
-  const {setExperience } = useContext(ExperienceContext);
+  const { setExperience } = useContext(ExperienceContext);
+  const isNotPC = useMediaQuery({maxWidth: 1024}); // is not pc start journey automatically
    
   // unload if scrolled out of sight
   useEffect(() => {
@@ -62,8 +64,13 @@ const Intro = () => {
           y: `9`,
           x: `9`,
           z: `9`,
-          duration: 3,
-          onComplete: () => setFull(true)
+          duration: isNotPC ? 1.5 : 2,
+          onComplete: () => {
+            setFull(true);
+            if(isNotPC) {
+                setTimeout(() => setExperience(experiences[0]), 1000);
+            }
+          }
         }));
       } else {
         gsap.killTweensOf(tweenIn);
@@ -103,7 +110,9 @@ const Intro = () => {
                     zIndex: -1
                   }}  
                 >
-                  <h3 className='text-white font-semibold text-gray_gradient text-2xl lg:w-96 md:w-80 sm:w-40 mt-40'>Click to start the journery</h3>
+                  <h3 className='text-white font-semibold text-gray_gradient text-2xl lg:w-96 md:w-80 sm:w-40 mt-40'>
+                    {isNotPC ? "Starting the journey..." : "Click to start the journery"}
+                  </h3>
                 </Html>
             </Suspense>
         </Canvas>
