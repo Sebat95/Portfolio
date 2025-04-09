@@ -24,13 +24,15 @@ const Experience = () => {
 
   return (
     <section className='w-full flex flex-col relative justify-center' style={{height: '90vh'}} id='exp'>
-      <div className='flex justify-between items-center z-50 experience_arrows' >
-        <button className="arrow-button" onClick={() => handleNavigation(true)}>
-          <img src="/assets/left-arrow.png" alt="back" className="w-5 h-5"/>
-        </button>
-        <button className="arrow-button" onClick={() => handleNavigation()}>
-          <img src="/assets/right-arrow.png" alt="back" className="w-5 h-5"/>
-        </button>
+      <div className="fixed left-0 right-0 max-w-7xl mx-auto z-50">
+        <div className='flex justify-between items-center py-5 mx-auto c-space'>
+          <button className="arrow-button" onClick={() => handleNavigation(true)}>
+            <img src="/assets/left-arrow.png" alt="back" className="w-5 h-5"/>
+          </button>
+          <button className="arrow-button" onClick={() => handleNavigation()}>
+            <img src="/assets/right-arrow.png" alt="back" className="w-5 h-5"/>
+          </button>
+        </div>
       </div>
       {expInd == 0 &&
         <BookCombo />
