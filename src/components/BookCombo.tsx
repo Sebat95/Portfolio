@@ -1,27 +1,9 @@
 import { Float, OrbitControls } from "@react-three/drei"
 import Book from "../components/Book"
 import { Canvas } from "@react-three/fiber"
-import { Dispatch, SetStateAction, Suspense, useState } from "react"
+import { Suspense, useState } from "react"
 import CanvasLoader from "../components/CanvasLoader"
-import { pages } from "../common/constants"
-
-const BookButtons = ({page, setPage}: {page: number, setPage: Dispatch<SetStateAction<number>>}) => {
-  const btns = [];
-  for (let i = 0; i <= pages.length; i++) {
-    btns.push(<button
-      key={i}
-      className={`border-transparent hover:border-white transition-all duration-300 px-4 py-3 rounded-full text-lg uppercase shrink-0 border ${
-        i === page
-          ? "bg-white/90 text-black"
-          : "bg-black/30 text-white"
-      }`}
-      onClick={() => setPage(i)}
-    >
-      {i < pages.length ? pages[i].title : "Back"}
-    </button>)
-  }
-  return btns;
-};
+import BookButtons from "./BookButtons"
 
 const BookCombo = () => {
   const [page, setPage] = useState(0);
