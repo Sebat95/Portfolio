@@ -54,7 +54,7 @@ const Navbar = (props: NavProps) => {
   <header className='fixed top-0 left-0 right-0 z-50 bg-black/90' id='header'>
     <div className="max-w-7xl mx-auto">
       <div className="flex justify-between items-center py-5 mx-auto c-space">
-        <p className="text-neutral-400 font-semibold text-xl">{props.title}</p>
+        <p className="text-white font-semibold text-xl">{props.title}</p>
         <button onClick={() => setExperience('')} className="text-neutral-400 hover:text-white focus:outline-none flex" aria-label="Exit">
           <img src="/assets/close.svg" alt="Close" className="w-7 h-7"/>
         </button>

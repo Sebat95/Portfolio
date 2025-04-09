@@ -8,12 +8,12 @@ Title: LowPoly - Flask
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
-import { RefProps } from '../common/RefProps'
+import { HobbyObjectProps } from '../common/props'
 
-const Flask = (props: RefProps) => {
+const Flask = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/lowpoly_-_flask.glb')
   return (
-    <group {...props} dispose={null} ref={props.innerRef}>
+    <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.6} position={[0,-1,0]}>
         <mesh
           castShadow
@@ -32,7 +32,15 @@ const Flask = (props: RefProps) => {
           receiveShadow
           geometry={(nodes.Cylinder_2 as Mesh).geometry}
           material={materials.Liquid}
-        />
+        >
+          <meshStandardMaterial opacity={0.5} color={'yellow'} /> 
+        </mesh>
+        <mesh visible={!!props.emissive}
+          geometry={(nodes.Cylinder_2 as Mesh).geometry}
+          material={materials.Glass}
+        >
+          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
+        </mesh>
       </group>
     </group>
   )

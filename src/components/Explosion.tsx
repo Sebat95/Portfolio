@@ -11,7 +11,7 @@ import { BufferGeometry, Mesh } from 'three';
 import {useGSAP} from '@gsap/react';
 import gsap from 'gsap';
 import { RefObject, useRef } from 'react';
-import { RefProps } from '../common/RefProps';
+import { RefProps } from '../common/props';
 
 const Explosion = (props: RefProps) => {
   const { nodes, materials } = useGLTF('/models/vfx_explosion.glb');

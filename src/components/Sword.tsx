@@ -8,12 +8,12 @@ Title: medieval sword
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
-import { RefProps } from '../common/RefProps'
+import { HobbyObjectProps } from '../common/props'
 
-const Sword = (props: RefProps) => {
+const Sword = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/medieval_sword.glb')
   return (
-    <group {...props} dispose={null} ref={props.innerRef}>
+    <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={3}>
         <mesh
           castShadow
@@ -22,6 +22,13 @@ const Sword = (props: RefProps) => {
           material={materials.wire_135059008}
           rotation={[Math.PI, 0, 0]}
         />
+        <mesh visible={!!props.emissive}
+          geometry={(nodes.defaultMaterial as Mesh).geometry}
+          material={materials.wire_135059008}
+          rotation={[Math.PI, 0, 0]}
+          >
+          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
+        </mesh>
       </group>
     </group>
   )
