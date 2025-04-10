@@ -65,7 +65,7 @@ const Intro = () => {
           y: `9`,
           x: `9`,
           z: `9`,
-          duration: isNotPC ? 1.5 : 2,
+          duration: isNotPC ? 1 : 2,
           onComplete: () => setFull(true)
         }));
       } else {
@@ -75,7 +75,7 @@ const Intro = () => {
           y: `1`,
           x: `1`,
           z: `1`,
-          duration: 3,
+          duration: isNotPC ? 2 : 3,
           onComplete: () => setFull(false)
         }));
       }
@@ -90,7 +90,7 @@ const Intro = () => {
     if(isNotPC && full && !killed){
       timeout = setTimeout(() => {
         setExperience(experiences[0]);
-      }, 1500); 
+      }, 1000); 
     }
     setExpStart(prev => {
       clearTimeout(prev);
