@@ -16,8 +16,9 @@ import Basketball from "./Basketball";
 
 
 const doSetHighlighted = (id: number, setter: Dispatch<React.SetStateAction<number>>, event: ThreeEvent<MouseEvent> | React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
-    setter(prev => prev == -1 ? id : -1);
+    event.nativeEvent.stopPropagation();
     event.stopPropagation();
+    setter(prev => prev == -1 ? id : -1);
 }
 
 
@@ -125,7 +126,7 @@ const HobbyCombo = () => {
    
     return (
         <div className="w-full h-full absolute inset-0">
-            <Canvas className='w-full h-full'>
+            <Canvas className='w-full h-full' onClick={e => doSetHighlighted(-1, setHighlighted, e)}>
                 <ambientLight intensity={1}/>
                 <directionalLight
                     position={[0, 0, 4]}
@@ -175,21 +176,18 @@ const HobbyCombo = () => {
                     >
                         <Resistor />
                     </Hobby>
-                    {highlighted >0 && highlighted < refArray.length &&
+                    {highlighted >= 0 && highlighted < refArray.length &&
                         <Html as="div" center style={{
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 opacity: '90%',
                                 width: '75%'
                             }}
-                            className="pop-up !relative"
-                            onClick={e => doSetHighlighted(-1, setHighlighted, e)}>
+                            className="pop-up !relative">
                             {
                                 hobbies[highlighted].map((h,i) => (
-                                    <p
-                                        className={i == 0 ? "grid-headtext" : "grid-subtext"}
-                                        onClick={e => doSetHighlighted(-1, setHighlighted, e)}>
-                                            {h}
+                                    <p className={i == 0 ? "grid-headtext" : "grid-subtext"}>
+                                        {h}
                                     </p>
                                 ))
                             }

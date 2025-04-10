@@ -1,23 +1,12 @@
 import { useContext, useState } from "react";
-import { navLinks } from '../common/constants.ts';
+import { experiences } from '../common/constants.ts';
 import { ExperienceContext } from "../components/ExperienceContext.tsx";
 import { isEmpty } from "../common/utils.ts";
+import NavItems from "../components/NavItems.tsx";
 
 interface NavProps {
   title: string;
 }
-
-const NavItems = () => {
-  return (
-    <ul className="nav-ul">
-      {navLinks.map(({id, href, name}) => (
-        <li key={id} className="nav-li">
-          <a href={href} className="nav-li_a" onClick={() => {}}>{name}</a>
-        </li>
-      ))}
-    </ul>
-  )
-};
 
 const Navbar = (props: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,14 +28,14 @@ const Navbar = (props: NavProps) => {
           </button>
           {/* Larger device navbar on top*/}
           <nav className="sm:flex hidden">
-            <NavItems/>
+            <NavItems startExperience={() => setExperience(experiences[0])}/>
           </nav>
         </div>
       </div>
       {/* Smaller device navbar collapsing items */}
       <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
         <nav className="p-5">
-          <NavItems/>
+          <NavItems startExperience={() => setExperience(experiences[0])}/>
         </nav>
       </div>
     </header>
@@ -55,7 +44,7 @@ const Navbar = (props: NavProps) => {
     <div className="max-w-7xl mx-auto">
       <div className="flex justify-between items-center py-5 mx-auto c-space">
         <p className="text-white font-semibold text-xl">{props.title}</p>
-        <button onClick={() => setExperience('')} className="text-neutral-400 hover:text-white focus:outline-none flex" aria-label="Exit">
+        <button onClick={() => setExperience('')} className="text-neutral-400 hover:text-white focus:outline-none flex" aria-label="exit" title="Exit Journey">
           <img src="/assets/close.svg" alt="Close" className="w-7 h-7"/>
         </button>
       </div>
