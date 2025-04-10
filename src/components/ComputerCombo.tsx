@@ -1,4 +1,4 @@
-import { Ref, Suspense, useEffect, useRef, useState } from 'react';
+import { Ref, Suspense, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
@@ -8,43 +8,11 @@ import { jobsAndProjs } from '../common/constants';
 
 const ComputerCombo = () => {
     const [curProj, setCurProj] = useState(0);
-
     const canvasRef = useRef<HTMLCanvasElement>();
     const divRef = useRef<HTMLDivElement>();
 
-    useEffect(() => {
-        let observerRefValue = null;
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-            if (entry.isIntersecting) {
-                canvasRef.current!.style.display = 'inherit';
-            } else {
-                canvasRef.current!.style.display = 'none';
-            }
-            },
-            {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            }
-        );
-
-
-        if (divRef.current) {
-            observer.observe(divRef.current);
-            observerRefValue = divRef.current;
-        }
-
-
-        return () => {
-            if (observerRefValue) {
-            observer.unobserve(observerRefValue);
-            }
-        };
-    }, []);
-
     return (<>
-        <div className='grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full'>
+        <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 w-full h-full absolute inset-0'>
             <div className='flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2-xl shadow-black-200'>
                 <div className='flex flex-col gap-5 text-white-600 my-5'>
                     <p className='text-white text-xl font-semibold'>{jobsAndProjs[curProj].title}</p>
