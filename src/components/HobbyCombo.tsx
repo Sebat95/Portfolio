@@ -22,31 +22,22 @@ const doSetHighlighted = (id: number, setter: Dispatch<React.SetStateAction<numb
 
 
 const HobbyCombo = () => {
+    const [width, setWidth] = useState(window.innerWidth); 
+    const [, setResizing] = useState(-1); // is window resizing
+    const [posInd, setPosInd] = useState(0); // which step of the "circle" are we on
+    /* which hobby is highlighted:
+        -2 means no selection and stop moving
+        -1 means no selection and moving
+        i means ith hobby selected and stop moving
+    */
+    const [highlighted, setHighlighted] = useState(-1); 
+    // hobbies references
     const bbRef = useRef<Group<Object3DEventMap>>();
     const flaskRef = useRef<Group<Object3DEventMap>>();
     const pizzaRef = useRef<Group<Object3DEventMap>>();
     const swordRef = useRef<Group<Object3DEventMap>>();
     const stRef = useRef<Group<Object3DEventMap>>();
     const resistorRef = useRef<Group<Object3DEventMap>>();
-    const [posInd, setPosInd] = useState(0);
-    const [highlighted, setHighlighted] = useState(-1);
-    const positionsArray = useMemo(
-        () => [
-            [0, 8, -10],
-            [4, 6.9, -10],
-            [6.9, 4, -10],
-            [8, 0, -10],
-            [6.9, -4, -10],
-            [4, -6.9, -10],
-            [0, -8, -10],
-            [-4, -6.9, -10],
-            [-6.9, -4, -10],
-            [-8, 0, -10],
-            [-6.9, 4, -10],
-            [-4, 6.9, -10],
-        ].map(v => numsToVector3(v)),
-        []
-    );
     const refArray = useMemo(
         () => [
             bbRef,
@@ -57,37 +48,79 @@ const HobbyCombo = () => {
             resistorRef
         ],
         []
+    );    
+    // callback to check when at least the first hobby is rendered
+    const measuredRef = useCallback(() => setPosInd(prev => prev + 1), []);
+    // positions to which move the hobbies
+    const positionsArray = useMemo(
+        () => {
+            const maxStep = Math.min(Math.max(width/128, 1), 8);
+            const mediumStep = maxStep/8*6.9;
+            const halfStep = maxStep/2;
+            return [
+                [0, maxStep, -10],
+                [halfStep, mediumStep, -10],
+                [mediumStep, halfStep, -10],
+                [maxStep, 0, -10],
+                [mediumStep, -halfStep, -10],
+                [halfStep, -mediumStep, -10],
+                [0, -maxStep, -10],
+                [-halfStep, -mediumStep, -10],
+                [-mediumStep, -halfStep, -10],
+                [-maxStep, 0, -10],
+                [-mediumStep, halfStep, -10],
+                [-halfStep, mediumStep, -10],
+            ].map(v => numsToVector3(v))
+        },
+        [width]
     );
 
-    const measuredRef = useCallback(() => setPosInd(prev => prev + 1), []);
+    // useEffect for window resizing
     useEffect(() => {
-        console.log(highlighted)
-        if(highlighted == -1) {
-            refArray.forEach((ref, i) => {
-                if(ref.current && highlighted == -1) {
-                    const ctx = gsap.to(ref.current.position, {
-                        x: positionsArray[(2*i + posInd) % positionsArray.length].x,
-                        y: positionsArray[(2*i + posInd) % positionsArray.length].y,
-                        z: positionsArray[(2*i + posInd) % positionsArray.length].z,
-                        ease: "none",
-                        duration: 1
-                    });
-                    if (i == refArray.length - 1) {
-                        ctx.then(() => setPosInd(prev => (prev + 1) % positionsArray.length));
+        const handleResize = () => {
+          setHighlighted(() => -2); // stop movement
+          setResizing(prev => {
+              clearTimeout(prev);
+              return setTimeout(() => setHighlighted(() => -1), 1000); // restart movement
+          });
+          setWidth(window.innerWidth);
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    //useEffect for hobbies movement and highlighting
+    useEffect(() => {
+        if(highlighted > -2 && highlighted < refArray.length) {
+            if(highlighted == -1) {
+                refArray.forEach((ref, i) => {
+                    if(ref.current && highlighted == -1) {
+                        const ctx = gsap.to(ref.current.position, {
+                            x: positionsArray[(2*i + posInd) % positionsArray.length].x,
+                            y: positionsArray[(2*i + posInd) % positionsArray.length].y,
+                            z: positionsArray[(2*i + posInd) % positionsArray.length].z,
+                            ease: "none",
+                            duration: 1
+                        });
+                        if (i == refArray.length - 1) {
+                            ctx.then(() => setPosInd(prev => (prev + 1) % positionsArray.length));
+                        }
                     }
+                })
+            } else {
+                if (refArray[highlighted].current) {
+                    gsap.to(refArray[highlighted].current.position, {
+                        x: 0,
+                        y: 0,
+                        z: 0,
+                        ease: "power1.out",
+                        duration: 0.5
+                    });
                 }
-            })
-        } else {
-            if (refArray[highlighted].current) {
-                gsap.to(refArray[highlighted].current.position, {
-                    x: 0,
-                    y: 0,
-                    z: 0,
-                    ease: "power1.out",
-                    duration: 0.5
-                });
             }
-        }
+        } 
     },[refArray, positionsArray, posInd, highlighted]);
    
     return (
@@ -142,7 +175,7 @@ const HobbyCombo = () => {
                     >
                         <Resistor />
                     </Hobby>
-                    {highlighted != -1 &&
+                    {highlighted >0 && highlighted < refArray.length &&
                         <Html as="div" center style={{
                                 justifyContent: 'center',
                                 alignItems: 'center',
