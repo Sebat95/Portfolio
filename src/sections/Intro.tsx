@@ -14,13 +14,14 @@ const Intro = () => {
   const canvasRef = useRef<HTMLCanvasElement>();
   const divRef = useRef<HTMLDivElement>();
   const explRef = useRef<Group<Object3DEventMap>>();
-  const [full, setFull] = useState(false);
-  const [killed, setKilled] = useState(true);
+  const [full, setFull] = useState(false); // explosion is fully scaled up
+  const [killed, setKilled] = useState(true); // explosion scale up has been interrupted
   const [tweenOut, setTweenOut] = useState({});
   const [tweenIn, setTweenIn] = useState({});
   const [hovering, setHovering] = useState(false);
   const { setExperience } = useContext(ExperienceContext);
-  const isNotPC = useMediaQuery({maxWidth: 1024}); // is not pc start journey automatically
+  const isNotPC = useMediaQuery({maxWidth: 1024}); // is not PC start journey automatically
+  const [, setExpStart] = useState(-1); // if not on PC, timeout to open experience automatically
    
   // unload if scrolled out of sight
   useEffect(() => {
@@ -65,12 +66,7 @@ const Intro = () => {
           x: `9`,
           z: `9`,
           duration: isNotPC ? 1.5 : 2,
-          onComplete: () => {
-            setFull(true);
-            if(isNotPC) {
-                setTimeout(() => setExperience(experiences[0]), 1000);
-            }
-          }
+          onComplete: () => setFull(true)
         }));
       } else {
         gsap.killTweensOf(tweenIn);
@@ -87,6 +83,20 @@ const Intro = () => {
   }, {
     dependencies: [hovering]
   });
+
+  // if we are not on PC start experience automaticaly 
+  useEffect(() => {
+    let timeout = -1;
+    if(isNotPC && full && !killed){
+      timeout = setTimeout(() => {
+        setExperience(experiences[0]);
+      }, 1500); 
+    }
+    setExpStart(prev => {
+      clearTimeout(prev);
+      return timeout;
+    });
+  }, [isNotPC, full, killed, setExperience])
 
   return (
     <section className='min-h-screen w-full flex flex-col relative' id='home'>
@@ -106,7 +116,7 @@ const Intro = () => {
                   style={{
                     visibility: full && !killed ? 'visible' : 'hidden',
                     opacity: full && !killed ? '1' : '0',
-                    transition: 'visibility 0s, opacity 0.5s linear',
+                    transition: 'visibility 0s, opacity 0.3s linear',
                     zIndex: -1
                   }}  
                 >
