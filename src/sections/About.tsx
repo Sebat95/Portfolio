@@ -37,7 +37,7 @@ const About = () => {
                                 <p className="grid-headtext">Thanks for visiting my site</p>
                                 <br/>
                                 <p className="grid-subtext">
-                                    I'm a full stack software engineer with {new Date().getFullYear() - 2020} years of experience.
+                                    I'm Samuele Battaglino, a full stack software engineer with {new Date().getFullYear() - 2020} years of experience.
                                 </p>
                                 {aboutMe.map((me, ind) => (
                                     me === '' ?

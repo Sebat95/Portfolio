@@ -121,7 +121,7 @@ const Intro = () => {
                   }}  
                 >
                   <h3 className='text-white font-semibold text-gray_gradient text-2xl lg:w-96 md:w-80 sm:w-40 mt-40'>
-                    {isNotPC ? "Starting the journey..." : "Click to start the journery"}
+                    {isNotPC ? "Starting the journey..." : "Click to start the journey"}
                   </h3>
                 </Html>
             </Suspense>

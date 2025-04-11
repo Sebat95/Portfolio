@@ -173,7 +173,6 @@ export const aboutMe = [
   "",
   "I always wanted to work with Machine Learning, pursue a PhD and all, but life always brought me back to coding,",
   "doing leetcode every day surely did its part!",
-  "I have used: Java, TS, JS, HTML, CSS, Python, Angular, Postgres, Mongo, Spring, Numpy, C, Flask, Redis, Clickhouse, Kakfa...",
   "",
   "The reality of things is that I love to always keep learning and thinkering, that's why programming in general is sooo appealing to me!",
   "",
