@@ -8,7 +8,7 @@ Title: 1K Ohm Resistor
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
-import { HobbyObjectProps } from '../common/props'
+import { HobbyObjectProps } from '../../common/props'
 
 const Resistor = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/1k_ohm_resistor.glb')

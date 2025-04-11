@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { experiences } from '../common/constants.ts';
-import { ExperienceContext } from "../components/ExperienceContext.tsx";
+import { JourneyContext } from "../components/context/JourneyContext.tsx";
 import { isEmpty } from "../common/utils.ts";
 import NavItems from "../components/NavItems.tsx";
 
@@ -10,7 +10,7 @@ interface NavProps {
 
 const Navbar = (props: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const {setExperience } = useContext(ExperienceContext);
+  const { setExperience } = useContext(JourneyContext);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 

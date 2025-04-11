@@ -6,8 +6,9 @@ import { SRGBColorSpace, Bone, Skeleton, MeshStandardMaterial, SkinnedMesh, Math
 import { degToRad } from "three/src/math/MathUtils.js";
 import { pages } from "../common/constants";
 
+// CONSTANTS
 const EASING_FACTOR = 0.5; // ease of movements (the higher the smoother)
-const EASING_FACTOR_FOLD = 0.3;
+const EASING_FACTOR_FOLD = 0.3; // ease of folding (the higher the smoother)
 const INSIDE_CURVE_STR = 0.18; // inside page curve strength
 const OUTSIDE_CURVE_STR = 0.05; // inside page curve strength
 const TURN_CURVE_STR = 0.09; // inside page curve strength
@@ -62,7 +63,7 @@ const pageMaterials = [
     new MeshStandardMaterial({color: '#111'}),
     new MeshStandardMaterial({color: white}),
     new MeshStandardMaterial({color: white})
-]
+];
 
 
 // preload all textures, so nothing is missing
@@ -93,8 +94,8 @@ const Page = (prop: PageProp) => {
     frontMap.colorSpace = backMap.colorSpace = SRGBColorSpace; // better colors
     const ref = useRef<Group<Object3DEventMap>>();
     const pageMeshRef = useRef<SkinnedMesh<BufferGeometry>>();
-    const [turnedAt,setTurnedAt] = useState(0);
-    const [lastOpened,setLastOpened] = useState(opened);
+    const [turnedAt, setTurnedAt] = useState(0);
+    const [lastOpened, setLastOpened] = useState(opened);
 
 
     // create the custom skinned mesh
@@ -146,7 +147,7 @@ const Page = (prop: PageProp) => {
     // visualize actual skeleton on screen
     // useHelper(pageMeshRef, SkeletonHelper, "red");
 
-
+    // putting all together and create the page
     useFrame((_, delta) => {
         if (ref.current && pageMeshRef.current && Array.isArray(pageMeshRef.current.material)) {
             const emissiveIntensity = highlighted ? 0.22 : 0;
@@ -161,7 +162,6 @@ const Page = (prop: PageProp) => {
                 0.1
             );
                    
-           
             if (lastOpened !== opened) {
                 setTurnedAt(Date.now());
                 setLastOpened(opened);
@@ -174,7 +174,7 @@ const Page = (prop: PageProp) => {
                 targetRotation += degToRad(pageNum * 0.8);
             }
             for (let i = 0; i < bones.length; i++) {
-                // for the first bones bend the whole page
+                // for the first bone bend the whole page
                 const target = i === 0 ? ref.current : bones[i];
                 // bend the page in two opposite ways (near the spine and away)
                 // furthermore avoid it when closed
@@ -194,7 +194,7 @@ const Page = (prop: PageProp) => {
                     EASING_FACTOR,
                     delta
                 );
-                // place a fold on the x axes too to give it more realism
+                // place a fold on the x axes, to give it more realism
                 const fold = bookClosed ? 0 : degToRad(Math.sign(targetRotation) * 2);
                 const foldIntensity = i > 8 ? Math.sin(i * Math.PI / bones.length - 0.5) * turningTime : 0;
                 easing.dampAngle(

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { ExperienceContext } from "../components/ExperienceContext"
+import { JourneyContext } from "../components/context/JourneyContext"
 import { experiences } from "../common/constants"
 import ComputerCombo from "../components/ComputerCombo"
 import BookCombo from "../components/BookCombo"
@@ -7,7 +7,7 @@ import HobbyCombo from "../components/HobbyCombo"
 
 const Experience = () => {
   const [expInd, setExpInd] = useState(0);
-  const {setExperience } = useContext(ExperienceContext);
+  const { setExperience } = useContext(JourneyContext);
 
   const handleNavigation = (back = false) => {
     setExpInd((prev) => {

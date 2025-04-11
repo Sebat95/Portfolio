@@ -9,7 +9,7 @@ const NavItems = (props: NavItemsProps) => {
     <ul className="nav-ul">
       {navLinks.map(({id, href, name, exp}) => (
         <li key={id} className="nav-li">
-          <a href={href} className="nav-li_a" onClick={() => exp ? props.startExperience() : true}>{name}</a>
+          <a href={href} className="nav-li_a" onClick={() => exp && props.startExperience()}>{name}</a>
         </li>
       ))}
     </ul>

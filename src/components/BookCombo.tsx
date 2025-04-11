@@ -2,7 +2,7 @@ import { Float, OrbitControls } from "@react-three/drei"
 import Book from "../components/Book"
 import { Canvas } from "@react-three/fiber"
 import { Suspense, useState } from "react"
-import CanvasLoader from "../components/CanvasLoader"
+import CanvasLoader from "./common/CanvasLoader"
 import BookButtons from "./BookButtons"
 
 const BookCombo = () => {

@@ -8,14 +8,14 @@ const About = () => {
     const email = 'samubattaglino@gmail.com';
     const handleAction = (setState: Dispatch<SetStateAction<boolean>>, action: CallableFunction) => {
         action();
-        
+        // avoid multiple download        
         setTimeout(() => {
             setState(true);
             setTimeout(() => setState(false), 2000);
         }, 200);
     }
 
-    // TODO: refactor to get call once cv is hosted too
+    // maybe refactor and host the cv too
     const doDownload = () => {
         const link = document.createElement('a');
         link.setAttribute('type', 'hidden');

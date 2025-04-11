@@ -20,6 +20,7 @@ const Computer = (props: ComputerProps) => {
   const group = useRef();
   const { nodes, materials } = useGLTF('/models/computer.glb');
 
+  // override flip texture from glb
   const txtr = useTexture(props.texture);
   txtr.flipY = false;
 

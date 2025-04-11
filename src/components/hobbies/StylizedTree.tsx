@@ -8,7 +8,7 @@ Title: Stylized tree
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
-import { HobbyObjectProps } from '../common/props'
+import { HobbyObjectProps } from '../../common/props'
 
 const StylizedTree = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/stylized_tree.glb')

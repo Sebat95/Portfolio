@@ -10,7 +10,8 @@ const BookButtons = (props: BookButtonsProps) => {
   return (
     <>
         {
-            pages.map((p,i) => (<button
+            pages.map((p,i) => (
+              <button
                 key={i}
                 className={`border-transparent hover:border-white transition-all duration-300 px-4 py-3 rounded-full text-lg uppercase shrink-0 border ${
                   i === props.page
@@ -20,7 +21,8 @@ const BookButtons = (props: BookButtonsProps) => {
                 onClick={() => props.setPage(i)}
               >
                 {i < pages.length ? p.title : "Back"}
-            </button>))
+              </button>
+            ))
         }
     </>
   );

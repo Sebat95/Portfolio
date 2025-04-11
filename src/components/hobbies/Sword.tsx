@@ -8,7 +8,7 @@ Title: medieval sword
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
-import { HobbyObjectProps } from '../common/props'
+import { HobbyObjectProps } from '../../common/props'
 
 const Sword = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/medieval_sword.glb')

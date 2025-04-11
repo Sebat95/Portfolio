@@ -8,7 +8,7 @@ Title: LowPoly - Flask
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
-import { HobbyObjectProps } from '../common/props'
+import { HobbyObjectProps } from '../../common/props'
 
 const Flask = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/lowpoly_-_flask.glb')

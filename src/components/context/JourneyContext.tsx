@@ -1,11 +1,11 @@
 import { createContext, Dispatch, SetStateAction } from "react";
 
-interface ExperienceContextType {
+interface JourneyContextType {
     experience: string;
     setExperience: Dispatch<SetStateAction<string>>;
 };
 
-export const ExperienceContext = createContext<ExperienceContextType>({
+export const JourneyContext = createContext<JourneyContextType>({
     experience: '',
     setExperience: () => {}
 });

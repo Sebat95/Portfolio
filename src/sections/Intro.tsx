@@ -1,12 +1,12 @@
 import {Canvas} from '@react-three/fiber';
 import { LegacyRef, Ref, RefObject, Suspense, useContext, useEffect, useRef, useState } from 'react';
 import { Html, PerspectiveCamera } from '@react-three/drei';
-import CanvasLoader from '../components/CanvasLoader';
+import CanvasLoader from '../components/common/CanvasLoader';
 import Explosion from '../components/Explosion';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Group, Object3DEventMap } from 'three';
-import { ExperienceContext } from '../components/ExperienceContext';
+import { JourneyContext } from '../components/context/JourneyContext';
 import { experiences } from '../common/constants';
 import { useMediaQuery } from 'react-responsive';
 
@@ -19,7 +19,7 @@ const Intro = () => {
   const [tweenOut, setTweenOut] = useState({});
   const [tweenIn, setTweenIn] = useState({});
   const [hovering, setHovering] = useState(false);
-  const { setExperience } = useContext(ExperienceContext);
+  const { setExperience } = useContext(JourneyContext);
   const isNotPC = useMediaQuery({maxWidth: 1024}); // is not PC start journey automatically
   const [, setExpStart] = useState(-1); // if not on PC, timeout to open experience automatically
    

@@ -1,7 +1,7 @@
 import { Ref, Suspense, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
-import CanvasLoader from '../components/CanvasLoader';
+import CanvasLoader from './common/CanvasLoader';
 import DemoComputer from '../components/Computer';
 import { jobsAndProjs } from '../common/constants';
 

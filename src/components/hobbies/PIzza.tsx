@@ -8,7 +8,7 @@ Title: Pizza
 
 import { useGLTF } from '@react-three/drei';
 import { Mesh } from 'three';
-import { HobbyObjectProps } from '../common/props';
+import { HobbyObjectProps } from '../../common/props';
 
 const Pizza = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/pizza.glb');

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css'
-import { ExperienceContext } from './components/ExperienceContext';
+import { JourneyContext } from './components/context/JourneyContext';
 import About from './sections/About';
 import Footer from './sections/Footer';
 import Intro from './sections/Intro';
@@ -12,13 +12,13 @@ const App = () => {
   const [exp, setExp] = useState('');
   return (
     <main className='mx-auto'>
-      <ExperienceContext.Provider value={{experience: exp,  setExperience: setExp}}>
+      <JourneyContext.Provider value={{experience: exp,  setExperience: setExp}}>
         <Navbar  title={exp}/>
         {isEmpty(exp) && <Intro />}
         {!isEmpty(exp) && <Experience />}
         {isEmpty(exp) && <About />}
         {isEmpty(exp) && <Footer />}
-      </ExperienceContext.Provider>
+      </JourneyContext.Provider>
     </main>
 )}
 

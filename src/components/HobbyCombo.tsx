@@ -1,18 +1,18 @@
 import { Canvas, ThreeEvent } from "@react-three/fiber";
 import { Dispatch, RefObject, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import CanvasLoader from "./CanvasLoader";
-import Flask from "./Flask";
-import Pizza from "./PIzza";
-import Sword from "./Sword";
-import StylizedTree from "./StylizedTree";
-import Resistor from "./Resistor";
+import CanvasLoader from "./common/CanvasLoader";
 import { Group, Object3DEventMap } from "three";
 import gsap from 'gsap';
 import { numsToVector3 } from "../common/utils";
 import { Html } from "@react-three/drei";
 import { hobbies } from "../common/constants";
 import Hobby from "./Hobby";
-import Basketball from "./Basketball";
+import Basketball from "./hobbies/Basketball";
+import Flask from "./hobbies/Flask";
+import Pizza from "./hobbies/PIzza";
+import Resistor from "./hobbies/Resistor";
+import StylizedTree from "./hobbies/StylizedTree";
+import Sword from "./hobbies/Sword";
 
 
 const doSetHighlighted = (id: number, setter: Dispatch<React.SetStateAction<number>>, event: ThreeEvent<MouseEvent> | React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
