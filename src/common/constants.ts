@@ -32,7 +32,7 @@ export const jobsAndProjs = [
       'Then I developed most of the front end and some data ingestion process. ' +
       'Lastly, I have designed and developed a Visual Studio Code extension which integrates the company proprietary GenAI for generating commit comments, refactoring/explaining code and so on.',
     href: 'https://www.intesasanpaolo.com/',
-    texture: '/assets/isp_texture.png',
+    texture: '/textures/computer/isp_texture.png',
     logo: '/assets/isp_logo.png',
     tags: [
       {
@@ -67,7 +67,7 @@ export const jobsAndProjs = [
       'During my years there I also mentored newly hired collegues and, by being in close contact with the users, I grew a good sense of client relationship management. ' +
       'Since the team was small, I had the opportunity to familiarize with the whole architecture from the Oracle SQL DB, MyBatis, Jenkins, Ansible, Openshift and so on.',
     href: 'https://www.reply.com',
-    texture: '/assets/reply_texture.jpg',
+    texture: '/textures/computer/reply_texture.jpg',
     logo: '/assets/reply_logo.png',
     tags: [
       {
@@ -98,7 +98,7 @@ export const jobsAndProjs = [
       'This was my MS thesis, that got published by IEEE and got me a flying colors degree. I really enjoyed the research and discovery process, the heavy math and machine learning side. ' +
       'I have recently rewrote the whole thing from the intial Matlab scripts to Python.',
     href: 'https://github.com/Sebat95/GPCA',
-    texture: '/assets/gcpa_texture.png',
+    texture: '/textures/computer/gcpa_texture.png',
     logo: '/assets/gcpa_logo.png',
     tags: [
       {
@@ -121,7 +121,7 @@ export const jobsAndProjs = [
       'We used a combination of 3 approaches/heuristics Greedy Randomized Adaptive Search Procedure (GRASP), Adaptive Large Neighborhood Search (ALNS) and Tabu Search (TS). ' +
       'The objective was to maximize the score while computing the result as fast as possible, so in the mix we also made the app multithreaded.',
     href: 'https://github.com/Sebat95/OMA',
-    texture: '/assets/oma_texture.png',
+    texture: '/textures/computer/oma_texture.png',
     logo: '/assets/oma_logo.png',
     tags: [
       {
@@ -139,7 +139,7 @@ export const jobsAndProjs = [
       'In the college course of Automation, my team and I, designed and protoyped the overall architecture of this whole system in a startup fashion. ' +
       'I personally mainly developed the Flask server managing the interactions between all the parts (Android apps, website and Arduino system) and the presentational website. ',
     href: 'https://ami-2017.github.io/AmIcook',
-    texture: '/assets/amicook_texture.png',
+    texture: '/textures/computer/amicook_texture.png',
     logo: '/assets/amicook_logo.png',
     tags: [
       {
