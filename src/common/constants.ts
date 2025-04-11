@@ -92,8 +92,8 @@ export const jobsAndProjs = [
     title: 'Generalized Principal Component Analysis',
     isWork: false,
     ind: -1,
-    desc: 'Conventional principal component analysis (PCA) finds a principal vector that maximizes the sum of second powers of principal components. We consider a generalized PCA that aims at maximizing the sum of an arbitrary convex function of principal components.' + 
-    'We present a gradient ascent algorithm to solve the problem. For the kernel version of generalized PCA, we show that the solutions can be obtained as fixed points of a simple single-layer recurrent neural network. We also evaluate our algorithms on different datasets.',
+    desc: 'Conventional principal component analysis (PCA) finds a principal vector that maximizes the sum of second powers of principal components. My  advisor and I, considered a generalized PCA that aims at maximizing the sum of an arbitrary convex function of principal components. ' + 
+    'We present a gradient ascent algorithm to solve the problem. For the kernel version of generalized PCA, we show that the solutions can be obtained as fixed points of a simple single-layer recurrent neural network. We also evaluate our algorithms on different datasets. ',
     subdesc:
       'This was my MS thesis, that got published by IEEE and got me a flying colors degree. I really enjoyed the research and discovery process, the heavy math and machine learning side. ' +
       'I have recently rewrote the whole thing from the intial Matlab scripts to Python.',
@@ -115,11 +115,11 @@ export const jobsAndProjs = [
     title: 'Exam Scheduling Solver',
     isWork: false,
     ind: -1,
-    desc: 'During my college optimization course, my team and I were tasked to tackle an NP scheduling problem and we ranked first in our course',
+    desc: 'During my college optimization course, my team and I were tasked to tackle an NP scheduling problem and we ranked first in our course. ',
     subdesc:
       'The problem was organizing different students in different courses with set priorities and capacities. ' +
       'We used a combination of 3 approaches/heuristics Greedy Randomized Adaptive Search Procedure (GRASP), Adaptive Large Neighborhood Search (ALNS) and Tabu Search (TS). ' +
-      'The objective was to maximize the score while computing the result as fast as possible, so in the mix we also made the app multithreaded.',
+      'The objective was to maximize the score while computing the result as fast as possible, so in the mix we also made the app multithreaded. ',
     href: 'https://github.com/Sebat95/OMA',
     texture: '/textures/computer/oma_texture.png',
     logo: '/assets/oma_logo.png',
@@ -171,11 +171,11 @@ export const aboutMe = [
   "I created this portfolio first and foremost to teach myself React, TreeJS, and GCP hosting,",
   "I really had fun and learned a lot while putting it together!",
   "",
-  "I always wanted to work with Machine Learning, persue a PhD and all, but life always brought me back to coding,",
+  "I always wanted to work with Machine Learning, pursue a PhD and all, but life always brought me back to coding,",
   "doing leetcode every day surely did its part!",
   "I have used: Java, TS, JS, HTML, CSS, Python, Angular, Postgres, Mongo, Spring, Numpy, C, Flask, Redis, Clickhouse, Kakfa...",
   "",
-  "The reality of things is that I love to always keep learing and thinkering, that's why programming in general is sooo appealing to me!",
+  "The reality of things is that I love to always keep learning and thinkering, that's why programming in general is sooo appealing to me!",
   "",
   "Anyhow if you enjoyed my website and you'd like to contact me, feel free to reach out or just give me a star on Github *wink*"
 ];
@@ -198,7 +198,7 @@ for (let i = 1, j = 1; i < pagesLength - 1; i += 2, j +=1) {
   });
 }
 pages.push({
-  front: `pages-images-${pagesLength-1}`,
+  front: `pages-images-${pagesLength - 1}`,
   back: "book-back",
   title: `Page ${pages.length}`
 });
@@ -218,7 +218,7 @@ export const hobbies = [
     "While it might sound cliché, my passion for cooking truly blossomed alongside my grandmother, as I spent countless hours assisting her. ",
     "For me, cooking is a profound act of nurturing, providing both physical sustenance and emotional comfort. ",
     "I love cooking for others almost more than for myself. " ,
-    "Latly, speaking of long-term dedication, my sourdough starter has been thriving for over ten years – it's practically a member of the family!"
+    "Lately, speaking of long-term dedication, my sourdough starter has been thriving for over ten years – it's practically a member of the family!"
   ],[
     "Blacksmithing",
     "Inspired by YouTube and fascinated with the fantasy/medieval world, I thought: 'I bet I could forge a sword'. ",
@@ -229,7 +229,7 @@ export const hobbies = [
     "Nature",
     "Nature played a central role in my childhood, even before sports came into the picture. ",
     "Weekends revolved around our little family house nestled in the woods, where walking, tending the garden, and the simple joy of cooking and eating outside were cherished moments. ",
-    "Even as my family's pace quickened and we grew up, my connection to nature remained strong, leading me to become a Boy Scout instructor and spend years sharing my love for the outdoors with others. "
+    "Even as my family's pace quickened and we grew up, my connection with nature remained strong, leading me to become a Boy Scout instructor and spend years sharing my love for the outdoors with others. "
   ],[
     "Electronics",
     "I opted for computer engineering rather than science because I sought a more diverse education. ",
