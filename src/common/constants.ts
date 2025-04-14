@@ -168,7 +168,7 @@ export const jobsAndProjs = [
 jobsAndProjs.forEach((v,i) => v.ind = i);
 
 export const aboutMe = [
-  "I created this portfolio first and foremost to teach myself React, TreeJS, and GCP hosting,",
+  "I created this portfolio first and foremost to teach myself React, ThreeJS, and GCP hosting,",
   "I really had fun and learned a lot while putting it together!",
   "",
   "I always wanted to work with Machine Learning, pursue a PhD and all, but life always brought me back to coding,",

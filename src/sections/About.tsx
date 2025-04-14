@@ -19,7 +19,7 @@ const About = () => {
     const doDownload = () => {
         const link = document.createElement('a');
         link.setAttribute('type', 'hidden');
-        link.href = '/assets/cv_anonimized.pdf';
+        link.href = '/assets/cv.pdf';
         link.download = 'cv.pdf';
         document.body.appendChild(link);
         link.click();
