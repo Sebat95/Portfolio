@@ -14,6 +14,11 @@ const Navbar = (props: NavProps) => {
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
+  const doSetExp = () => {
+    setExperience(experiences[0]);
+    toggleMenu();
+  }
+
   return isEmpty(props.title) ? (
     <header className='fixed top-0 left-0 right-0 z-50 bg-black/90' id='header'>
       <div className="max-w-7xl mx-auto">
@@ -28,14 +33,14 @@ const Navbar = (props: NavProps) => {
           </button>
           {/* Larger device navbar on top*/}
           <nav className="sm:flex hidden">
-            <NavItems startExperience={() => setExperience(experiences[0])}/>
+            <NavItems startExperience={doSetExp}/>
           </nav>
         </div>
       </div>
       {/* Smaller device navbar collapsing items */}
       <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
         <nav className="p-5">
-          <NavItems startExperience={() => setExperience(experiences[0])}/>
+          <NavItems startExperience={doSetExp}/>
         </nav>
       </div>
     </header>
