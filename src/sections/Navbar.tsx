@@ -23,8 +23,13 @@ const Navbar = (props: NavProps) => {
     <header className='fixed top-0 left-0 right-0 z-50 bg-black/90' id='header'>
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
-          <a href="/" className="text-neutral-400 font-semibold text-xl hover:text-white transition-colors">
-            Samuele Battaglino
+          <a href="/" className="group grid-cols-1">
+            <p className="row-span-1 col-span-1 text-neutral-400 group-hover:text-white transition-colors font-semibold text-xl">
+              Samuele Battaglino
+            </p>
+            <p className="row-span-1 col-span-1 text-neutral-600 group-hover:text-neutral-400 transition-colors font-light text-base">
+              Computer Engineer
+            </p>
           </a>
           {/* Smaller device navbar collapsing button */}
           <button onClick={toggleMenu} className="text-neutral-400 hover:text-white focus:outline-none
