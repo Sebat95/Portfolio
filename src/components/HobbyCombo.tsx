@@ -9,10 +9,10 @@ import { hobbies } from "../common/constants";
 import Hobby from "./Hobby";
 import Basketball from "./hobbies/Basketball";
 import Flask from "./hobbies/Flask";
-import Pizza from "./hobbies/PIzza";
+import Pizza from "./hobbies/Pizza";
 import Resistor from "./hobbies/Resistor";
 import StylizedTree from "./hobbies/StylizedTree";
-import Sword from "./hobbies/Sword";
+import Anvil from "./hobbies/Anvil";
 
 
 const doSetHighlighted = (id: number, setter: Dispatch<React.SetStateAction<number>>, event: ThreeEvent<MouseEvent> | React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
@@ -36,7 +36,7 @@ const HobbyCombo = () => {
     const bbRef = useRef<Group<Object3DEventMap>>();
     const flaskRef = useRef<Group<Object3DEventMap>>();
     const pizzaRef = useRef<Group<Object3DEventMap>>();
-    const swordRef = useRef<Group<Object3DEventMap>>();
+    const anvilRef = useRef<Group<Object3DEventMap>>();
     const stRef = useRef<Group<Object3DEventMap>>();
     const resistorRef = useRef<Group<Object3DEventMap>>();
     const refArray = useMemo(
@@ -44,7 +44,7 @@ const HobbyCombo = () => {
             bbRef,
             flaskRef,
             pizzaRef,
-            swordRef,
+            anvilRef,
             stRef,
             resistorRef
         ],
@@ -158,9 +158,9 @@ const HobbyCombo = () => {
                     <Hobby position={positionsArray[6]}
                         highlighted={highlighted != -1}
                         onClick={e => doSetHighlighted(3, setHighlighted, e)}
-                        innerRef={swordRef as RefObject<Group<Object3DEventMap>>}
+                        innerRef={anvilRef as RefObject<Group<Object3DEventMap>>}
                     >
-                        <Sword />
+                        <Anvil />
                     </Hobby>
                     <Hobby position={positionsArray[8]}
                         highlighted={highlighted != -1}
