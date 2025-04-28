@@ -100,7 +100,7 @@ const Intro = () => {
 
   return (
     <section className='min-h-screen w-full flex flex-col relative' id='home'>
-      <div className="w-full h-full absolute inset-0" ref={divRef as LegacyRef<HTMLDivElement>}>
+      <div className="w-full-screen" ref={divRef as LegacyRef<HTMLDivElement>}>
         <Canvas className='w-full h-full' ref={canvasRef as Ref<HTMLCanvasElement>}
           onClick={() => full && !killed && setExperience(experiences[0])}
           onPointerEnter={() => setHovering(true)}
