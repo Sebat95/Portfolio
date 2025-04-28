@@ -36,7 +36,7 @@ const Navbar = (props: NavProps) => {
             <p className="text-white font-semibold text-xl">{props.title}</p>
           )}
           {/* Smaller device navbar collapsing button */}
-          <button onClick={toggleExp} className="text-neutral-400 hover:text-white focus:outline-none
+          <button onClick={toggleMenu} className="text-neutral-400 hover:text-white focus:outline-none
             sm:hidden flex" aria-label="Toggle Menu">
             <img src={isOpen ? "/assets/close.svg": "/assets/menu.svg"} alt="toggle" className="w-6 h-6"/>
           </button>
