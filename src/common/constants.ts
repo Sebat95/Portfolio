@@ -178,9 +178,9 @@ export const aboutMe = [
   "I really had fun and learned a lot while putting it together!",
   "",
   "I always wanted to work with Machine Learning, pursue a PhD and all, but life always brought me back to coding,",
-  "doing leetcode every day surely did its part!",
+  "doing leetcode every day surely did its part.",
   "",
-  "The reality of things is that I love to always keep learning and thinkering, that's why programming in general is sooo appealing to me!",
+  "The reality of things is that I love to always keep learning and thinkering, that's why programming in general is sooo appealing to me.",
   "",
   "Anyhow if you enjoyed my website and you'd like to contact me, feel free to reach out or just give me a star on Github *wink*"
 ];
