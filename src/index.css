@@ -6,6 +6,8 @@
 
 * {
   scroll-behavior: smooth;
+  /* oversized since there at most two sections it does not matter */
+  scroll-margin-top: 100px; 
 }
 
 body {

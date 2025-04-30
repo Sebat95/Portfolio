@@ -13,7 +13,7 @@ const App = () => {
   return (
     <main className='mx-auto'>
       <JourneyContext.Provider value={{experience: exp,  setExperience: setExp}}>
-        <Navbar  title={exp}/>
+        <Navbar title={exp}/>
         {isEmpty(exp) && <Intro />}
         {!isEmpty(exp) && <Experience />}
         {isEmpty(exp) && <About />}
