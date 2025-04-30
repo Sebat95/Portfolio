@@ -1,6 +1,9 @@
 # Portfolio
-This portfolio was primarily a learning experience to familiarize myself with React, Three.js, React Fiber, GCP hosting, domain registring and so on...
+This portfolio was primarily a learning experience to familiarize myself with React, Three.js, React Fiber, Tailwind, GCP hosting, domain registring and so on...
 The development process turned out to be a really fun, educational and insightful experience!
+
+The application is served by a basic nginx server.
+On GCP, both the server and the app are Dockerized together and deployed through Cloud Run, where it is connected to my custom domain.
 
 Huge credits to these amazing tutorials and people that helped shape up this project:
 - For the main idea: https://youtu.be/kt0FrkQgw8w | https://github.com/adrianhajdin/threejs-portfolio
