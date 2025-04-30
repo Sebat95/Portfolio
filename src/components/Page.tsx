@@ -178,8 +178,8 @@ const Page = (prop: PageProp) => {
                 const target = i === 0 ? ref.current : bones[i];
                 // bend the page in two opposite ways (near the spine and away)
                 // furthermore avoid it when closed
-                const insideCurveIntensity = i < 8 ? Math.sin(i * 0.2 + 0.25) : 0;
-                const outsideCurveIntensity = i >= 8 ? Math.cos(i * 0.3 + 0.09) : 0;
+                const insideCurveIntensity = i < 8 ? Math.sin((i + 6) * 0.2 + 0.25) : 0;
+                const outsideCurveIntensity = i >= 8 ? Math.cos(i * 0.3 + 0.5) : 0;
                 const turningIntensity = Math.sin(i * Math.PI / bones.length) * turningTime;
                 const rotation = bookClosed ? (
                     i === 0 ? targetRotation : 0
