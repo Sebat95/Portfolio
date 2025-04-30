@@ -17,7 +17,7 @@ const BookCombo = () => {
                         rotation-x={-Math.PI / 4}
                         floatIntensity={0.5}
                         speed={0.5}
-                        rotationIntensity={1}
+                        rotationIntensity={0.5}
                     >
                         <Book scale={2.75} page={page} changePage={setPage}/>
                     </Float>
