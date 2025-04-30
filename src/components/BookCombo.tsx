@@ -16,7 +16,7 @@ const BookCombo = () => {
                     <Float
                         rotation-x={-Math.PI / 4}
                         floatIntensity={0.5}
-                        speed={1}
+                        speed={0.5}
                         rotationIntensity={1}
                     >
                         <Book scale={2.75} page={page} changePage={setPage}/>
@@ -24,10 +24,10 @@ const BookCombo = () => {
                 <OrbitControls />
                 <directionalLight
                     position={[2, 5, 2]}
-                    intensity={2}
+                    intensity={1}
                     castShadow
                 />
-                <ambientLight intensity={3} />
+                <ambientLight intensity={1} />
                 </Suspense>
             </Canvas>
         </div>
