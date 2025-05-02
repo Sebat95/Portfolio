@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://sbatta.it/sitemap.xml

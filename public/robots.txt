@@ -1,0 +1,4 @@
+user-agent: *
+allow: /
+disallow: /*.pdf
+sitemap: https://sbatta.it/sitemap.xml
