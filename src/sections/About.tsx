@@ -51,7 +51,9 @@ const About = () => {
                     </div>
                     <div className="xl:col-span-1 xl:row-span-2">
                         <div className="grid-container">
-                            <img src="/assets/cv.png" alt="cv" className="w-fit h-fit object-cover sm:objet-top"/>
+                            <div className='w-fit h-fit'>
+                                <img src="/assets/cv.png" alt="cv" className="w-96 h-96 object-cover sm:objet-top"/>
+                            </div>
                             <div>
                                 <p className="grid-headtext">Get my CV</p>
                                 <div className='copy-container' onClick={() => handleAction(sethasDowloaded, doDownload)}>
@@ -62,8 +64,10 @@ const About = () => {
                         </div>
                     </div>
                     <div className="xl:col-span-1 xl:row-span-2">
-                        <div className="grid-container">
-                            <img src="/assets/stackLogos.png" alt="stack" className="w-fit h-fit object-contain"/>
+                        <div className="grid-container">  
+                            <div className='w-fit h-fit'>
+                                <img src="/assets/stackLogos.png" alt="stack" className="w-96 h-96 object-contain sm:objet-top" />
+                            </div>
                             <div>
                                 <p className="grid-headtext">Technologies</p>
                                 <p className="grid-subtext">Just a tl;dr if you did not read above</p>
@@ -72,7 +76,9 @@ const About = () => {
                     </div>
                     <div className="xl:col-span-1 xl:row-span-2">
                         <div className="grid-container">
-                            <img src="/assets/email.png" alt="email" className="w-fit h-fit object-contain"/>
+                            <div className='w-fit h-fit'>
+                                <img src="/assets/email.png" alt="email" className="w-96 h-96 object-contain"/>
+                            </div>
                             <div className='space-y-2'>
                                 <p className="grid-headtext">Let's talk!</p>
                                 <p className="grid-subtext text-center">The best way to get in touch is to shot me an email</p>
