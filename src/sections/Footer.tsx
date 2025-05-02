@@ -12,7 +12,7 @@ const Footer = () => {
                       <img src='/assets/leetcode.svg' alt='github' className='w-1/2 h-1/2 rounded-full bg-white' />
               </a>
           </div>
-          <p className="text-white-500">© {new Date().getFullYear()} Samuele Battaglino. All Rights Reserved</p>
+          <p className="text-white-600">© {new Date().getFullYear()} Samuele Battaglino. All Rights Reserved</p>
     </section>
   )
 };
