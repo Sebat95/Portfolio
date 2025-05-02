@@ -52,7 +52,7 @@ const About = () => {
                     <div className="xl:col-span-1 xl:row-span-2">
                         <div className="grid-container">
                             <div className='w-fit h-fit'>
-                                <img src="/assets/cv.png" alt="cv" className="w-96 h-96 object-cover sm:objet-top"/>
+                                <img src="/assets/cv.webp" alt="cv" className="w-96 h-96 object-cover sm:objet-top"/>
                             </div>
                             <div>
                                 <p className="grid-headtext">Get my CV</p>
@@ -66,7 +66,7 @@ const About = () => {
                     <div className="xl:col-span-1 xl:row-span-2">
                         <div className="grid-container">  
                             <div className='w-fit h-fit'>
-                                <img src="/assets/stackLogos.png" alt="stack" className="w-96 h-96 object-contain sm:objet-top" />
+                                <img src="/assets/stackLogos.webp" alt="stack" className="w-96 h-96 object-contain sm:objet-top" />
                             </div>
                             <div>
                                 <p className="grid-headtext">Technologies</p>
@@ -77,7 +77,7 @@ const About = () => {
                     <div className="xl:col-span-1 xl:row-span-2">
                         <div className="grid-container">
                             <div className='w-fit h-fit'>
-                                <img src="/assets/email.png" alt="email" className="w-96 h-96 object-contain"/>
+                                <img src="/assets/email.webp" alt="email" className="w-96 h-96 object-contain"/>
                             </div>
                             <div className='space-y-2'>
                                 <p className="grid-headtext">Let's talk!</p>
