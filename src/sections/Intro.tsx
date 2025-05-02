@@ -28,11 +28,13 @@ const Intro = () => {
     let observerRefValue = null;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          canvasRef.current!.style.display = 'inherit';
-        } else {
-          canvasRef.current!.style.display = 'none';
-          setHovering(false);
+        if (canvasRef.current) {
+          if (entry.isIntersecting) {
+            canvasRef.current.style.display = 'inherit';
+          } else {
+            canvasRef.current.style.display = 'none';
+            setHovering(false);
+          }
         }
       },
       {
