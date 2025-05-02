@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { Suspense, useContext, useState } from "react";
 import { experiences } from '../common/constants.ts';
 import { JourneyContext } from "../components/context/JourneyContext.tsx";
 import { isEmpty, isNotEmpty } from "../common/utils.ts";
@@ -18,6 +18,12 @@ const Navbar = (props: NavProps) => {
     setExperience(prev => isEmpty(prev) ? experiences[0]: '');
     toggleMenu();
   }
+
+  const suspenseNavItems = () => (
+    <Suspense>
+      <NavItems isJourneying={isNotEmpty(experience)} startExperience={toggleExp}/>
+    </Suspense>
+  )
 
   return (
     <header className='fixed top-0 left-0 right-0 z-50 bg-black/90' id='header'>
@@ -42,14 +48,14 @@ const Navbar = (props: NavProps) => {
           </button>
           {/* Larger device navbar on top*/}
           <nav className="sm:flex hidden">
-            <NavItems isJourneying={isNotEmpty(experience)} startExperience={toggleExp}/>
+            {suspenseNavItems()}
           </nav>
         </div>
       </div>
       {/* Smaller device navbar collapsing items */}
       <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
-        <nav className="p-5">
-          <NavItems isJourneying={isNotEmpty(experience)} startExperience={toggleExp}/>
+        <nav className="p-5">  
+          {suspenseNavItems()}
         </nav>
       </div>
     </header>
