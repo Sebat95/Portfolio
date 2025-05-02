@@ -67,11 +67,13 @@ const pageMaterials = [
 
 
 // preload all textures, so nothing is missing
+/*
 pages.forEach((page) => {
     useTexture.preload(`/textures/pages/${page.front}.jpg`);
     useTexture.preload(`/textures/pages/${page.back}.jpg`);
     useTexture.preload(`/textures/pages/book-cover-roughness.jpg`);
 })
+*/
 
 interface PageProp extends GroupProps {
     pageNum: number,

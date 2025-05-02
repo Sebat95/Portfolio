@@ -35,8 +35,6 @@ const Anvil = (props: HobbyObjectProps) => {
   )
 };
 
-
-useGLTF.preload('/models/lowpoly_pixelart_anvil.glb');
-
+//useGLTF.preload('/models/lowpoly_pixelart_anvil.glb');
 
 export default Anvil;

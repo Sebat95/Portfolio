@@ -71,6 +71,6 @@ const Resistor = (props: HobbyObjectProps) => {
   )
 }
 
-useGLTF.preload('/models/1k_ohm_resistor.glb')
+//useGLTF.preload('/models/1k_ohm_resistor.glb')
 
 export default Resistor;

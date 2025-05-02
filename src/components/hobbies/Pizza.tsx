@@ -41,8 +41,6 @@ const Pizza = (props: HobbyObjectProps) => {
   )
 }
 
-
-useGLTF.preload('/models/cartoon_pizza.glb')
-
+//useGLTF.preload('/models/cartoon_pizza.glb')
 
 export default Pizza;

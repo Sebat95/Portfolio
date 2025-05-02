@@ -38,6 +38,6 @@ const Basketball = (props: HobbyObjectProps) => {
   )
 };
 
-useGLTF.preload('/models/basketball.glb');
+//useGLTF.preload('/models/basketball.glb');
 
 export default Basketball;

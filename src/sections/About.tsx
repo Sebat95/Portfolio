@@ -77,7 +77,7 @@ const About = () => {
                                 <p className="grid-headtext">Let's talk!</p>
                                 <p className="grid-subtext text-center">The best way to get in touch is to shot me an email</p>
                                 <div className='copy-container' onClick={() => handleAction(setHasCopied, () => navigator.clipboard.writeText(email))}>
-                                    <img src={hasCopied ? '/assets/tick.svg' : '/assets/copy.svg'} alt="copy"/>
+                                    <img src={hasCopied ? '/assets/tick.svg' : '/assets/copy.svg'} alt="copy" className='w-8 h-8' />
                                     <p className='lg:text-xl md:text-l text-gray_gradient text-white'>{email}</p>
                                 </div>
                             </div>

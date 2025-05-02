@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import './App.css'
 import { JourneyContext } from './components/context/JourneyContext';
 import About from './sections/About';
@@ -14,10 +14,12 @@ const App = () => {
     <main className='mx-auto'>
       <JourneyContext.Provider value={{experience: exp,  setExperience: setExp}}>
         <Navbar title={exp}/>
-        {isEmpty(exp) && <Intro />}
-        {!isEmpty(exp) && <Experience />}
-        {isEmpty(exp) && <About />}
-        {isEmpty(exp) && <Footer />}
+        <Suspense>
+          {isEmpty(exp) && <Intro />}
+          {!isEmpty(exp) && <Experience />}
+          {isEmpty(exp) && <About />}
+          {isEmpty(exp) && <Footer />}
+        </Suspense>
       </JourneyContext.Provider>
     </main>
 )}

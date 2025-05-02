@@ -46,7 +46,7 @@ const Flask = (props: HobbyObjectProps) => {
   )
 }
 
-useGLTF.preload('/models/lowpoly_-_flask.glb');
+//useGLTF.preload('/models/lowpoly_-_flask.glb');
 
 export default Flask;
 

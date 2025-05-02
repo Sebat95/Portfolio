@@ -1025,9 +1025,7 @@ const Computer = (props: ComputerProps) => {
   )
 }
 
-
-useGLTF.preload('/models/computer.glb')
-
+//useGLTF.preload('/models/computer.glb')
 
 export default Computer;
 

@@ -110,6 +110,6 @@ const StylizedTree = (props: HobbyObjectProps) => {
   )
 }
 
-useGLTF.preload('/models/stylized_tree.glb');
+//useGLTF.preload('/models/stylized_tree.glb');
 
 export default StylizedTree;
