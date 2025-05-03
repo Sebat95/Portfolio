@@ -1,12 +1,13 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState, lazy } from 'react';
 import './App.css'
 import { JourneyContext } from './components/context/JourneyContext';
-import About from './sections/About';
-import Footer from './sections/Footer';
 import Intro from './sections/Intro';
 import Navbar from './sections/Navbar';
-import Experience from './sections/Experience';
 import { isEmpty } from './common/utils';
+
+const Experience = lazy(() => import('./sections/Experience'));
+const Footer = lazy(() => import('./sections/Footer'));
+const About = lazy(() => import('./sections/About'));
 
 const App = () => {
   const [exp, setExp] = useState('');
