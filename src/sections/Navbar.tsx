@@ -1,8 +1,9 @@
-import { Suspense, useContext, useState } from "react";
+import { Suspense, useContext, useState, lazy } from "react";
 import { experiences } from '../common/constants.ts';
 import { JourneyContext } from "../components/context/JourneyContext.tsx";
 import { isEmpty, isNotEmpty } from "../common/utils.ts";
-import NavItems from "../components/NavItems.tsx";
+
+const NavItems = lazy(() => import('../components/NavItems.tsx'));
 
 interface NavProps {
   title: string;
