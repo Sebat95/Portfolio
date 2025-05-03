@@ -1,14 +1,15 @@
-import {Canvas} from '@react-three/fiber';
-import { LegacyRef, Ref, RefObject, Suspense, useContext, useEffect, useRef, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { LegacyRef, Ref, RefObject, Suspense, useContext, useEffect, useRef, useState, lazy } from 'react';
 import { Html, PerspectiveCamera } from '@react-three/drei';
 import CanvasLoader from '../components/common/CanvasLoader';
-import Explosion from '../components/Explosion';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Group, Object3DEventMap } from 'three';
 import { JourneyContext } from '../components/context/JourneyContext';
 import { experiences } from '../common/constants';
 import { useMediaQuery } from 'react-responsive';
+
+const Explosion = lazy(() => import('../components/Explosion'));
 
 const Intro = () => {
   const canvasRef = useRef<HTMLCanvasElement>();
