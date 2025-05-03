@@ -14,7 +14,7 @@ const ComputerCombo = () => {
     return (<>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 w-full h-full absolute inset-0'>
             <div className='flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2-xl shadow-black-200'>
-                <div className='flex flex-col gap-5 text-white-600 my-5'>
+                <div className='flex flex-col gap-5 text-white-600 my-5 sm:my-10'>
                     <p className='text-white text-xl font-semibold'>{jobsAndProjs[curProj].title}</p>
                     <p>{jobsAndProjs[curProj].desc}</p>
                     <p>{jobsAndProjs[curProj].subdesc}</p>
