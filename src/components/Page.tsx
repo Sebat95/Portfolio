@@ -229,7 +229,6 @@ const Page = (prop: PageProp) => {
             }}
             onClick={(e) => {
                 e.stopPropagation();
-                console.log(enableChange)
                 if(enableChange) {
                     changePage(opened ? pageNum : pageNum + 1);
                     setHighlighted(false);

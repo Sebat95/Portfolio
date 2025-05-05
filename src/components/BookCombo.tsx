@@ -19,9 +19,9 @@ const BookCombo = () => {
                         setPointerDown(false);
                         setPointerMoving(false);
                     }}
-                    onPointerEnter={() => setPointerMoving(true)}
-                    onPointerCancel={() => setPointerMoving(false)}
-                    onPointerOut={() => setPointerMoving(false)}>
+                    onPointerMove={() => {
+                        if(pointerDown) setPointerMoving(true)
+                    }}>
                         <Suspense fallback={<CanvasLoader/>} >
                             <Float
                                 rotation-x={-Math.PI / 4}
@@ -29,9 +29,7 @@ const BookCombo = () => {
                                 speed={0.5}
                                 rotationIntensity={0.5}
                             >
-                                <Book scale={2.75} page={page} changePage={setPage} enableChange={!pointerDown || !pointerMoving} 
-            
-                                />
+                                <Book scale={2.75} page={page} changePage={setPage} enableChange={!pointerDown || !pointerMoving} />
                             </Float>
                             <OrbitControls/>
                             <directionalLight
