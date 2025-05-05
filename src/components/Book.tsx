@@ -5,6 +5,7 @@ import { GroupProps } from "@react-three/fiber";
 
 interface BookProps extends GroupProps {
     page: number;
+    enableChange: boolean;
     changePage: Dispatch<SetStateAction<number>>;
 }
 
@@ -37,6 +38,7 @@ const Book = (props: BookProps) => {
                         opened={delayedPage > ind}
                         bookClosed={delayedPage === 0 || delayedPage === pages.length}
                         changePage={props.changePage}
+                        enableChange={props.enableChange}
                         {...pageData}/>
                 ))
             }

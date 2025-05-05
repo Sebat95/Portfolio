@@ -82,12 +82,13 @@ interface PageProp extends GroupProps {
     page: number,
     opened: boolean,
     bookClosed: boolean,
+    enableChange: boolean,
     changePage: Dispatch<SetStateAction<number>>
 }
 
 
 const Page = (prop: PageProp) => {
-    const {pageNum, front, back, page, opened, bookClosed, changePage} = prop;
+    const {pageNum, front, back, page, opened, bookClosed, enableChange, changePage} = prop;
     const [frontMap, backMap, roughMap] = useTexture([
         `/textures/pages/${front}.jpg`,
         `/textures/pages/${back}.jpg`,
@@ -228,8 +229,11 @@ const Page = (prop: PageProp) => {
             }}
             onClick={(e) => {
                 e.stopPropagation();
-                changePage(opened ? pageNum : pageNum + 1);
-                setHighlighted(false);
+                console.log(enableChange)
+                if(enableChange) {
+                    changePage(opened ? pageNum : pageNum + 1);
+                    setHighlighted(false);
+                }
             }}
         >
             <primitive object={pageSkinnedMesh} ref={pageMeshRef}
