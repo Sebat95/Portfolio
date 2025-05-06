@@ -6,13 +6,12 @@ Source: https://sketchfab.com/3d-models/cartoon-pizza-e6728d6e345a433191d0f02dd6
 Title: Cartoon Pizza
 */
 
-import { useGLTF } from '@react-three/drei'
-import { Mesh } from 'three'
-import { HobbyObjectProps } from '../../common/props'
-
+import { useGLTF } from '@react-three/drei';
+import { Mesh } from 'three';
+import { HobbyObjectProps } from '../../common/props';
 
 const Pizza = (props: HobbyObjectProps) => {
-  const { nodes, materials } = useGLTF('/models/cartoon_pizza.glb')
+  const { nodes, materials } = useGLTF('/models/cartoon_pizza.glb');
   return (
     <group {...props} dispose={null} scale={2.2}>
       <group rotation={[-Math.PI / 2.5, 0, -Math.PI / 2]}>
@@ -28,18 +27,25 @@ const Pizza = (props: HobbyObjectProps) => {
           geometry={(nodes.Object_3 as Mesh).geometry}
           material={materials.Material_0}
         />
-        <mesh visible={!!props.emissive}
-        castShadow
-        receiveShadow
-        geometry={(nodes.Object_3 as Mesh).geometry}
-        material={materials.Material_0}
+        <mesh
+          visible={!!props.emissive}
+          castShadow
+          receiveShadow
+          geometry={(nodes.Object_3 as Mesh).geometry}
+          material={materials.Material_0}
         >
-          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/>
+          <meshStandardMaterial
+            opacity={0.5}
+            color={'blue'}
+            emissive={'blue'}
+            emissiveIntensity={1}
+            transparent
+          />
         </mesh>
       </group>
     </group>
-  )
-}
+  );
+};
 
 //useGLTF.preload('/models/cartoon_pizza.glb')
 

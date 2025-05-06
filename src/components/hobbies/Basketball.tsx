@@ -13,7 +13,7 @@ import { Mesh } from 'three';
 const Basketball = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/basketball.glb');
   return (
-    <group {...props} dispose={null} >
+    <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={1.3} ref={props.callback}>
         <mesh
           castShadow
@@ -27,15 +27,22 @@ const Basketball = (props: HobbyObjectProps) => {
           geometry={(nodes.Basketball_1 as Mesh).geometry}
           material={materials['Material.001']}
         />
-        <mesh visible={!!props.emissive}
+        <mesh
+          visible={!!props.emissive}
           geometry={(nodes.Basketball_0 as Mesh).geometry}
           material={materials.Material}
         >
-          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
+          <meshStandardMaterial
+            opacity={0.5}
+            color={'blue'}
+            emissive={'blue'}
+            emissiveIntensity={1}
+            transparent
+          />
         </mesh>
       </group>
     </group>
-  )
+  );
 };
 
 //useGLTF.preload('/models/basketball.glb');

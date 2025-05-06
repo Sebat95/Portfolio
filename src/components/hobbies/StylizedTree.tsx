@@ -6,15 +6,19 @@ Source: https://sketchfab.com/3d-models/stylized-tree-6ba26deef34249ddb8694888b4
 Title: Stylized tree
 */
 
-import { useGLTF } from '@react-three/drei'
-import { Mesh } from 'three'
-import { HobbyObjectProps } from '../../common/props'
+import { useGLTF } from '@react-three/drei';
+import { Mesh } from 'three';
+import { HobbyObjectProps } from '../../common/props';
 
 const StylizedTree = (props: HobbyObjectProps) => {
-  const { nodes, materials } = useGLTF('/models/stylized_tree.glb')
+  const { nodes, materials } = useGLTF('/models/stylized_tree.glb');
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, Math.PI]} position={[0,-1,0]} scale={0.0035}>
+      <group
+        rotation={[-Math.PI / 2, 0, Math.PI]}
+        position={[0, -1, 0]}
+        scale={0.0035}
+      >
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh
             castShadow
@@ -96,19 +100,26 @@ const StylizedTree = (props: HobbyObjectProps) => {
             rotation={[-Math.PI / 2, 0, 0]}
             scale={100}
           />
-          <mesh visible={!!props.emissive}
+          <mesh
+            visible={!!props.emissive}
             geometry={(nodes.Tree_base_Material001_0 as Mesh).geometry}
             material={materials['Material.001']}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={100}
           >
-            <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
+            <meshStandardMaterial
+              opacity={0.5}
+              color={'blue'}
+              emissive={'blue'}
+              emissiveIntensity={1}
+              transparent
+            />
           </mesh>
         </group>
       </group>
     </group>
-  )
-}
+  );
+};
 
 //useGLTF.preload('/models/stylized_tree.glb');
 

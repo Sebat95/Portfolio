@@ -1,28 +1,28 @@
 export const navLinks = [
-    {
-      id: '1',
-      name: 'Home',
-      altName: 'Home',
-      exp: false,
-      href: '#home',
-      altHref: '#home',
-    },
-    {
-      id: '2',
-      name: 'Start Journey',
-      altName: 'Exit Journey',
-      exp: true,
-      href: '#exp',
-      altHref: '#home',
-    },
-    {
-      id: '3',
-      name: 'About',
-      altName: 'About',
-      exp: false,
-      href: '#about',
-      altHref: '#about',
-    }
+  {
+    id: '1',
+    name: 'Home',
+    altName: 'Home',
+    exp: false,
+    href: '#home',
+    altHref: '#home'
+  },
+  {
+    id: '2',
+    name: 'Start Journey',
+    altName: 'Exit Journey',
+    exp: true,
+    href: '#exp',
+    altHref: '#home'
+  },
+  {
+    id: '3',
+    name: 'About',
+    altName: 'About',
+    exp: false,
+    href: '#about',
+    altHref: '#about'
+  }
 ];
 
 export const jobsAndProjs = [
@@ -34,7 +34,7 @@ export const jobsAndProjs = [
     subdesc:
       'I have been employed here as a full stack engineer since 2023. ' +
       'I worked mainly on the creation of a new webapp for managing Structured Finance Credit for the whole bank. ' +
-      'I personally helped design the overall architecture: different databases (PostgreSQL and MongoDB), microservices (Java with Spring), micro frontends (AngularJS with module federation), comunication flow (Kafka) etc. '+
+      'I personally helped design the overall architecture: different databases (PostgreSQL and MongoDB), microservices (Java with Spring), micro frontends (AngularJS with module federation), comunication flow (Kafka) etc. ' +
       'Then I developed most of the front end and some data ingestion process. ' +
       'Lastly, I have designed and developed a Visual Studio Code extension which integrates the company proprietary GenAI for generating commit comments, refactoring/explaining code and so on.',
     href: 'https://www.intesasanpaolo.com/',
@@ -43,25 +43,25 @@ export const jobsAndProjs = [
     tags: [
       {
         name: 'AngularJs',
-        path: '/assets/angular.png',
+        path: '/assets/angular.png'
       },
       {
         name: 'TypeScript',
-        path: '/assets/typescript.png',
+        path: '/assets/typescript.png'
       },
       {
         name: 'Java',
-        path: 'assets/java.png',
+        path: 'assets/java.png'
       },
       {
         name: 'PostgreSQL',
-        path: 'assets/postgre.png',
+        path: 'assets/postgre.png'
       },
       {
         name: 'MongoDB',
-        path: 'assets/mongo.svg',
+        path: 'assets/mongo.svg'
       }
-    ],
+    ]
   },
   {
     title: 'Reply',
@@ -78,28 +78,29 @@ export const jobsAndProjs = [
     tags: [
       {
         name: 'AngularJs',
-        path: '/assets/angular.png',
+        path: '/assets/angular.png'
       },
       {
         name: 'TypeScript',
-        path: '/assets/typescript.png',
+        path: '/assets/typescript.png'
       },
       {
         name: 'Java',
-        path: 'assets/java.png',
+        path: 'assets/java.png'
       },
       {
         name: 'OracleDB',
-        path: 'assets/oracle.png',
+        path: 'assets/oracle.png'
       }
-    ],
+    ]
   },
   {
     title: 'Generalized Principal Component Analysis',
     isWork: false,
     ind: -1,
-    desc: 'Conventional principal component analysis (PCA) finds a principal vector that maximizes the sum of second powers of principal components. My  advisor and I, considered a generalized PCA that aims at maximizing the sum of an arbitrary convex function of principal components. ' + 
-    'We present a gradient ascent algorithm to solve the problem. For the kernel version of generalized PCA, we show that the solutions can be obtained as fixed points of a simple single-layer recurrent neural network. We also evaluate our algorithms on different datasets. ',
+    desc:
+      'Conventional principal component analysis (PCA) finds a principal vector that maximizes the sum of second powers of principal components. My  advisor and I, considered a generalized PCA that aims at maximizing the sum of an arbitrary convex function of principal components. ' +
+      'We present a gradient ascent algorithm to solve the problem. For the kernel version of generalized PCA, we show that the solutions can be obtained as fixed points of a simple single-layer recurrent neural network. We also evaluate our algorithms on different datasets. ',
     subdesc:
       'This was my MS thesis, that got published by IEEE and got me a flying colors degree. I really enjoyed the research and discovery process, the heavy math and machine learning side. ' +
       'I have recently rewrote the whole thing from the intial Matlab scripts to Python.',
@@ -109,13 +110,13 @@ export const jobsAndProjs = [
     tags: [
       {
         name: 'Python',
-        path: '/assets/python.png',
+        path: '/assets/python.png'
       },
       {
         name: 'Matlab',
-        path: 'assets/matlab.png',
+        path: 'assets/matlab.png'
       }
-    ],
+    ]
   },
   {
     title: 'Exam Scheduling Solver',
@@ -132,9 +133,9 @@ export const jobsAndProjs = [
     tags: [
       {
         name: 'C',
-        path: '/assets/c.png',
+        path: '/assets/c.png'
       }
-    ],
+    ]
   },
   {
     title: 'AmICook',
@@ -150,38 +151,38 @@ export const jobsAndProjs = [
     tags: [
       {
         name: 'Python',
-        path: '/assets/python.png',
+        path: '/assets/python.png'
       },
       {
         name: 'Flask',
-        path: 'assets/flask.png',
+        path: 'assets/flask.png'
       },
       {
         name: 'Android',
-        path: '/assets/android.png',
+        path: '/assets/android.png'
       },
       {
         name: 'Arduino',
-        path: '/assets/arduino.png',
+        path: '/assets/arduino.png'
       },
       {
         name: 'Bootstrap',
-        path: '/assets/bootstrap.png',
+        path: '/assets/bootstrap.png'
       }
-    ],
+    ]
   }
 ];
-jobsAndProjs.forEach((v,i) => v.ind = i);
+jobsAndProjs.forEach((v, i) => (v.ind = i));
 
 export const aboutMe = [
-  "I created this portfolio first and foremost to teach myself React, ThreeJS, and GCP hosting,",
-  "I really had fun and learned a lot while putting it together!",
-  "",
-  "I always wanted to work with Machine Learning, pursue a PhD and all, but life always brought me back to coding,",
-  "doing leetcode every day surely did its part.",
-  "",
+  'I created this portfolio first and foremost to teach myself React, ThreeJS, and GCP hosting,',
+  'I really had fun and learned a lot while putting it together!',
+  '',
+  'I always wanted to work with Machine Learning, pursue a PhD and all, but life always brought me back to coding,',
+  'doing leetcode every day surely did its part.',
+  '',
   "The reality of things is that I love to always keep learning and thinkering, that's why programming in general is sooo appealing to me.",
-  "",
+  '',
   "Anyhow if you enjoyed my website and you'd like to contact me, feel free to reach out or just give me a star on Github *wink*"
 ];
 
@@ -190,12 +191,12 @@ export const experiences = ['Education', 'Work and Projects', 'Hobbies'];
 const pagesLength = 6;
 export const pages = [
   {
-    front: "book-cover",
-    back: "pages-images-0",
-    title: "Cover"
+    front: 'book-cover',
+    back: 'pages-images-0',
+    title: 'Cover'
   }
 ];
-for (let i = 1, j = 1; i < pagesLength - 1; i += 2, j +=1) {
+for (let i = 1, j = 1; i < pagesLength - 1; i += 2, j += 1) {
   pages.push({
     front: `pages-images-${i}`,
     back: `pages-images-${i + 1}`,
@@ -204,41 +205,46 @@ for (let i = 1, j = 1; i < pagesLength - 1; i += 2, j +=1) {
 }
 pages.push({
   front: `pages-images-${pagesLength - 1}`,
-  back: "book-back",
+  back: 'book-back',
   title: `Page ${pages.length}`
 });
 
 export const hobbies = [
   [
-    "Sport",
+    'Sport',
     "Sport has always been integral to my life – a true believer in 'mens sana in corpore sano'. ",
-    "In my youth, from playing basketball and becoming a certified referee, to later learning to ski, play volleyball, swim, and scuba dive, staying active has been a constant. ",
+    'In my youth, from playing basketball and becoming a certified referee, to later learning to ski, play volleyball, swim, and scuba dive, staying active has been a constant. ',
     "More recently, I've continued this through gym workouts, calisthenics, and rock climbing."
-  ],[
-    "Distilling",
+  ],
+  [
+    'Distilling',
     "Alongside my passion for cooking, I've developed a growing interest in the intricacies of distilling and infusing alcohol. ",
     "As a complete beginner, I've been exploring the process of making various liquors from scratch, which I find to be an intriguing intersection of engineering/chemistry and culinary arts."
-  ],[
-    "Cooking",
-    "While it might sound cliché, my passion for cooking truly blossomed alongside my grandmother, as I spent countless hours assisting her. ",
-    "For me, cooking is a profound act of nurturing, providing both physical sustenance and emotional comfort. ",
-    "I love cooking for others almost more than for myself. " ,
+  ],
+  [
+    'Cooking',
+    'While it might sound cliché, my passion for cooking truly blossomed alongside my grandmother, as I spent countless hours assisting her. ',
+    'For me, cooking is a profound act of nurturing, providing both physical sustenance and emotional comfort. ',
+    'I love cooking for others almost more than for myself. ',
     "Lately, speaking of long-term dedication, my sourdough starter has been thriving for over ten years – it's practically a member of the family!"
-  ],[
-    "Blacksmithing",
+  ],
+  [
+    'Blacksmithing',
     "Inspired by YouTube and fascinated with the fantasy/medieval world, I thought: 'I bet I could forge a sword'. ",
-    "What followed was a fun summer spent building a forge, hammering steel, quenching, and grinding. ",
+    'What followed was a fun summer spent building a forge, hammering steel, quenching, and grinding. ',
     "The result is a sword I wouldn't stake my life on, but the process was incredibly enjoyable and educational. ",
-    "It was definitely a good application of my engineering/physics background."
-  ],[
-    "Nature",
-    "Nature played a central role in my childhood, even before sports came into the picture. ",
-    "Weekends revolved around our little family house nestled in the woods, where walking, tending the garden, and the simple joy of cooking and eating outside were cherished moments. ",
+    'It was definitely a good application of my engineering/physics background.'
+  ],
+  [
+    'Nature',
+    'Nature played a central role in my childhood, even before sports came into the picture. ',
+    'Weekends revolved around our little family house nestled in the woods, where walking, tending the garden, and the simple joy of cooking and eating outside were cherished moments. ',
     "Even as my family's pace quickened and we grew up, my connection with nature remained strong, leading me to become a Boy Scout instructor and spend years sharing my love for the outdoors with others. "
-  ],[
-    "Electronics",
-    "I opted for computer engineering rather than science because I sought a more diverse education. ",
-    "This choice has proven beneficial, since it contributed to a more T-shaped skillset and allowed for better-informed decisions as a professional. ",
-    "To support myself through college, I also gained practical experience repairing smartphones and PCs. "
+  ],
+  [
+    'Electronics',
+    'I opted for computer engineering rather than science because I sought a more diverse education. ',
+    'This choice has proven beneficial, since it contributed to a more T-shaped skillset and allowed for better-informed decisions as a professional. ',
+    'To support myself through college, I also gained practical experience repairing smartphones and PCs. '
   ]
-]
+];

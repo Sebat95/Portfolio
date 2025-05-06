@@ -8,7 +8,7 @@ Title: Vfx Explosion
 
 import { useGLTF } from '@react-three/drei';
 import { BufferGeometry, Mesh } from 'three';
-import {useGSAP} from '@gsap/react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { RefObject, useRef } from 'react';
 import { RefProps } from '../common/props';
@@ -20,41 +20,47 @@ const Explosion = (props: RefProps) => {
 
   // continuosly spin
   useGSAP(() => {
-    if(innerRef.current) {
-      gsap.timeline({repeat: -1})
-        .to(innerRef.current.rotation, {
-          y: `+=${Math.PI * 2}`,
-          x: `+=${Math.PI * 2}`,
-          z: `+=${Math.PI * 2}`,
-          ease: "none", 
-          duration: 2.5
+    if (innerRef.current) {
+      gsap.timeline({ repeat: -1 }).to(innerRef.current.rotation, {
+        y: `+=${Math.PI * 2}`,
+        x: `+=${Math.PI * 2}`,
+        z: `+=${Math.PI * 2}`,
+        ease: 'none',
+        duration: 2.5
       });
-      if(outerRef.current) {
-        gsap.timeline({repeat: -1})
-          .to(outerRef.current.rotation, {
-            y: `-=${Math.PI * 2}`,
-            x: `-=${Math.PI * 2}`,
-            z: `-=${Math.PI * 2}`,
-            ease: "none", 
-            duration: 2.5
+      if (outerRef.current) {
+        gsap.timeline({ repeat: -1 }).to(outerRef.current.rotation, {
+          y: `-=${Math.PI * 2}`,
+          x: `-=${Math.PI * 2}`,
+          z: `-=${Math.PI * 2}`,
+          ease: 'none',
+          duration: 2.5
         });
       }
     }
-  })
+  });
 
   return (
     <group {...props} dispose={null} ref={props.innerRef}>
-        <group
-          position={[0.02197045, 0.10402713, -0.04289045]}
-          rotation={[-2.09475399, -0.45316825, -2.71997209]}
-          scale={1}>
-            <mesh ref={outerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_4 as Mesh).geometry} material={materials.material_0} />
-            <mesh ref={innerRef as RefObject<Mesh<BufferGeometry>>} geometry={(nodes.Object_5 as Mesh).geometry} material={materials.material_0} />
-        </group>
-        
+      <group
+        position={[0.02197045, 0.10402713, -0.04289045]}
+        rotation={[-2.09475399, -0.45316825, -2.71997209]}
+        scale={1}
+      >
+        <mesh
+          ref={outerRef as RefObject<Mesh<BufferGeometry>>}
+          geometry={(nodes.Object_4 as Mesh).geometry}
+          material={materials.material_0}
+        />
+        <mesh
+          ref={innerRef as RefObject<Mesh<BufferGeometry>>}
+          geometry={(nodes.Object_5 as Mesh).geometry}
+          material={materials.material_0}
+        />
+      </group>
     </group>
-  )
-}
+  );
+};
 
 useGLTF.preload('/models/vfx_explosion.glb');
 

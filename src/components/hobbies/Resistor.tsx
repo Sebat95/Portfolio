@@ -6,16 +6,20 @@ Source: https://sketchfab.com/3d-models/1k-ohm-resistor-093797a8ea98481aa0d7f106
 Title: 1K Ohm Resistor
 */
 
-import { useGLTF } from '@react-three/drei'
-import { Mesh } from 'three'
-import { HobbyObjectProps } from '../../common/props'
+import { useGLTF } from '@react-three/drei';
+import { Mesh } from 'three';
+import { HobbyObjectProps } from '../../common/props';
 
 const Resistor = (props: HobbyObjectProps) => {
   const { nodes, materials } = useGLTF('/models/1k_ohm_resistor.glb');
   const scaleMesh = 1.1;
   return (
     <group {...props} dispose={null}>
-      <group position={[-0.008, 0.988, -0.993]} rotation={[-Math.PI, 0, 0]} scale={1.2}>
+      <group
+        position={[-0.008, 0.988, -0.993]}
+        rotation={[-Math.PI, 0, 0]}
+        scale={1.2}
+      >
         <group rotation={[0, 0, -1.564]}>
           <mesh
             castShadow
@@ -23,53 +27,66 @@ const Resistor = (props: HobbyObjectProps) => {
             geometry={(nodes.Resistor000_0 as Mesh).geometry}
             material={materials['IronMaterial.005']}
           />
-          <mesh scale={scaleMesh}
+          <mesh
+            scale={scaleMesh}
             castShadow
             receiveShadow
             geometry={(nodes.Resistor000_1 as Mesh).geometry}
             material={materials['ResistorBaseMaterial.003']}
           />
-          <mesh scale={scaleMesh}
+          <mesh
+            scale={scaleMesh}
             castShadow
             receiveShadow
             geometry={(nodes.Resistor000_2 as Mesh).geometry}
             material={materials['ResistorColorOneMaterial.003']}
-          /> 
-          <mesh scale={scaleMesh}
+          />
+          <mesh
+            scale={scaleMesh}
             castShadow
             receiveShadow
             geometry={(nodes.Resistor000_3 as Mesh).geometry}
             material={materials['ResistorColorTwoMaterial.003']}
           />
-          <mesh scale={scaleMesh}
+          <mesh
+            scale={scaleMesh}
             castShadow
             receiveShadow
             geometry={(nodes.Resistor000_4 as Mesh).geometry}
             material={materials['ResistorColorThreeMaterial.003']}
           />
-          <mesh scale={scaleMesh}
+          <mesh
+            scale={scaleMesh}
             castShadow
             receiveShadow
             geometry={(nodes.Resistor000_5 as Mesh).geometry}
             material={materials['ResistorColorFourMaterial.003']}
           />
-          <mesh 
+          <mesh
             castShadow
             receiveShadow
             geometry={(nodes.Resistor000_6 as Mesh).geometry}
             material={materials['IronMaterial.002']}
           />
-          <mesh visible={!!props.emissive} scale={scaleMesh}
+          <mesh
+            visible={!!props.emissive}
+            scale={scaleMesh}
             geometry={(nodes.Resistor000_1 as Mesh).geometry}
             material={materials['ResistorBaseMaterial.003']}
           >
-          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
-        </mesh>
+            <meshStandardMaterial
+              opacity={0.5}
+              color={'blue'}
+              emissive={'blue'}
+              emissiveIntensity={1}
+              transparent
+            />
+          </mesh>
         </group>
       </group>
     </group>
-  )
-}
+  );
+};
 
 //useGLTF.preload('/models/1k_ohm_resistor.glb')
 

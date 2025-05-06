@@ -6,15 +6,15 @@ Source: https://sketchfab.com/3d-models/lowpoly-flask-dcf232cf9e964c478a1b2d59b8
 Title: LowPoly - Flask
 */
 
-import { useGLTF } from '@react-three/drei'
-import { Mesh } from 'three'
-import { HobbyObjectProps } from '../../common/props'
+import { useGLTF } from '@react-three/drei';
+import { Mesh } from 'three';
+import { HobbyObjectProps } from '../../common/props';
 
 const Flask = (props: HobbyObjectProps) => {
-  const { nodes, materials } = useGLTF('/models/lowpoly_-_flask.glb')
+  const { nodes, materials } = useGLTF('/models/lowpoly_-_flask.glb');
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.6} position={[0,-1,0]}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.6} position={[0, -1, 0]}>
         <mesh
           castShadow
           receiveShadow
@@ -33,20 +33,26 @@ const Flask = (props: HobbyObjectProps) => {
           geometry={(nodes.Cylinder_2 as Mesh).geometry}
           material={materials.Liquid}
         >
-          <meshStandardMaterial opacity={0.5} color={'yellow'} /> 
+          <meshStandardMaterial opacity={0.5} color={'yellow'} />
         </mesh>
-        <mesh visible={!!props.emissive}
+        <mesh
+          visible={!!props.emissive}
           geometry={(nodes.Cylinder_2 as Mesh).geometry}
           material={materials.Glass}
         >
-          <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/> 
+          <meshStandardMaterial
+            opacity={0.5}
+            color={'blue'}
+            emissive={'blue'}
+            emissiveIntensity={1}
+            transparent
+          />
         </mesh>
       </group>
     </group>
-  )
-}
+  );
+};
 
 //useGLTF.preload('/models/lowpoly_-_flask.glb');
 
 export default Flask;
-

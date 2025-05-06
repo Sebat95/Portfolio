@@ -10,9 +10,8 @@ import { useGLTF } from '@react-three/drei';
 import { Mesh } from 'three';
 import { HobbyObjectProps } from '../../common/props';
 
-
 const Anvil = (props: HobbyObjectProps) => {
-  const { nodes, materials } = useGLTF('/models/lowpoly_pixelart_anvil.glb')
+  const { nodes, materials } = useGLTF('/models/lowpoly_pixelart_anvil.glb');
   return (
     <group {...props} dispose={null} scale={0.1}>
       <mesh
@@ -22,17 +21,24 @@ const Anvil = (props: HobbyObjectProps) => {
         material={materials.anvilBlinn_MAT}
         scale={[1, 1, 1.1]}
       />
-      <mesh visible={!!props.emissive}
+      <mesh
+        visible={!!props.emissive}
         castShadow
         receiveShadow
         geometry={(nodes.anvil2_anvilBlinn_MAT_0 as Mesh).geometry}
         material={materials.anvilBlinn_MAT}
         scale={[1, 1, 1.1]}
       >
-        <meshStandardMaterial opacity={0.5} color={'blue'} emissive={'blue'} emissiveIntensity={1} transparent/>
+        <meshStandardMaterial
+          opacity={0.5}
+          color={'blue'}
+          emissive={'blue'}
+          emissiveIntensity={1}
+          transparent
+        />
       </mesh>
     </group>
-  )
+  );
 };
 
 //useGLTF.preload('/models/lowpoly_pixelart_anvil.glb');

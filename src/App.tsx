@@ -1,5 +1,5 @@
 import { Suspense, useState, lazy } from 'react';
-import './App.css'
+import './App.css';
 import { JourneyContext } from './components/context/JourneyContext';
 import Intro from './sections/Intro';
 import Navbar from './sections/Navbar';
@@ -12,9 +12,11 @@ const About = lazy(() => import('./sections/About'));
 const App = () => {
   const [exp, setExp] = useState('');
   return (
-    <main className='mx-auto'>
-      <JourneyContext.Provider value={{experience: exp,  setExperience: setExp}}>
-        <Navbar title={exp}/>
+    <main className="mx-auto">
+      <JourneyContext.Provider
+        value={{ experience: exp, setExperience: setExp }}
+      >
+        <Navbar title={exp} />
         <Suspense>
           {isEmpty(exp) && <Intro />}
           {!isEmpty(exp) && <Experience />}
@@ -23,6 +25,7 @@ const App = () => {
         </Suspense>
       </JourneyContext.Provider>
     </main>
-)}
+  );
+};
 
 export default App;

@@ -1,38 +1,126 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="React Three Fiber interactive personal portfolio of Samuele Battaglino">
-    <meta name="keywords" content="samuele, battaglino, battaglino samuele, samuele battaglino, portfolio, sbatta, web developer, front-end developer, back-end developer, full-stack developer, computer science, computer engineering, react, react-fiber, threejs, italy, remote">
-    <meta name="author" content="Samuele Battaglino">
-    <meta name="robots" content="index, follow">
-    <meta name="rating" content="general">
+    <meta
+      name="description"
+      content="React Three Fiber interactive personal portfolio of Samuele Battaglino"
+    />
+    <meta
+      name="keywords"
+      content="samuele, battaglino, battaglino samuele, samuele battaglino, portfolio, sbatta, web developer, front-end developer, back-end developer, full-stack developer, computer science, computer engineering, react, react-fiber, threejs, italy, remote"
+    />
+    <meta name="author" content="Samuele Battaglino" />
+    <meta name="robots" content="index, follow" />
+    <meta name="rating" content="general" />
 
-    <meta property="og:title" content="Sbatta: Samuele Battaglino's Portfolio">
-    <meta property="og:description" content="React Three Fiber interactive personal website">
-    <meta property="og:image" content="https://sbatta.it/boom.png">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:url" content="https://sbatta.it">
+    <meta
+      property="og:title"
+      content="Sbatta: Samuele Battaglino's Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="React Three Fiber interactive personal website"
+    />
+    <meta property="og:image" content="https://sbatta.it/boom.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://sbatta.it" />
 
     <link rel="icon" type="image/x-icon" href="/boom.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="/boom.ico" />
     <link rel="apple-touch-icon" type="image/png" href="/boom.png" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="/boom.ico" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      type="image/png"
+      href="/boom.ico"
+    />
 
-    <link rel="preload" href="/fonts/GeneralSans-Bold.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-BoldItalic.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-Extralight.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-ExtralightItalic.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-Italic.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-Light.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-LightItalic.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-Medium.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-MediumItalic.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-Regular.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-Semibold.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/GeneralSans-SemiboldItalic.woff" as="font" type="font/woff" crossorigin>
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Bold.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-BoldItalic.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Extralight.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-ExtralightItalic.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Italic.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Light.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-LightItalic.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Medium.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-MediumItalic.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Regular.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Semibold.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-SemiboldItalic.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
 
     <title>Sbatta</title>
   </head>

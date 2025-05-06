@@ -2,87 +2,110 @@
   font-family: 'General Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('General Sans'), url('/fonts/GeneralSans-Regular.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-Regular.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: italic;
   font-weight: 400;
-  src: local('General Sans'), url('/fonts/GeneralSans-Italic.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-Italic.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: normal;
   font-weight: 200;
-  src: local('General Sans'), url('/fonts/GeneralSans-Extralight.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-Extralight.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: italic;
   font-weight: 200;
-  src: local('General Sans'), url('/fonts/GeneralSans-ExtralightItalic.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-ExtralightItalic.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: normal;
   font-weight: 300;
-  src: local('General Sans'), url('/fonts/GeneralSans-Light.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-Light.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: italic;
   font-weight: 300;
-  src: local('General Sans'), url('/fonts/GeneralSans-LightItalic.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-LightItalic.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: normal;
   font-weight: 500;
-  src: local('General Sans'), url('/fonts/GeneralSans-Medium.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-Medium.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: italic;
   font-weight: 500;
-  src: local('General Sans'), url('/fonts/GeneralSans-MediumItalic.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-MediumItalic.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: normal;
   font-weight: 600;
-  src: local('General Sans'), url('/fonts/GeneralSans-Semibold.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-Semibold.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: italic;
   font-weight: 600;
-  src: local('General Sans'), url('/fonts/GeneralSans-SemiboldItalic.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-SemiboldItalic.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('General Sans'), url('/fonts/GeneralSans-Bold.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-Bold.woff') format('woff');
   font-display: swap;
 }
 @font-face {
   font-family: 'General Sans';
   font-style: italic;
   font-weight: 700;
-  src: local('General Sans'), url('/fonts/GeneralSans-BoldItalic.woff') format('woff');
+  src:
+    local('General Sans'),
+    url('/fonts/GeneralSans-BoldItalic.woff') format('woff');
   font-display: swap;
 }
-
 
 @tailwind base;
 @tailwind components;
@@ -91,7 +114,7 @@
 * {
   scroll-behavior: smooth;
   /* oversized since there at most two sections it does not matter */
-  scroll-margin-top: 100px; 
+  scroll-margin-top: 100px;
 }
 
 body {
@@ -101,27 +124,27 @@ body {
 
 @layer utilities {
   .c-space {
-    @apply sm:px-10 px-5;
+    @apply px-5 sm:px-10;
   }
 
   .arrow-space {
-    @apply lg:px-28 md:px-10 sm:px-5 px-5;
+    @apply px-5 sm:px-5 md:px-10 lg:px-28;
   }
-  
+
   .nav-ul {
-    @apply flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20;
+    @apply relative z-20 flex flex-col items-center gap-4 sm:flex-row md:gap-6;
   }
 
   .nav-li {
-    @apply text-neutral-400 hover:text-white font-generalsans max-sm:hover:bg-black-500 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
+    @apply py-2 font-generalsans text-neutral-400 hover:text-white max-sm:w-full max-sm:rounded-md max-sm:px-5 max-sm:hover:bg-black-500;
   }
 
   .nav-li_a {
-    @apply text-lg md:text-base hover:text-white transition-colors;
+    @apply text-lg transition-colors hover:text-white md:text-base;
   }
 
   .nav-sidebar {
-    @apply absolute left-0 right-0 bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out overflow-hidden z-20 mx-auto sm:hidden block;
+    @apply absolute left-0 right-0 z-20 mx-auto block overflow-hidden bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out sm:hidden;
   }
 
   .text-gray_gradient {
@@ -130,38 +153,38 @@ body {
 
   /* about section */
   .grid-container {
-    @apply w-full h-full border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
+    @apply flex h-full w-full flex-col gap-5 rounded-lg border border-black-300 bg-black-200 p-4 sm:p-7;
   }
 
   .grid-headtext {
-    @apply text-xl font-semibold mb-2 text-white font-generalsans;
+    @apply mb-2 font-generalsans text-xl font-semibold text-white;
   }
 
   .grid-subtext {
-    @apply text-[#afb0b6] text-base font-generalsans;
+    @apply font-generalsans text-base text-[#afb0b6];
   }
 
   .copy-container {
-    @apply cursor-pointer flex justify-center items-center gap-2;
+    @apply flex cursor-pointer items-center justify-center gap-2;
   }
 
   /* experience section  */
   .arrow-btn {
-    @apply w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient;
+    @apply arrow-gradient h-10 w-10 cursor-pointer rounded-full p-3 transition-all active:scale-95;
   }
 
   .tech-logo {
-    @apply w-10 h-10 rounded-md p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center;
+    @apply flex h-10 w-10 items-center justify-center rounded-md bg-neutral-100 bg-opacity-10 p-2 backdrop-blur-lg backdrop-filter;
   }
 
   /*  footer */
   .social-icon {
-    @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
+    @apply flex h-12 w-12 items-center justify-center rounded-full border border-black-200 bg-black-300;
   }
 
   /* other */
   .pop-up {
-    @apply w-fit h-fit border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
+    @apply flex h-fit w-fit flex-col gap-5 rounded-lg border border-black-300 bg-black-200 p-4 sm:p-7;
   }
 }
 
