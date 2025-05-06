@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: false, // disable sourcemaps in production for smaller builds
-    chunkSizeWarningLimit: 1500 // since threejs is big, allow for bigger chunks
+    chunkSizeWarningLimit: 1000 // since threejs is big, allow for bigger chunks
   }
 });
