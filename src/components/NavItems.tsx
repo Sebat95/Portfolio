@@ -1,15 +1,13 @@
 import { navLinks } from '../common/constants';
 
 interface NavItemsProps {
-  startExperience: () => void;
+  toggleExperience: (exp: boolean) => void;
   isJourneying: boolean;
 }
 
 const NavItems = (props: NavItemsProps) => {
   const handleClick = (doesToggleExp: boolean) => {
-    if (doesToggleExp || props.isJourneying) {
-      props.startExperience();
-    }
+    props.toggleExperience(doesToggleExp || props.isJourneying);
   };
   return (
     <ul className="nav-ul">

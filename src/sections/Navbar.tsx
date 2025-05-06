@@ -15,8 +15,9 @@ const Navbar = (props: NavProps) => {
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
-  const toggleExp = () => {
-    setExperience((prev) => (isEmpty(prev) ? experiences[0] : ''));
+  const handleNavItemsClick = (doToggle: boolean) => {
+    if (doToggle)
+      setExperience((prev) => (isEmpty(prev) ? experiences[0] : ''));
     toggleMenu();
   };
 
@@ -24,7 +25,7 @@ const Navbar = (props: NavProps) => {
     <Suspense>
       <NavItems
         isJourneying={isNotEmpty(experience)}
-        startExperience={toggleExp}
+        toggleExperience={(toggle: boolean) => handleNavItemsClick(toggle)}
       />
     </Suspense>
   );
