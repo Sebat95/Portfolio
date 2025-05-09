@@ -140,7 +140,7 @@ body {
   }
 
   .nav-li_a {
-    @apply text-lg transition-colors hover:text-white md:text-base;
+    @apply block h-full w-full text-lg transition-colors hover:text-white md:text-base;
   }
 
   .nav-sidebar {

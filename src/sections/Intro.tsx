@@ -26,9 +26,8 @@ const Intro = () => {
   const divRef = useRef<HTMLDivElement>();
   const explRef = useRef<Group<Object3DEventMap>>();
   const [full, setFull] = useState(false); // explosion is fully scaled up
-  const [killed, setKilled] = useState(true); // explosion scale up has been interrupted
-  const [tweenOut, setTweenOut] = useState({});
-  const [tweenIn, setTweenIn] = useState({});
+  const [tweenOut, setTweenOut] = useState<gsap.core.Tween>();
+  const [tweenIn, setTweenIn] = useState<gsap.core.Tween>();
   const [hovering, setHovering] = useState(false);
   const { setExperience } = useContext(JourneyContext);
   const isNotPC = useMediaQuery({ maxWidth: 1024 }); // is not PC start journey automatically
@@ -71,28 +70,32 @@ const Intro = () => {
   useGSAP(
     () => {
       if (explRef.current) {
-        setFull(false);
+        if (tweenIn) {
+          tweenIn.kill();
+        }
+        if (tweenOut) {
+          tweenOut.kill();
+        }
         if (hovering) {
-          setKilled(false);
-          gsap.killTweensOf(tweenOut);
           setTweenIn(
             gsap.to(explRef.current.scale, {
               y: `9`,
               x: `9`,
               z: `9`,
               duration: isNotPC ? 1 : 2,
-              onComplete: () => setFull(true)
+              onComplete: () => setFull(true),
+              onInterrupt: () => setFull(false),
+              onStart: () => setFull(false)
             })
           );
         } else {
-          gsap.killTweensOf(tweenIn);
-          setKilled(true);
           setTweenOut(
             gsap.to(explRef.current.scale, {
               y: `1`,
               x: `1`,
               z: `1`,
               duration: isNotPC ? 2 : 3,
+              onStart: () => setFull(false),
               onComplete: () => setFull(false)
             })
           );
@@ -107,7 +110,7 @@ const Intro = () => {
   // if we are not on PC start experience automaticaly
   useEffect(() => {
     let timeout = -1;
-    if (isNotPC && full && !killed) {
+    if (isNotPC && full) {
       timeout = setTimeout(() => {
         setExperience(experiences[0]);
       }, 1000);
@@ -116,7 +119,7 @@ const Intro = () => {
       clearTimeout(prev);
       return timeout;
     });
-  }, [isNotPC, full, killed, setExperience]);
+  }, [isNotPC, full, setExperience]);
 
   return (
     <section className="relative flex min-h-screen w-full flex-col" id="home">
@@ -124,7 +127,7 @@ const Intro = () => {
         <Canvas
           className="h-full w-full"
           ref={canvasRef as Ref<HTMLCanvasElement>}
-          onClick={() => full && !killed && setExperience(experiences[0])}
+          onClick={() => full && setExperience(experiences[0])}
           onPointerEnter={() => setHovering(true)}
           onPointerLeave={() => setHovering(false)}
         >
@@ -141,8 +144,8 @@ const Intro = () => {
               center
               zIndexRange={[-10, -10]}
               style={{
-                visibility: full && !killed ? 'visible' : 'hidden',
-                opacity: full && !killed ? '1' : '0',
+                visibility: full ? 'visible' : 'hidden',
+                opacity: full ? '1' : '0',
                 transition: 'visibility 0s, opacity 0.3s linear',
                 zIndex: -1
               }}
