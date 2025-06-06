@@ -1,6 +1,6 @@
 # Portfolio
 
-This portfolio was primarily a learning experience to familiarize myself with React, Three.js, React Fiber, Tailwind, GCP hosting, Vite, domain registering and so on...
+This portfolio was primarily a learning experience to familiarize myself with React, Three.js, React Three Fiber, Tailwind, GCP hosting, Vite, domain registering and so on...
 The development process turned out to be a really fun, educational and insightful experience!
 
 The application is served by a basic nginx server.
