@@ -14,14 +14,15 @@ import { RefObject, useRef } from 'react';
 import { RefProps } from '../common/props';
 
 const Explosion = (props: RefProps) => {
+  const { innerRef, ...rest } = props;
   const { nodes, materials } = useGLTF('/models/vfx_explosion.glb');
-  const innerRef = useRef<Mesh<BufferGeometry>>();
+  const innerRefLocal = useRef<Mesh<BufferGeometry>>();
   const outerRef = useRef<Mesh<BufferGeometry>>();
 
   // continuosly spin
   useGSAP(() => {
-    if (innerRef.current) {
-      gsap.timeline({ repeat: -1 }).to(innerRef.current.rotation, {
+    if (innerRefLocal.current) {
+      gsap.timeline({ repeat: -1 }).to(innerRefLocal.current.rotation, {
         y: `+=${Math.PI * 2}`,
         x: `+=${Math.PI * 2}`,
         z: `+=${Math.PI * 2}`,
@@ -41,7 +42,7 @@ const Explosion = (props: RefProps) => {
   });
 
   return (
-    <group {...props} dispose={null} ref={props.innerRef}>
+    <group {...rest} dispose={null} ref={innerRef}>
       <group
         position={[0.02197045, 0.10402713, -0.04289045]}
         rotation={[-2.09475399, -0.45316825, -2.71997209]}
@@ -53,7 +54,7 @@ const Explosion = (props: RefProps) => {
           material={materials.material_0}
         />
         <mesh
-          ref={innerRef as RefObject<Mesh<BufferGeometry>>}
+          ref={innerRefLocal as RefObject<Mesh<BufferGeometry>>}
           geometry={(nodes.Object_5 as Mesh).geometry}
           material={materials.material_0}
         />

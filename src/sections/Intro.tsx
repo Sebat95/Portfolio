@@ -115,10 +115,11 @@ const Intro = () => {
         setExperience(experiences[0]);
       }, 1000);
     }
-    return () => setExpStart((prev) => {
-      clearTimeout(prev);
-      return timeout;
-    });
+    return () =>
+      setExpStart((prev) => {
+        clearTimeout(prev);
+        return timeout;
+      });
   }, [isNotPC, full, setExperience]);
 
   return (

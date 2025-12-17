@@ -186,7 +186,7 @@ const HobbyCombo = () => {
           >
             <Resistor />
           </Hobby>
-          {highlighted >= 0 && highlighted < refArray.length && (
+          {highlighted >= 0 && highlighted < hobbies.length && (
             <Html
               as="div"
               center

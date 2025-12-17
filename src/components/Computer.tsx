@@ -17,7 +17,7 @@ const Computer = (props: ComputerProps) => {
   const group = useRef();
   const { nodes, materials } = useGLTF('/models/computer.glb');
 
-  const txtr = useTexture(props.texture, (loaded) => loaded.flipY = false);
+  const txtr = useTexture(props.texture, (loaded) => (loaded.flipY = false));
 
   useGSAP(
     () => {

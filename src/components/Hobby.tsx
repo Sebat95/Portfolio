@@ -8,7 +8,8 @@ interface HobbyProps extends RefProps {
 
 const Hobby = (props: HobbyProps) => {
   const [hover, setHover] = useState(false);
-  const childProps = { ...props } as HobbyObjectProps;
+  const { innerRef, children, position, highlighted, ...rest } = props;
+  const childProps = { ...rest } as HobbyObjectProps;
   if (childProps.position) {
     delete childProps.position;
   }
@@ -16,14 +17,14 @@ const Hobby = (props: HobbyProps) => {
 
   return (
     <group
-      {...props}
+      {...rest}
       dispose={null}
-      position={props.position}
-      ref={props.innerRef}
-      onPointerEnter={() => setHover(!props.highlighted)}
+      position={position}
+      ref={innerRef}
+      onPointerEnter={() => setHover(!highlighted)}
       onPointerLeave={() => setHover(false)}
     >
-      {React.cloneElement(React.Children.only(props.children) as JSX.Element, {
+      {React.cloneElement(React.Children.only(children) as JSX.Element, {
         ...childProps
       })}
     </group>

@@ -11,10 +11,11 @@ import { HobbyObjectProps } from '../../common/props';
 import { Mesh } from 'three';
 
 const Basketball = (props: HobbyObjectProps) => {
+  const { callback, emissive, ...rest } = props;
   const { nodes, materials } = useGLTF('/models/basketball.glb');
   return (
-    <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={1.3} ref={props.callback}>
+    <group {...rest} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={1.3} ref={callback}>
         <mesh
           castShadow
           receiveShadow
@@ -28,7 +29,7 @@ const Basketball = (props: HobbyObjectProps) => {
           material={materials['Material.001']}
         />
         <mesh
-          visible={!!props.emissive}
+          visible={!!emissive}
           geometry={(nodes.Basketball_0 as Mesh).geometry}
           material={materials.Material}
         >
