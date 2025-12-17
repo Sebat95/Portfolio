@@ -119,8 +119,9 @@ const Page = (prop: PageProp) => {
     `/textures/pages/${front}.jpg`,
     `/textures/pages/${back}.jpg`,
     `/textures/pages/book-cover-roughness.jpg`
-  ]);
-  frontMap.colorSpace = backMap.colorSpace = SRGBColorSpace; // better colors
+  ], (txtrArray) => {
+    txtrArray[0].colorSpace = txtrArray[1].colorSpace = SRGBColorSpace;// better colors
+  });
   const ref = useRef<Group<Object3DEventMap>>();
   const pageMeshRef = useRef<SkinnedMesh<BufferGeometry>>();
   const [turnedAt, setTurnedAt] = useState(0);
@@ -170,6 +171,11 @@ const Page = (prop: PageProp) => {
 
   // visualize actual skeleton on screen
   // useHelper(pageMeshRef, SkeletonHelper, "red");
+
+
+  // add click functionalities and highlight on hover
+  const [highlighted, setHighlighted] = useState(false);
+  useCursor(highlighted);
 
   // putting all together and create the page
   useFrame((_, delta) => {
@@ -242,10 +248,6 @@ const Page = (prop: PageProp) => {
       }
     }
   });
-
-  // add click functionalities and highlight on hover
-  const [highlighted, setHighlighted] = useState(false);
-  useCursor(highlighted);
 
   return (
     <group
