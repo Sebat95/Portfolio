@@ -1,4 +1,10 @@
-user-agent: *
-allow: /
-disallow: /*.pdf
-sitemap: https://sbatta.it/sitemap.xml
+User-agent: *
+Allow: /
+Disallow: /*.pdf$
+Disallow: /*.webp$
+Disallow: /*.png$
+Disallow: /*.svg$
+Disallow: /*.woff$
+Disallow: /*.glb$
+Disallow: /*.jpg$
+Sitemap: https://sbatta.it/sitemap.xml
