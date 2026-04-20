@@ -12,7 +12,7 @@ const BookCombo = () => {
 
   return (
     <>
-      <div className="absolute inset-0 h-full w-full">
+      <div className="w-full-screen">
         <Canvas
           className="h-full w-full"
           onPointerDown={() => setPointerDown(true)}
