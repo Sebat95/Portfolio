@@ -95,39 +95,47 @@ const HobbyCombo = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  //useEffect for hobbies movement and highlighting
+  // circle movement — runs each posInd tick, only when not highlighted
   useEffect(() => {
-    if (highlighted > -2 && highlighted < refArray.length) {
-      if (highlighted == -1) {
-        refArray.forEach((ref, i) => {
-          if (ref.current && highlighted == -1) {
-            const ctx = gsap.to(ref.current.position, {
-              x: positionsArray[(2 * i + posInd) % positionsArray.length].x,
-              y: positionsArray[(2 * i + posInd) % positionsArray.length].y,
-              z: positionsArray[(2 * i + posInd) % positionsArray.length].z,
-              ease: 'none',
-              duration: 1
-            });
-            if (i == refArray.length - 1) {
-              ctx.then(() =>
-                setPosInd((prev) => (prev + 1) % positionsArray.length)
-              );
-            }
-          }
-        });
-      } else {
-        if (refArray[highlighted].current) {
-          gsap.to(refArray[highlighted].current.position, {
-            x: 0,
-            y: 0,
-            z: 0,
-            ease: 'power1.out',
-            duration: 0.5
+    if (highlighted === -1) {
+      refArray.forEach((ref, i) => {
+        if (ref.current) {
+          const ctx = gsap.to(ref.current.position, {
+            x: positionsArray[(2 * i + posInd) % positionsArray.length].x,
+            y: positionsArray[(2 * i + posInd) % positionsArray.length].y,
+            z: positionsArray[(2 * i + posInd) % positionsArray.length].z,
+            ease: 'none',
+            duration: 1
           });
+          if (i == refArray.length - 1) {
+            ctx.then(() =>
+              setPosInd((prev) => (prev + 1) % positionsArray.length)
+            );
+          }
         }
-      }
+      });
     }
   }, [refArray, positionsArray, posInd, highlighted]);
+
+  // highlight — only reruns when highlighted changes, kills competing tweens first
+  useEffect(() => {
+    if (highlighted >= 0 && highlighted < refArray.length) {
+      refArray.forEach((ref) => {
+        if (ref.current) {
+          gsap.killTweensOf(ref.current.position);
+        }
+      });
+      if (refArray[highlighted].current) {
+        gsap.to(refArray[highlighted].current.position, {
+          x: 0,
+          y: 0,
+          z: 0,
+          ease: 'power1.out',
+          duration: 0.5
+        });
+      }
+    }
+  }, [refArray, highlighted]);
 
   return (
     <div className="absolute inset-0 h-full w-full">
