@@ -9,7 +9,7 @@ const Footer = () => {
           className="social-icon cursor-pointer"
           href="https://github.com/Sebat95"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <img src="/assets/github.svg" alt="github" className="h-1/2 w-1/2" />
         </a>
@@ -17,7 +17,7 @@ const Footer = () => {
           className="social-icon cursor-pointer"
           href="https://leetcode.com/u/Sebat/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <img
             src="/assets/leetcode.svg"

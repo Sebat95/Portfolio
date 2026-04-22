@@ -127,8 +127,8 @@ const Page = (prop: PageProp) => {
   );
   const ref = useRef<Group<Object3DEventMap>>();
   const pageMeshRef = useRef<SkinnedMesh<BufferGeometry>>();
-  const [turnedAt, setTurnedAt] = useState(0);
-  const [lastOpened, setLastOpened] = useState(opened);
+  const turnedAtRef = useRef(0);
+  const lastOpenedRef = useRef(opened);
 
   // create the custom skinned mesh
   const pageSkinnedMesh = useMemo(() => {
@@ -204,12 +204,12 @@ const Page = (prop: PageProp) => {
         0.1
       );
 
-      if (lastOpened !== opened) {
-        setTurnedAt(Date.now());
-        setLastOpened(opened);
+      if (lastOpenedRef.current !== opened) {
+        turnedAtRef.current = Date.now();
+        lastOpenedRef.current = opened;
       }
       const turningTime = Math.sin(
-        (Math.min(400, Date.now() - turnedAt) / 400) * Math.PI
+        (Math.min(400, Date.now() - turnedAtRef.current) / 400) * Math.PI
       );
 
       const bones = pageMeshRef.current.skeleton.bones;

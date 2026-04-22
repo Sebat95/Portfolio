@@ -63,7 +63,7 @@ const HobbyCombo = () => {
     const maxStep = Math.min(Math.max(width / 128, 1), 8);
     const mediumStep = (maxStep / 8) * 6.9;
     const halfStep = maxStep / 2;
-    return [
+    const rawPositions: ReadonlyArray<readonly [number, number, number]> = [
       [0, maxStep, -10],
       [halfStep, mediumStep, -10],
       [mediumStep, halfStep, -10],
@@ -76,7 +76,8 @@ const HobbyCombo = () => {
       [-maxStep, 0, -10],
       [-mediumStep, halfStep, -10],
       [-halfStep, mediumStep, -10]
-    ].map((v) => numsToVector3(v));
+    ];
+    return rawPositions.map(numsToVector3);
   }, [width]);
 
   // useEffect for window resizing
@@ -207,7 +208,12 @@ const HobbyCombo = () => {
               className="pop-up !relative"
             >
               {hobbies[highlighted].map((h, i) => (
-                <p className={i == 0 ? 'grid-headtext' : 'grid-subtext'}>{h}</p>
+                <p
+                  key={i}
+                  className={i == 0 ? 'grid-headtext' : 'grid-subtext'}
+                >
+                  {h}
+                </p>
               ))}
             </Html>
           )}

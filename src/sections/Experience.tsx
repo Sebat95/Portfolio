@@ -10,16 +10,10 @@ const Experience = () => {
   const { setExperience } = useContext(JourneyContext);
 
   const handleNavigation = (back = false) => {
-    setExpInd((prev) => {
-      let nxt = prev + (back ? -1 : 1);
-      if (nxt < 0) {
-        nxt = experiences.length - 1;
-      } else if (nxt > experiences.length - 1) {
-        nxt = 0;
-      }
-      setTimeout(() => setExperience(experiences[nxt]), 0); // avoid render error
-      return nxt;
-    });
+    const nxt =
+      (expInd + (back ? -1 : 1) + experiences.length) % experiences.length;
+    setExpInd(nxt);
+    setExperience(experiences[nxt]);
   };
 
   return (
