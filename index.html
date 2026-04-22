@@ -23,19 +23,34 @@
       property="og:description"
       content="React Three Fiber interactive personal website"
     />
-    <meta property="og:image" content="https://sbatta.it/boom.png" />
+    <meta property="og:site_name" content="Sbatta" />
+    <meta property="og:image" content="https://sbatta.it/og-1200x630.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Samuele Battaglino — Full-Stack Developer portfolio"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://sbatta.it" />
 
-    <link rel="icon" type="image/x-icon" href="/boom.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="/boom.ico" />
-    <link rel="apple-touch-icon" type="image/png" href="/boom.png" />
-    <link
-      rel="apple-touch-icon-precomposed"
-      type="image/png"
-      href="/boom.ico"
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sbatta: Samuele Battaglino's Portfolio" />
+    <meta
+      name="twitter:description"
+      content="React Three Fiber interactive personal website"
     />
+    <meta name="twitter:image" content="https://sbatta.it/og-1200x630.png" />
+
+    <link rel="canonical" href="https://sbatta.it/" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0b0b0f" />
 
     <link
       rel="preload"
@@ -123,6 +138,29 @@
     />
 
     <title>Sbatta</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://sbatta.it/#website",
+            "url": "https://sbatta.it/",
+            "name": "Sbatta",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://sbatta.it/#person",
+            "name": "Samuele Battaglino",
+            "url": "https://sbatta.it/",
+            "image": "https://sbatta.it/boom.png",
+            "sameAs": []
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
