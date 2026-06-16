@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /*.pdf$
+Allow: /assets/cv.pdf
+Allow: /resume.json
 Disallow: /*.woff$
 Disallow: /*.glb$
 Sitemap: https://sbatta.it/sitemap.xml

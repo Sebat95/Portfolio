@@ -1,10 +1,11 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import { aboutMe } from '../common/constants';
+import { getExperienceYears, identity } from '../common/profile';
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
   const [hasDowloaded, sethasDowloaded] = useState(false);
-  const email = 'samubattaglino@gmail.com';
+  const { email, cvUrl } = identity;
   const handleAction = (
     setState: Dispatch<SetStateAction<boolean>>,
     action: CallableFunction
@@ -21,7 +22,7 @@ const About = () => {
   const doDownload = () => {
     const link = document.createElement('a');
     link.setAttribute('type', 'hidden');
-    link.href = '/assets/cv.pdf';
+    link.href = cvUrl;
     link.download = 'cv.pdf';
     document.body.appendChild(link);
     link.click();
@@ -39,7 +40,7 @@ const About = () => {
               <br />
               <p className="grid-subtext">
                 I'm Samuele Battaglino, a full stack software engineer with{' '}
-                {new Date().getFullYear() - 2020} years of experience.
+                {getExperienceYears()} years of experience.
               </p>
               {aboutMe.map((me, ind) =>
                 me === '' ? (
