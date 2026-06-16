@@ -32,9 +32,9 @@ const Experience = () => {
           <img src="/assets/right-arrow.png" alt="back" className="h-5 w-5" />
         </button>
       </div>
-      {expInd == 0 && <BookCombo />}
-      {expInd == 1 && <ComputerCombo />}
-      {expInd == 2 && <HobbyCombo />}
+      {expInd === 0 && <BookCombo />}
+      {expInd === 1 && <ComputerCombo />}
+      {expInd === 2 && <HobbyCombo />}
     </section>
   );
 };

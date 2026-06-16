@@ -47,7 +47,7 @@ export const education = [
       'Generalized Principal Component Analysis — gradient ascent and kernel methods; published by IEEE'
   },
   {
-    degree: 'B.S. Computer ScEngineeringience',
+    degree: 'B.S. Computer Engineering',
     institution: 'Politecnico di Torino',
     endYear: 2017,
     finalMark: '96/110',
@@ -85,9 +85,9 @@ export const jobsAndProjs: JobOrProject[] = [
     tags: [
       { name: 'AngularJs', path: '/assets/angular.png' },
       { name: 'TypeScript', path: '/assets/typescript.png' },
-      { name: 'Java', path: 'assets/java.png' },
-      { name: 'PostgreSQL', path: 'assets/postgre.png' },
-      { name: 'MongoDB', path: 'assets/mongo.svg' }
+      { name: 'Java', path: '/assets/java.png' },
+      { name: 'PostgreSQL', path: '/assets/postgre.png' },
+      { name: 'MongoDB', path: '/assets/mongo.svg' }
     ]
   },
   {
@@ -105,8 +105,8 @@ export const jobsAndProjs: JobOrProject[] = [
     tags: [
       { name: 'AngularJs', path: '/assets/angular.png' },
       { name: 'TypeScript', path: '/assets/typescript.png' },
-      { name: 'Java', path: 'assets/java.png' },
-      { name: 'OracleDB', path: 'assets/oracle.png' }
+      { name: 'Java', path: '/assets/java.png' },
+      { name: 'OracleDB', path: '/assets/oracle.png' }
     ]
   },
   {
@@ -124,7 +124,7 @@ export const jobsAndProjs: JobOrProject[] = [
     logo: '/assets/gcpa_logo.png',
     tags: [
       { name: 'Python', path: '/assets/python.png' },
-      { name: 'Matlab', path: 'assets/matlab.png' }
+      { name: 'Matlab', path: '/assets/matlab.png' }
     ]
   },
   {
@@ -154,7 +154,7 @@ export const jobsAndProjs: JobOrProject[] = [
     logo: '/assets/amicook_logo.png',
     tags: [
       { name: 'Python', path: '/assets/python.png' },
-      { name: 'Flask', path: 'assets/flask.png' },
+      { name: 'Flask', path: '/assets/flask.png' },
       { name: 'Android', path: '/assets/android.png' },
       { name: 'Arduino', path: '/assets/arduino.png' },
       { name: 'Bootstrap', path: '/assets/bootstrap.png' }

@@ -25,7 +25,6 @@ import {
   Object3DEventMap,
   BufferGeometry
 } from 'three';
-import { degToRad } from 'three/src/math/MathUtils.js';
 import { pages } from '../common/constants';
 
 // CONSTANTS
@@ -215,7 +214,7 @@ const Page = (prop: PageProp) => {
       const bones = pageMeshRef.current.skeleton.bones;
       let targetRotation = opened ? -Math.PI / 2 : Math.PI / 2;
       if (!bookClosed) {
-        targetRotation += degToRad(pageNum * 0.8);
+        targetRotation += MathUtils.degToRad(pageNum * 0.8);
       }
       for (let i = 0; i < bones.length; i++) {
         // for the first bone bend the whole page
@@ -235,7 +234,9 @@ const Page = (prop: PageProp) => {
             TURN_CURVE_STR * turningIntensity * targetRotation;
         easing.dampAngle(target.rotation, 'y', rotation, EASING_FACTOR, delta);
         // place a fold on the x axes, to give it more realism
-        const fold = bookClosed ? 0 : degToRad(Math.sign(targetRotation) * 2);
+        const fold = bookClosed
+          ? 0
+          : MathUtils.degToRad(Math.sign(targetRotation) * 2);
         const foldIntensity =
           i > 8
             ? Math.sin((i * Math.PI) / bones.length - 0.5) * turningTime

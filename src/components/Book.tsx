@@ -26,7 +26,7 @@ const Book = (props: BookProps) => {
       });
     turnPage();
     return () => {
-      if (timeout != -1) {
+      if (timeout !== -1) {
         clearTimeout(timeout);
       }
     };

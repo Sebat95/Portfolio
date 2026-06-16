@@ -32,7 +32,7 @@ const doSetHighlighted = (
 ) => {
   event.nativeEvent.stopPropagation();
   event.stopPropagation();
-  setter((prev) => (prev == -1 ? id : -1));
+  setter((prev) => (prev === -1 ? id : -1));
 };
 
 const HobbyCombo = () => {
@@ -108,7 +108,7 @@ const HobbyCombo = () => {
             ease: 'none',
             duration: 1
           });
-          if (i == refArray.length - 1) {
+          if (i === refArray.length - 1) {
             ctx.then(() =>
               setPosInd((prev) => (prev + 1) % positionsArray.length)
             );
@@ -149,7 +149,7 @@ const HobbyCombo = () => {
         <Suspense fallback={<CanvasLoader />}>
           <Hobby
             position={positionsArray[0]}
-            highlighted={highlighted != -1}
+            highlighted={highlighted !== -1}
             onClick={(e) => doSetHighlighted(0, setHighlighted, e)}
             innerRef={bbRef as RefObject<Group<Object3DEventMap>>}
           >
@@ -157,7 +157,7 @@ const HobbyCombo = () => {
           </Hobby>
           <Hobby
             position={positionsArray[2]}
-            highlighted={highlighted != -1}
+            highlighted={highlighted !== -1}
             onClick={(e) => doSetHighlighted(1, setHighlighted, e)}
             innerRef={flaskRef as RefObject<Group<Object3DEventMap>>}
           >
@@ -165,7 +165,7 @@ const HobbyCombo = () => {
           </Hobby>
           <Hobby
             position={positionsArray[4]}
-            highlighted={highlighted != -1}
+            highlighted={highlighted !== -1}
             onClick={(e) => doSetHighlighted(2, setHighlighted, e)}
             innerRef={pizzaRef as RefObject<Group<Object3DEventMap>>}
           >
@@ -173,7 +173,7 @@ const HobbyCombo = () => {
           </Hobby>
           <Hobby
             position={positionsArray[6]}
-            highlighted={highlighted != -1}
+            highlighted={highlighted !== -1}
             onClick={(e) => doSetHighlighted(3, setHighlighted, e)}
             innerRef={anvilRef as RefObject<Group<Object3DEventMap>>}
           >
@@ -181,7 +181,7 @@ const HobbyCombo = () => {
           </Hobby>
           <Hobby
             position={positionsArray[8]}
-            highlighted={highlighted != -1}
+            highlighted={highlighted !== -1}
             onClick={(e) => doSetHighlighted(4, setHighlighted, e)}
             innerRef={stRef as RefObject<Group<Object3DEventMap>>}
           >
@@ -210,7 +210,7 @@ const HobbyCombo = () => {
               {hobbies[highlighted].map((h, i) => (
                 <p
                   key={i}
-                  className={i == 0 ? 'grid-headtext' : 'grid-subtext'}
+                  className={i === 0 ? 'grid-headtext' : 'grid-subtext'}
                 >
                   {h}
                 </p>

@@ -4,7 +4,7 @@ import { getExperienceYears, identity } from '../common/profile';
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
-  const [hasDowloaded, sethasDowloaded] = useState(false);
+  const [hasDownloaded, sethasDowloaded] = useState(false);
   const { email, cvUrl } = identity;
   const handleAction = (
     setState: Dispatch<SetStateAction<boolean>>,
@@ -60,7 +60,7 @@ const About = () => {
               <img
                 src="/assets/cv.webp"
                 alt="cv"
-                className="sm:objet-top h-96 w-96 object-contain"
+                className="h-96 w-96 object-contain sm:object-top"
               />
             </div>
             <div>
@@ -72,7 +72,7 @@ const About = () => {
                 <img
                   className="text-red h-9 w-9 fill-current"
                   src={
-                    hasDowloaded ? '/assets/tick.svg' : '/assets/download.svg'
+                    hasDownloaded ? '/assets/tick.svg' : '/assets/download.svg'
                   }
                   alt="copy"
                 />
@@ -89,7 +89,7 @@ const About = () => {
               <img
                 src="/assets/stackLogos.webp"
                 alt="stack"
-                className="sm:objet-top h-96 w-96 object-contain"
+                className="h-96 w-96 object-contain sm:object-top"
               />
             </div>
             <div>
@@ -106,7 +106,7 @@ const About = () => {
               <img
                 src="/assets/email.webp"
                 alt="email"
-                className="sm:objet-top h-96 w-96 object-contain"
+                className="h-96 w-96 object-contain sm:object-top"
               />
             </div>
             <div className="space-y-2">
