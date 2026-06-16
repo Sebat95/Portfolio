@@ -111,6 +111,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Crawler-readable profile; hidden from the UI (inline head styles blocked by CSP) */
+#ai-content {
+  display: none !important;
+}
+
 * {
   scroll-behavior: smooth;
   /* oversized since there at most two sections it does not matter */

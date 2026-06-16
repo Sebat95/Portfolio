@@ -114,7 +114,7 @@ export function buildAiContentHtml(): string {
     )
     .join('\n');
 
-  return `<main id="ai-content" aria-label="Samuele Battaglino portfolio summary">
+  return `<main id="ai-content" hidden aria-label="Samuele Battaglino portfolio summary">
   <h1>${escapeHtml(identity.name)}</h1>
   <p>${escapeHtml(identity.title)} — ${escapeHtml(identity.location)}</p>
   <p>${escapeHtml(summary)}</p>
