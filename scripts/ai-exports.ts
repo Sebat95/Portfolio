@@ -8,7 +8,7 @@ import {
   jobsAndProjs,
   siteUrl,
   summary
-} from '../src/common/profile';
+} from '../src/common/profile.ts';
 
 const cvAbsoluteUrl = `${siteUrl}${identity.cvUrl}`;
 const experience = jobsAndProjs.filter((item) => item.isWork);

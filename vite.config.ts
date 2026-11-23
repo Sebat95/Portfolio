@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { aiExportsPlugin } from './scripts/vite-plugin-ai-exports';
+import { aiExportsPlugin } from './scripts/vite-plugin-ai-exports.ts';
 
 // https://vite.dev/config/
 export default defineConfig({
