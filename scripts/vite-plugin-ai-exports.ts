@@ -24,9 +24,15 @@ export function aiExportsPlugin(): Plugin {
         `${JSON.stringify(buildResumeJson(), null, 2)}\n`,
         'utf8'
       );
+      const aiCatalog = `${JSON.stringify(buildAiCatalogJson(), null, 2)}\n`;
       await writeFile(
         path.join(publicDir, 'ai-catalog.json'),
-        `${JSON.stringify(buildAiCatalogJson(), null, 2)}\n`,
+        aiCatalog,
+        'utf8'
+      );
+      await writeFile(
+        path.join(publicDir, '.well-known', 'ai-catalog.json'),
+        aiCatalog,
         'utf8'
       );
       await writeFile(path.join(publicDir, 'llms.txt'), buildLlmsTxt(), 'utf8');

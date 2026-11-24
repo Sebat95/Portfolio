@@ -13,7 +13,11 @@
       "url": "https://sbatta.it/resume.json",
       "displayName": "Samuele Battaglino — Resume",
       "description": "Machine-readable CV (JSON Resume schema): experience, projects, education, and skills.",
-      "tags": ["resume", "cv", "profile"],
+      "tags": [
+        "resume",
+        "cv",
+        "profile"
+      ],
       "publisher": {
         "identifier": "sbatta.it",
         "displayName": "Samuele Battaglino"
@@ -25,7 +29,10 @@
       "url": "https://sbatta.it/assets/cv.pdf",
       "displayName": "Samuele Battaglino — CV (PDF)",
       "description": "Printable curriculum vitae.",
-      "tags": ["cv", "pdf"],
+      "tags": [
+        "cv",
+        "pdf"
+      ],
       "publisher": {
         "identifier": "sbatta.it",
         "displayName": "Samuele Battaglino"
@@ -37,7 +44,10 @@
       "url": "https://sbatta.it/llms.txt",
       "displayName": "LLM guide",
       "description": "llms.txt overview of the site's resources for large language models.",
-      "tags": ["llms", "guide"],
+      "tags": [
+        "llms",
+        "guide"
+      ],
       "publisher": {
         "identifier": "sbatta.it",
         "displayName": "Samuele Battaglino"
