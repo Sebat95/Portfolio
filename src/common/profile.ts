@@ -68,7 +68,7 @@ export type JobOrProject = {
 };
 
 export const jobsAndProjs: JobOrProject[] = [
-    {
+  {
     title: 'ClickHouse',
     isWork: true,
     ind: -1,
@@ -128,6 +128,26 @@ export const jobsAndProjs: JobOrProject[] = [
       { name: 'TypeScript', path: '/assets/typescript.png' },
       { name: 'Java', path: '/assets/java.png' },
       { name: 'OracleDB', path: '/assets/oracle.png' }
+    ]
+  },
+  {
+    title: 'Slopwise',
+    isWork: false,
+    ind: -1,
+    desc: 'Mobile-first PWA for splitting expenses; data lives in your Google Sheets. Express handles sessions, encrypts refresh tokens in Firestore, and proxies Google APIs.',
+    subdesc:
+      'I wanted an expense-splitting app with the features I needed, like being built on Google Sheets. ' +
+      'It was also the perfect playground to try vibecoding and pit different models against each other. ' +
+      'It is now as well my daily driver!',
+    href: 'https://github.com/Sebat95/slopwise',
+    texture: '/textures/computer/slopwise_texture.png',
+    logo: '/assets/slopwise_logo.svg',
+    tags: [
+      { name: 'React', path: '/assets/react.webp' },
+      { name: 'TypeScript', path: '/assets/typescript.png' },
+      { name: 'Node', path: '/assets/node.svg' },
+      { name: 'Tailwind', path: '/assets/tailwindcss.png' },
+      { name: 'Firebase', path: '/assets/firebase.png' }
     ]
   },
   {

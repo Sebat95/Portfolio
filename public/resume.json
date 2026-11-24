@@ -49,6 +49,18 @@
   ],
   "projects": [
     {
+      "name": "Slopwise",
+      "description": "Mobile-first PWA for splitting expenses; data lives in your Google Sheets. Express handles sessions, encrypts refresh tokens in Firestore, and proxies Google APIs. I wanted an expense-splitting app with the features I needed, like being built on Google Sheets. It was also the perfect playground to try vibecoding and pit different models against each other. It is now as well my daily driver!",
+      "url": "https://github.com/Sebat95/slopwise",
+      "skills": [
+        "React",
+        "TypeScript",
+        "Node",
+        "Tailwind",
+        "Firebase"
+      ]
+    },
+    {
       "name": "Generalized Principal Component Analysis",
       "description": "Conventional principal component analysis (PCA) finds a principal vector that maximizes the sum of second powers of principal components. My  advisor and I, considered a generalized PCA that aims at maximizing the sum of an arbitrary convex function of principal components. We present a gradient ascent algorithm to solve the problem. For the kernel version of generalized PCA, we show that the solutions can be obtained as fixed points of a simple single-layer recurrent neural network. We also evaluate our algorithms on different datasets.  This was my MS thesis, that got published by IEEE and got me a flying colors degree. I really enjoyed the research and discovery process, the heavy math and machine learning side. I have recently rewrote the whole thing from the intial Matlab scripts to Python.",
       "url": "https://github.com/Sebat95/GPCA",
@@ -108,6 +120,7 @@
     "Bootstrap",
     "C",
     "ClickHouse",
+    "Firebase",
     "Flask",
     "Java",
     "Matlab",
@@ -117,6 +130,7 @@
     "PostgreSQL",
     "Python",
     "React",
+    "Tailwind",
     "TypeScript"
   ],
   "hobbies": [
