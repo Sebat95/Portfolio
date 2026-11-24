@@ -15,7 +15,7 @@ export const identity = {
 };
 
 export const summary =
-  'Full-stack software engineer based in Italy with experience building banking web applications, microservice architectures, and machine learning research. Currently at Intesa Sanpaolo; previously at Reply.';
+  'Senior full-stack software engineer based in Italy, currently at ClickHouse building billing and payments systems. Six years across data-platform and banking web applications, microservice architectures, and machine-learning research; previously at Intesa Sanpaolo and Reply.';
 
 export const aboutMe = [
   'I created this portfolio first and foremost to teach myself React, ThreeJS, and GCP hosting,',
@@ -68,13 +68,34 @@ export type JobOrProject = {
 };
 
 export const jobsAndProjs: JobOrProject[] = [
+    {
+    title: 'ClickHouse',
+    isWork: true,
+    ind: -1,
+    desc: "ClickHouse is an American data company headquartered in San Francisco. It has grown from being just the home to the world's fastest database into a unified platform spanning transactional databases, observability, security, AI engineering and more.",
+    subdesc:
+      'I have been employed here as a senior full stack engineer since 2026. ' +
+      'I am part of the Control Plane team, specifically billing. ' +
+      'Among my duties there is maintaining and evolve Stripe payment orchestration, automated delinquency flows, ' +
+      ' multi-product usage pricing, cloud hyperscaler and platform marketplaces integrations (AWS, GCP, Azure, and Vercel) ' +
+      'and build customer billing portal and internal back-office features.',
+    href: 'https://www.clickhouse.com/',
+    texture: '/textures/computer/ch_texture.webp',
+    logo: '/assets/ch_logo.webp',
+    tags: [
+      { name: 'React', path: '/assets/react.webp' },
+      { name: 'TypeScript', path: '/assets/typescript.png' },
+      { name: 'Node', path: '/assets/node.svg' },
+      { name: 'ClickHouse', path: '/assets/ch.png' }
+    ]
+  },
   {
     title: 'Intesa Sanpaolo',
     isWork: true,
     ind: -1,
     desc: 'Intesa Sanpaolo S.p.A. is an Italian international banking group. It is the largest Italian bank by total assets and the world 27th.',
     subdesc:
-      'I have been employed here as a full stack engineer since 2023. ' +
+      'I have worked there for 2 and half years as a full stack engineer. ' +
       'I worked mainly on the creation of a new webapp for managing Structured Finance Credit for the whole bank. ' +
       'I personally helped design the overall architecture: different databases (PostgreSQL and MongoDB), microservices (Java with Spring), micro frontends (AngularJS with module federation), comunication flow (Kafka) etc. ' +
       'Then I developed most of the front end and some data ingestion process. ' +

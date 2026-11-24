@@ -9,12 +9,23 @@
     "https://leetcode.com/u/Sebat/",
     "https://sbatta.it"
   ],
-  "summary": "Full-stack software engineer based in Italy with experience building banking web applications, microservice architectures, and machine learning research. Currently at Intesa Sanpaolo; previously at Reply.",
+  "summary": "Senior full-stack software engineer based in Italy, currently at ClickHouse building billing and payments systems. Six years across data-platform and banking web applications, microservice architectures, and machine-learning research; previously at Intesa Sanpaolo and Reply.",
   "yearsOfExperience": 6,
   "experience": [
     {
+      "company": "ClickHouse",
+      "description": "ClickHouse is an American data company headquartered in San Francisco. It has grown from being just the home to the world's fastest database into a unified platform spanning transactional databases, observability, security, AI engineering and more. I have been employed here as a senior full stack engineer since 2026. I am part of the Control Plane team, specifically billing. Among my duties there is maintaining and evolve Stripe payment orchestration, automated delinquency flows,  multi-product usage pricing, cloud hyperscaler and platform marketplaces integrations (AWS, GCP, Azure, and Vercel) and build customer billing portal and internal back-office features.",
+      "url": "https://www.clickhouse.com/",
+      "skills": [
+        "React",
+        "TypeScript",
+        "Node",
+        "ClickHouse"
+      ]
+    },
+    {
       "company": "Intesa Sanpaolo",
-      "description": "Intesa Sanpaolo S.p.A. is an Italian international banking group. It is the largest Italian bank by total assets and the world 27th. I have been employed here as a full stack engineer since 2023. I worked mainly on the creation of a new webapp for managing Structured Finance Credit for the whole bank. I personally helped design the overall architecture: different databases (PostgreSQL and MongoDB), microservices (Java with Spring), micro frontends (AngularJS with module federation), comunication flow (Kafka) etc. Then I developed most of the front end and some data ingestion process. Lastly, I have designed and developed a Visual Studio Code extension which integrates the company proprietary GenAI for generating commit comments, refactoring/explaining code and so on.",
+      "description": "Intesa Sanpaolo S.p.A. is an Italian international banking group. It is the largest Italian bank by total assets and the world 27th. I have worked there for 2 and half years as a full stack engineer. I worked mainly on the creation of a new webapp for managing Structured Finance Credit for the whole bank. I personally helped design the overall architecture: different databases (PostgreSQL and MongoDB), microservices (Java with Spring), micro frontends (AngularJS with module federation), comunication flow (Kafka) etc. Then I developed most of the front end and some data ingestion process. Lastly, I have designed and developed a Visual Studio Code extension which integrates the company proprietary GenAI for generating commit comments, refactoring/explaining code and so on.",
       "url": "https://www.intesasanpaolo.com/",
       "skills": [
         "AngularJs",
@@ -96,13 +107,16 @@
     "Arduino",
     "Bootstrap",
     "C",
+    "ClickHouse",
     "Flask",
     "Java",
     "Matlab",
     "MongoDB",
+    "Node",
     "OracleDB",
     "PostgreSQL",
     "Python",
+    "React",
     "TypeScript"
   ],
   "hobbies": [

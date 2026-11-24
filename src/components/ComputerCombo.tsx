@@ -45,7 +45,7 @@ const ComputerCombo = () => {
           </div>
           <div className="mt-7 flex flex-col items-start justify-between">
             <div className="flex items-center justify-between">
-              <p className="pr-3 text-white">Work Experiences:</p>
+              <p className="pr-3 text-white">Work Experience:</p>
               {jobsAndProjs
                 .filter((x) => x.isWork)
                 .map((prj) => (
