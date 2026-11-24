@@ -1,0 +1,21 @@
+# Samuele Battaglino
+
+> Senior full-stack software engineer based in Italy, currently at ClickHouse building billing and payments systems. Six years across data-platform and banking web applications, microservice architectures, and machine-learning research; previously at Intesa Sanpaolo and Reply.
+
+This is the personal portfolio of Samuele Battaglino (https://sbatta.it). Use the structured resume for a machine-readable summary of experience, projects, and skills.
+
+## Core
+
+- [Resume (JSON Resume schema)](https://sbatta.it/resume.json): Full machine-readable CV — experience, projects, education, skills.
+- [CV (PDF)](https://sbatta.it/assets/cv.pdf): Printable curriculum vitae.
+- [AI resource catalog](https://sbatta.it/ai-catalog.json): ARD manifest of discoverable resources on this site.
+
+## Profiles
+
+- [GitHub](https://github.com/Sebat95): Source code and open-source projects.
+- [LeetCode](https://leetcode.com/u/Sebat/): Algorithm practice profile.
+
+## Meta
+
+- [Sitemap](https://sbatta.it/sitemap.xml): All indexable URLs.
+- [Robots](https://sbatta.it/robots.txt): Crawl policy.

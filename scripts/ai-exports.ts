@@ -66,6 +66,109 @@ export function buildResumeJson() {
   };
 }
 
+const profileLabels: { match: string; label: string; description: string }[] = [
+  {
+    match: 'github.com',
+    label: 'GitHub',
+    description: 'Source code and open-source projects.'
+  },
+  {
+    match: 'leetcode.com',
+    label: 'LeetCode',
+    description: 'Algorithm practice profile.'
+  }
+];
+
+type LlmLink = { label: string; url: string; description: string };
+
+function buildProfileLinks(): LlmLink[] {
+  return identity.sameAs
+    .filter((url) => url !== siteUrl)
+    .map((url) => {
+      const known = profileLabels.find((entry) => url.includes(entry.match));
+      return {
+        label: known?.label ?? new URL(url).hostname,
+        url,
+        description: known?.description ?? ''
+      };
+    });
+}
+
+export function buildLlmsTxt(): string {
+  const profileLinks = buildProfileLinks();
+  const lines = [
+    `# ${identity.name}`,
+    '',
+    `> ${summary}`,
+    '',
+    `This is the personal portfolio of ${identity.name} (${siteUrl}). Use the structured resume for a machine-readable summary of experience, projects, and skills.`,
+    '',
+    '## Core',
+    '',
+    `- [Resume (JSON Resume schema)](${siteUrl}/resume.json): Full machine-readable CV — experience, projects, education, skills.`,
+    `- [CV (PDF)](${cvAbsoluteUrl}): Printable curriculum vitae.`,
+    `- [AI resource catalog](${siteUrl}/ai-catalog.json): ARD manifest of discoverable resources on this site.`,
+    '',
+    '## Profiles',
+    '',
+    ...profileLinks.map(
+      (link) =>
+        `- [${link.label}](${link.url})${link.description ? `: ${link.description}` : ''}`
+    ),
+    '',
+    '## Meta',
+    '',
+    `- [Sitemap](${siteUrl}/sitemap.xml): All indexable URLs.`,
+    `- [Robots](${siteUrl}/robots.txt): Crawl policy.`
+  ];
+  return `${lines.join('\n')}\n`;
+}
+
+export function buildAiCatalogJson() {
+  const host = new URL(siteUrl).hostname;
+  const publisher = { identifier: host, displayName: identity.name };
+  return {
+    specVersion: '0.9',
+    host: {
+      displayName: identity.name,
+      identifier: host,
+      documentationUrl: `${siteUrl}/llms.txt`,
+      logoUrl: `${siteUrl}/icon-512.png`
+    },
+    entries: [
+      {
+        identifier: `urn:air:${host}:resume:json`,
+        type: 'application/json',
+        url: `${siteUrl}/resume.json`,
+        displayName: `${identity.name} — Resume`,
+        description:
+          'Machine-readable CV (JSON Resume schema): experience, projects, education, and skills.',
+        tags: ['resume', 'cv', 'profile'],
+        publisher
+      },
+      {
+        identifier: `urn:air:${host}:cv:pdf`,
+        type: 'application/pdf',
+        url: cvAbsoluteUrl,
+        displayName: `${identity.name} — CV (PDF)`,
+        description: 'Printable curriculum vitae.',
+        tags: ['cv', 'pdf'],
+        publisher
+      },
+      {
+        identifier: `urn:air:${host}:llms:txt`,
+        type: 'text/markdown',
+        url: `${siteUrl}/llms.txt`,
+        displayName: 'LLM guide',
+        description:
+          "llms.txt overview of the site's resources for large language models.",
+        tags: ['llms', 'guide'],
+        publisher
+      }
+    ]
+  };
+}
+
 export function buildAiContentHtml(): string {
   const aboutParagraphs = aboutMe
     .filter(Boolean)

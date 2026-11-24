@@ -1,7 +1,12 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { buildResumeJson, transformIndexHtml } from './ai-exports.ts';
+import {
+  buildAiCatalogJson,
+  buildLlmsTxt,
+  buildResumeJson,
+  transformIndexHtml
+} from './ai-exports.ts';
 
 export function aiExportsPlugin(): Plugin {
   let isProductionBuild = false;
@@ -19,6 +24,12 @@ export function aiExportsPlugin(): Plugin {
         `${JSON.stringify(buildResumeJson(), null, 2)}\n`,
         'utf8'
       );
+      await writeFile(
+        path.join(publicDir, 'ai-catalog.json'),
+        `${JSON.stringify(buildAiCatalogJson(), null, 2)}\n`,
+        'utf8'
+      );
+      await writeFile(path.join(publicDir, 'llms.txt'), buildLlmsTxt(), 'utf8');
 
       if (isProductionBuild) {
         const sitemapPath = path.join(publicDir, 'sitemap.xml');
