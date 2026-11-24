@@ -1,4 +1,4 @@
-import { Suspense, useState, lazy } from 'react';
+import { Suspense, useEffect, useState, lazy } from 'react';
 import './App.css';
 import { JourneyContext } from './components/context/JourneyContext';
 import Navbar from './sections/Navbar';
@@ -9,6 +9,14 @@ const Intro = lazy(() => import('./sections/Intro'));
 const Footer = lazy(() => import('./sections/Footer'));
 const About = lazy(() => import('./sections/About'));
 
+const ScrollIntoAnchor = (): null => {
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (id) document.getElementById(id)?.scrollIntoView();
+  }, []);
+  return null;
+};
+
 const App = () => {
   const [exp, setExp] = useState('');
   return (
@@ -18,6 +26,7 @@ const App = () => {
       >
         <Navbar title={exp} />
         <Suspense>
+          <ScrollIntoAnchor key={isEmpty(exp) ? 'home' : 'exp'} />
           {isEmpty(exp) && <Intro />}
           {!isEmpty(exp) && <Experience />}
           {isEmpty(exp) && <About />}

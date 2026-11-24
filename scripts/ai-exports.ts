@@ -119,40 +119,40 @@ export function buildAiContentHtml(): string {
   <p>${escapeHtml(identity.title)} — ${escapeHtml(identity.location)}</p>
   <p>${escapeHtml(summary)}</p>
 
-  <section id="about">
+  <section id="ai-about">
     <h2>About</h2>
     <p>${escapeHtml(identity.name)} is a ${escapeHtml(identity.title)} with ${years} years of experience.</p>
 ${aboutParagraphs}
   </section>
 
-  <section id="experience">
+  <section id="ai-experience">
     <h2>Experience</h2>
 ${experienceHtml}
   </section>
 
-  <section id="projects">
+  <section id="ai-projects">
     <h2>Projects</h2>
 ${projectsHtml}
   </section>
 
-  <section id="education">
+  <section id="ai-education">
     <h2>Education</h2>
 ${educationHtml}
   </section>
 
-  <section id="skills">
+  <section id="ai-skills">
     <h2>Skills</h2>
     <ul>
 ${skills.map((skill) => `      <li>${escapeHtml(skill)}</li>`).join('\n')}
     </ul>
   </section>
 
-  <section id="hobbies">
+  <section id="ai-hobbies">
     <h2>Hobbies</h2>
 ${hobbiesHtml}
   </section>
 
-  <section id="contact">
+  <section id="ai-contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:${escapeHtml(identity.email)}">${escapeHtml(identity.email)}</a></p>
     <p>CV: <a href="${escapeHtml(cvAbsoluteUrl)}">${escapeHtml(cvAbsoluteUrl)}</a></p>
