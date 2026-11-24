@@ -128,7 +128,7 @@ export function buildAiCatalogJson() {
   const host = new URL(siteUrl).hostname;
   const publisher = { identifier: host, displayName: identity.name };
   return {
-    specVersion: '0.9',
+    specVersion: '1.0',
     host: {
       displayName: identity.name,
       identifier: host,
@@ -143,6 +143,11 @@ export function buildAiCatalogJson() {
         displayName: `${identity.name} — Resume`,
         description:
           'Machine-readable CV (JSON Resume schema): experience, projects, education, and skills.',
+        representativeQueries: [
+          `What is ${identity.name}'s work experience?`,
+          `What are ${identity.name}'s technical skills?`,
+          `Which companies has ${identity.name} worked for?`
+        ],
         tags: ['resume', 'cv', 'profile'],
         publisher
       },
@@ -152,6 +157,10 @@ export function buildAiCatalogJson() {
         url: cvAbsoluteUrl,
         displayName: `${identity.name} — CV (PDF)`,
         description: 'Printable curriculum vitae.',
+        representativeQueries: [
+          `Download ${identity.name}'s CV`,
+          `Show ${identity.name}'s resume as a PDF`
+        ],
         tags: ['cv', 'pdf'],
         publisher
       },
@@ -162,6 +171,11 @@ export function buildAiCatalogJson() {
         displayName: 'LLM guide',
         description:
           "llms.txt overview of the site's resources for large language models.",
+        representativeQueries: [
+          `What is ${siteUrl} about?`,
+          `How should an AI agent use ${identity.name}'s portfolio?`,
+          `Summarize ${identity.name}'s portfolio`
+        ],
         tags: ['llms', 'guide'],
         publisher
       }
